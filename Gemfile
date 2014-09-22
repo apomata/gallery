@@ -39,3 +39,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 gem 'rails_admin'                   # Pretty cool free admin
+
+gem "paperclip", "~> 4.2"
+
+

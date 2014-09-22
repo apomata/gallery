@@ -28,5 +28,9 @@
   <%= @profile.image_url %>
 </p>
 
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= image_tag @profile.avatar.url %>
+<%= image_tag @profile.avatar.url(:medium) %>
+<%= image_tag @profile.avatar.url(:thumb) %>
+
+<%= link_to 'Edit', edit_profile_path(@profile) %>
 <%= link_to 'Back', profiles_path %>

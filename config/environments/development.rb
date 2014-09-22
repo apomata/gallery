@@ -34,4 +34,10 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+
+  #paper clip needs to know where the imagemagic is
+  #i think this should be ok if not swiths / to  \
+  #Paperclip.options[:command_path] = "C:/Program Files/ImageMagick-6.8.9-Q16/"
+  Paperclip.options[:command_path] = "C:\\Program Files\\ImageMagick-6.8.9-Q16\\"
 end
