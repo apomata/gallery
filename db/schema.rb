@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140929235722) do
+ActiveRecord::Schema.define(version: 20140930225844) do
 
   create_table "profiles", force: true do |t|
     t.string   "first_name"
@@ -32,6 +32,13 @@ ActiveRecord::Schema.define(version: 20140929235722) do
     t.string   "title"
     t.text     "description"
     t.string   "image_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "userprojects", force: true do |t|
+    t.integer  "profile_id"
+    t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

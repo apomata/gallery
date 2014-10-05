@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
+  get 'userproject/create'
+
+  get 'userproject/destroy'
+
   get 'sessions/create'
 
   get 'sessions/destroy'
-  get 'auth/:provider/callback', to: 'sessions#create'
+  #get 'auth/:provider/callback', to: 'sessions#create'
   get 'test/:firstname', to: 'sessions#test_login'
+
+  #i have no clue what I am doing
+  get  '/auth/shibboleth/callback', to: 'sessions#create'
 
   resources :profiles
 
