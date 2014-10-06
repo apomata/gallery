@@ -26,19 +26,27 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
 
-    respond_to do |format|
       if logged_in?
+    respond_to do |format|
         if @project.save
+          # think this should save the user I think
+          @userproject = Userproject.create!(profile: current_user, project: @project)
           format.html { redirect_to @project, notice: 'Project was successfully created.' }
           format.json { render :show, status: :created, location: @project }
         else
           format.html { render :new }
           format.json { render json: @project.errors, status: :unprocessable_entity }
         end
-      else
-        format.html { redirect_to @project, notice: 'You must be signed in to create a new project' }
-      end
     end
+      else
+        ActiveSupport::Notifications.instrument('render', extra: :information) do
+        #render text: 'You must be signed in to create a project'
+        render :new
+        #format.html { render :new }
+        #format.json { render json: @project.errors, status: :unprocessable_entity }
+        end
+         flash[:alert] = "You must be signed in to create a project"
+      end
   end
 
   # PATCH/PUT /projects/1
@@ -63,6 +71,7 @@ class ProjectsController < ApplicationController
       format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
       format.json { head :no_content }
     end
+    #need to destroy all userprojects associated with this.
   end
 
   private

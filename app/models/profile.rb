@@ -1,5 +1,5 @@
 class Profile < ActiveRecord::Base
-	has_many :userprojects
+	has_many :userprojects, dependent: :destroy
 	has_many :projects, through: :userprojects
 	# callbacks
 	before_save { email.downcase! if !email.nil?}
