@@ -18,5 +18,23 @@
   <%= @project.image_url %>
 </p>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
+<table>
+<% @project.profiles.each do |profile| %>
+	<tr>
+		<td><%= profile.first_name%></td>
+		<td>
+			<%= link_to 'Show', profile_path(profile)%>
+		</td>
+	</tr>
+
+
+<%end%>
+</table>
+
+<%# if current_user == @profile %>
+<% if @project.profiles.include?(current_user)%>
+  <%= link_to 'Edit', edit_project_path(@project) %>
+  <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+|
 <%= link_to 'Back', projects_path %>

@@ -27,17 +27,17 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
 
       if logged_in?
-    respond_to do |format|
-        if @project.save
-          # think this should save the user I think
-          @userproject = Userproject.create!(profile: current_user, project: @project)
-          format.html { redirect_to @project, notice: 'Project was successfully created.' }
-          format.json { render :show, status: :created, location: @project }
-        else
-          format.html { render :new }
-          format.json { render json: @project.errors, status: :unprocessable_entity }
+        respond_to do |format|
+          if @project.save
+            # think this should save the user I think
+            @userproject = Userproject.create!(profile: current_user, project: @project)
+            format.html { redirect_to @project, notice: 'Project was successfully created.' }
+            format.json { render :show, status: :created, location: @project }
+          else
+            format.html { render :new }
+            format.json { render json: @project.errors, status: :unprocessable_entity }
+          end
         end
-    end
       else
         ActiveSupport::Notifications.instrument('render', extra: :information) do
         #render text: 'You must be signed in to create a project'
