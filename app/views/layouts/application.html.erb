@@ -7,7 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<%= link_to 'Projects', projects_path%>
+<%= link_to 'Profiles', profiles_path%>
+<%= link_to 'New project', new_project_path %>
+<% if logged_in? %>
+	<span>
+		<%= link_to current_user.first_name, profile_path(current_user)%>
+	</span>
+   	<%else%>
+		<%= link_to 'log in', root_path%>
+    <%end%>
 <%= yield %>
 
 </body>

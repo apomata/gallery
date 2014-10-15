@@ -1,22 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <%=
-    session[:user_id]
-  %>
-</p>
-
-<p>
-  <%=
-    if logged_in?
-      "hello #{current_user.first_name}"
-    else
-      'you should login'
-    end
-  %>
-</p>>
-
-<p>
   <strong>First name:</strong>
   <%= @profile.first_name %>
 </p>

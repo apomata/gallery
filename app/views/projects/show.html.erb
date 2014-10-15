@@ -21,10 +21,7 @@
 <table>
 <% @project.profiles.each do |profile| %>
 	<tr>
-		<td><%= profile.first_name%></td>
-		<td>
-			<%= link_to 'Show', profile_path(profile)%>
-		</td>
+		<td><%= link_to profile.first_name, profile_path(profile)%></td>
 	</tr>
 
 
