@@ -1,14 +1,28 @@
 <p id="notice"><%= notice %></p>
+<% if flash[:alert] %>
+    <p class="flash-error"><%= flash[:alert] %></p>
+<% end %>
+<div>
+	<p>
+	  <strong>Title:</strong>
+	</p>
+	<% if @project.profiles.include?(current_user)%>
+		<%= best_in_place @project, :title, :nil => "Click me to add content!", :ok_button => 'Save', :cancel_button => 'Cancel' %>
+	<% else %>
+	  <%= @project.title %>
+	<% end %>
+</div>
+<div>
+	<p>
+	  <strong>Description:</strong>
+	</p>
+	<% if @project.profiles.include?(current_user)%>
+		<%= best_in_place @project, :description, type: :textarea,:nil => "Click me to add content!", :ok_button => 'Save', :cancel_button => 'Cancel' %>
+	<% else %>
+	  <%= @project.description %>
+	<% end %>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
 
 <p><strong>Picture</strong></p>
 <%= image_tag(@project.image_url, :class => 'list_image' ) %>
@@ -19,6 +33,7 @@
 </p>
 
 <table>
+<strong>Creators</strong>>
 <% @project.profiles.each do |profile| %>
 	<tr>
 		<td><%= link_to profile.first_name, profile_path(profile)%></td>

@@ -14,3 +14,16 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require jquery.purr
+//= require best_in_place
+
+function UserCheckAlert(logged_in){
+	$(".usercheck").click( function() {
+			if(logged_in){
+				alert("logged in");
+			} else {
+				alert('Please sign in to use this function');
+			}
+		}
+	);
+}

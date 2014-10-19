@@ -39,21 +39,28 @@ class ProfilesController < ApplicationController
 
   # PATCH/PUT /profiles/1
   # PATCH/PUT /profiles/1.json
+  #def update
+  #  respond_to do |format|
+  #    #on update if new pic not input dont erase the old may need a delete function of a default
+  #    if profile_params[:avatar].nil?
+  #      profile_params[:avatar] = @profile.avatar
+  #    end
+  #    if @profile.update(profile_params)
+  #      format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
+  #      format.json { render :show, status: :ok, location: @profile }
+  #    else
+  #      format.html { render :edit }
+  #      format.json { render json: @profile.errors, status: :unprocessable_entity }
+  #    end
+  #  end
+  #end
+
+  respond_to :html, :json
   def update
-    respond_to do |format|
-      #on update if new pic not input dont erase the old may need a delete function of a default
-      if profile_params[:avatar].nil?
-        profile_params[:avatar] = @profile.avatar
-      end
-      if @profile.update(profile_params)
-        format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
-        format.json { render :show, status: :ok, location: @profile }
-      else
-        format.html { render :edit }
-        format.json { render json: @profile.errors, status: :unprocessable_entity }
-      end
-    end
+    @profile.update_attributes(profile_params)
+    respond_with @profile
   end
+
 
   # DELETE /profiles/1
   # DELETE /profiles/1.json

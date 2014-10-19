@@ -2,23 +2,40 @@
 
 <p>
   <strong>First name:</strong>
-  <%= @profile.first_name %>
+  <% if current_user == @profile %>
+    <%= best_in_place @profile, :first_name, :nil => "Click me to add content!",  :ok_button => 'Save', :cancel_button => 'Cancel' %>
+  <% else %>
+    <%= @profile.first_name %>
+  <% end %>
+
 </p>
 <p>
   <strong>Last name:</strong>
-  <%= @profile.last_name %>
+  <% if current_user == @profile %>
+    <%= best_in_place @profile, :last_name, :nil => "Click me to add content!", :ok_button => 'Save', :cancel_button => 'Cancel'%>
+  <% else %>
+    <%= @profile.last_name %>
+  <% end %>
 </p>
 
 <p>
   <strong>Bio:</strong>
-  <%= @profile.bio %>
+  <% if current_user == @profile %>
+    <%= best_in_place @profile, :bio, type: :textarea, :nil => "Click me to add content!", :ok_button => 'Save', :cancel_button => 'Cancel' %>
+  <% else %>
+    <%= @profile.bio %>
+  <% end %>
 </p>
 
 <p>
   <strong>Email:</strong>
-  <%= @profile.email %>
+  <% if current_user == @profile %>
+    <%= best_in_place @profile, :email, :nil => "Click me to add content!", :ok_button => 'Save', :cancel_button => 'Cancel' %>
+  <% else %>
+    <%= @profile.email %>
+  <% end %>
 </p>
-
+<!--
 <p><strong>Picture</strong></p>
 <%= image_tag(@profile.image_url, :class => 'list_image' ) %>
 
@@ -26,7 +43,7 @@
   <strong>Image url:</strong>
   <%= @profile.image_url %>
 </p>
-
+-->
 <%= image_tag @profile.avatar.url %>
 <%= image_tag @profile.avatar.url(:medium) %>
 <%= image_tag @profile.avatar.url(:thumb) %>

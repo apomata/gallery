@@ -43,3 +43,5 @@ gem 'rails_admin'                   # Pretty cool free admin
 gem "paperclip", "~> 4.2"
 
 gem 'omniauth-shibboleth'
+
+gem 'best_in_place'

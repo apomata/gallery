@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   #i have no clue what I am doing
   get  '/auth/shibboleth/callback', to: 'sessions#create'
 
+  root :to => "projects#index"
+
   resources :profiles
 
   resources :projects
