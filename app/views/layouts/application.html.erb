@@ -5,32 +5,44 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
 </head>
 
 <body>
 
-	<span>
-		<%= link_to 'Projects', projects_path%>
-		<%= link_to 'Profiles', profiles_path%>
-
-		<%#this is to disable the button if it  not logged in check allert script runs the popup%>
-		<%= link_to_if(logged_in?, 'New project', new_project_path, class: "usercheck")  do
-			link_to('New project', "", class: "usercheck")
-
-		end%>
-
-		<% if logged_in? %>
-			<span>
-				<%= link_to current_user.first_name, profile_path(current_user)%>
-			</span>
-	   	<%else%>
-			<%= link_to 'log in', root_path%>
-	    <%end%>
-	</span>
+	<div class="navbar navbar-default navbar-static-top" role="navigation">
+    	<div class="container">
+      		<div class="navbar-collapse collapse" style="height: 1px;">
+        		<ul class="nav navbar-nav">
+        	    	<li class="active">
+						<%= link_to 'Projects', projects_path%>
+					</li>
+        	    	<li class="active">
+						<%= link_to 'Profiles', profiles_path%>
+					</li>
+        	    	<li class="active">
+						<%#this is to disable the button if it  not logged in check allert script runs the popup%>
+						<%= link_to_if(logged_in?, 'New project', new_project_path, class: "usercheck")  do
+							link_to('New project', "", class: "usercheck")
+						end%>
+					</li>
+	    		</ul>
+	    		<ul class="nav navbar-nav navbar-right">
+        	    	<li class="active">
+						<% if logged_in? %>
+							<%= link_to current_user.first_name, profile_path(current_user)%>
+						<%else%>
+							<%= link_to 'log in', root_path%>
+						<%end%>
+					</li>
+				</ul>
+	    	</div>
+	    </div>
+	</div>
 
 	<%= yield %>
 
 	<%= javascript_tag "UserCheckAlert(#{logged_in?})" %>
-
+ 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 </body>
 </html>

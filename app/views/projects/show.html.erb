@@ -2,51 +2,95 @@
 <% if flash[:alert] %>
     <p class="flash-error"><%= flash[:alert] %></p>
 <% end %>
-<div>
-	<p>
-	  <strong>Title:</strong>
-	</p>
-	<% if @project.profiles.include?(current_user)%>
-		<%= best_in_place @project, :title, :nil => "Click me to add content!", :ok_button => 'Save', :cancel_button => 'Cancel' %>
-	<% else %>
-	  <%= @project.title %>
-	<% end %>
-</div>
-<div>
-	<p>
-	  <strong>Description:</strong>
-	</p>
-	<% if @project.profiles.include?(current_user)%>
-		<%= best_in_place @project, :description, type: :textarea,:nil => "Click me to add content!", :ok_button => 'Save', :cancel_button => 'Cancel' %>
-	<% else %>
-	  <%= @project.description %>
-	<% end %>
+
+<div class="col-xs-11 col-xs-offset-1 pull-left">
+		<h1 class="turninline-block">
+			<strong>
+				<% if @project.profiles.include?(current_user)%>
+					<%= best_in_place @project, :title, :nil => "Click me to add content!", :ok_button => 'Save', :cancel_button => 'Cancel', :class => "well turninline-block" %>
+				<% else %>
+				  <%= @project.title %>
+				<% end %>
+			</strong>
+		</h1>
+
+		<button>Like</button>
 </div>
 
+<div class="col-xs-7 col-xs-offset-1 container">
+	<h3>
+		<strong>Picture</strong>
+	</h3>
+	<%= image_tag(@project.image_url, :class => 'list_image' ) %>
+	<div class="col-xs-8">
+		images go here
+	</div>
+	<div class="col-xs-4">
+		thumbnails here
+	</div>
 
-<p><strong>Picture</strong></p>
-<%= image_tag(@project.image_url, :class => 'list_image' ) %>
+	<h3>
+		<strong>Description</strong>
+	</h3>
+	<div class="">
+		<% if @project.profiles.include?(current_user)%>
+			<%= best_in_place @project, :description, type: :textarea,:nil => "Click me to add content!", :ok_button => 'Save', :cancel_button => 'Cancel', :class => 'well turnblock' %>
+		<% else %>
+		  <%= @project.description %>
+		<% end %>
+	</div>
+	<br>
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title">Special Links</h3>
+		</div>
+		<div class="panel-body">
+			<ul>
+				<%# @project.profiles.each do |profile| %>
+					<li>
+						links will go here
+					</li>
+				<%#end%>
+			</ul>
+		</div>
+	</div>
+</div>
 
-<p>
-  <strong>Image url:</strong>
-  <%= @project.image_url %>
-</p>
 
-<table>
-<strong>Creators</strong>>
-<% @project.profiles.each do |profile| %>
-	<tr>
-		<td><%= link_to profile.first_name, profile_path(profile)%></td>
-	</tr>
+<div class="col-xs-3 col-xs-offset-1 container">
+	<br>
+	<%# if current_user == @profile %>
+	<% if @project.profiles.include?(current_user)%>
+	  <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %>
+	<% end %>
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title">Creators</h3>
+		</div>
+		<div class="panel-body">
+			<ul>
+				<% @project.profiles.each do |profile| %>
+					<li>
+						<%= link_to profile.first_name, profile_path(profile)%>
+					</li>
+				<%end%>
+			</ul>
+		</div>
+	</div>
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title">Other projects by the creators</h3>
+		</div>
+		<div class="panel-body">
+			<ul>
+				<% @project.profiles.each do |profile| %>
+					<% creator_project = profile.projects.first%>
+					<li>
+						<%= link_to "#{creator_project.title} by #{profile.first_name}", project_path(creator_project)%>
+					</li>
+				<%end%>
+			</ul>
+		</div>
+	</div>
+</div>
 
-
-<%end%>
-</table>
-
-<%# if current_user == @profile %>
-<% if @project.profiles.include?(current_user)%>
-  <%= link_to 'Edit', edit_project_path(@project) %>
-  <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
-|
-<%= link_to 'Back', projects_path %>
