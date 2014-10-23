@@ -20,10 +20,10 @@
 function UserCheckAlert(logged_in){
 	$(".usercheck").click( function() {
 			if(logged_in){
-				alert("logged in");
 			} else {
 				alert('Please sign in to use this function');
 			}
 		}
 	);
 }
+

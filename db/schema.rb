@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140930225844) do
+ActiveRecord::Schema.define(version: 20141022214628) do
 
   create_table "profiles", force: true do |t|
     t.string   "first_name"
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(version: 20140930225844) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "uid"
+  end
+
+  create_table "projectpictures", force: true do |t|
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   create_table "projects", force: true do |t|
