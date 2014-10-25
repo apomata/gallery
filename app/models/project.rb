@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
 	has_many :userprojects, dependent: :destroy
-	#has_many :projectpictures, dependent: :destroy
+	has_many :projectpictures, dependent: :destroy
 	#if no users project should desrtoy not sure how of if want to do this
 	has_many :profiles, through: :userprojects
 

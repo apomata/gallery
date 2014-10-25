@@ -28,12 +28,34 @@
     <strong>Picture</strong>
   </h3>
   <div class="row">
-    <div id="mainpic" class="col-xs-8">
-      <%= image_tag(@project.image_url, :class => 'list_image', :id => "mainimage") %>
+    <div id="mainpic" class="col-xs-4">
+      <% displayedpicture = @project.projectpictures.first%>
+      <%= image_tag displayedpicture.picture.url(:medium), :class => 'fisrtpic', :onload => 'resizepicturearea()'%>
+      <%#= image_tag(@project.image_url, :class => 'list_image' ) %>
       <%#= image_tag picture.url %>
     </div>
     <div class="col-xs-4">
-        <div id="addpicturepanel" class="panel panel-default">
+
+      <div id="picdescpanel" class="panel panel-default">
+        <div id='picdescpanelhead' class="panel-heading">
+          <h3 class="panel-title">Description</h3>
+        </div>
+        <div id='picdescpanelbody' class="panel-body scrollable">
+            <%= displayedpicture.description %>
+        </div>
+      </div>
+
+    </div>
+    <div id="thumbnaildiv" class="col-xs-4 panel panel-default">
+      <!-- Button trigger modal -->
+
+      <button id="addpicbutton" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        add picture
+      </button>
+      <br>
+      <!--
+      <div id="addpicturepanel">
+        <div  class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title">Add a picture</h3>
           </div>
@@ -42,17 +64,18 @@
               <%= f.file_field :picture %>
             <%end%>
             <br>
-            <button class="pull-right">
+            <button type= 'button' class="pull-right">
               Add
             </button>
           </div>
         </div>
-      <ul id='imagebar' class="list-group scrollable">
-        <%# @project.pictures.each do |picture| %>
-        <% for i in 0..14 %>
+      </div>
+      -->
+      <ul id='thumbnailbar' class="list-group scrollable">
+        <% @project.projectpictures.each do |projectpicture| %>
+        <%# for i in 0..14 %>
           <li class="list-group-item">
-            thumbnail
-            <%#= image_tag picture.url(:thumb) %>
+            <%= image_tag projectpicture.picture.url(:thumb) %>
           </li>
         <%end%>
       </ul>
@@ -61,6 +84,15 @@
   <br>
   <br>
 
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Embedcode</h3>
+    </div>
+    <div class="panel-body">
+      <%= f.text_area :embedcode, :class => "form_control col-xs-12", :rows => '3' %>
+  </div>
+
+  </div>
   <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title">Description</h3>
@@ -124,22 +156,78 @@
   </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <%#= form_for(Projectpicture.new, :url => projectpicture_path, :html => {:method => :post}) do |f| %>
+
+          <%= form_for(Projectpicture.new, remote: true) do |f| %>
+                  <h4>
+                    <strong>Picture</strong>
+                  </h4>
+          <%= f.file_field :picture %>
+          <br>
+          <h4>
+            <strong>Picture Description</strong>
+          </h4>
+          <%= f.text_area :description, :class => "form_control col-xs-12 custom-control", :rows => '10'%>
+      <%end%>
+    </div>
+      <div class="modal-footer">
+        <br>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%#store project in session for picture to use%>
+<%session[:project] = @project%>
+
 <script type="text/javascript">
-      $(document).ready(function() {
-        //var picheight = $('#mainpic').height();
-        var picheight = $('#mainpic').height();
-        var picpanelheight = $('#addpicturepanel').height();
-        var mainimageheight = $('#mainimage').height();
-        if (!mainimageheight){
-          $('#imagebar').height(picpanelheight) ;
-        }else{
-          $('#imagebar').height(picheight-picpanelheight) ;
-        }
+  var options = {
+    "backdrop" : "static"
+  }
+
+  $(document).ready(function() {
+      $('#myModal .btn-primary').click(function(e) {
+          e.preventDefault();
+          $('#myModal').modal('hide');
+           //$('form').submit();
       });
+  });
 </script>
 
+<script type="text/javascript">
+  function resizepicturearea () {
 
+    var thumbnaildiv = $('#thumbnaildiv');
+    var thumbnailbar = $('#thumbnailbar');
+    var addpicbutton =  $('#addpicbutton');
+    var picdescpanelbody = $('#picdescpanelbody');
+    var mainpic = $('#mainpic');
 
+    var picheight = mainpic.outerHeight( true );
+    var addpicbuttonheight = $('#addpicbutton').outerHeight( true );
+    var header = $('#picdescpanelhead').outerHeight( true );
+    var bodypadding = picdescpanelbody.css('padding-top').replace(/[^-\d\.]/g, '');
+
+    thumbnailbar.height(picheight - addpicbuttonheight);
+
+    addpicbutton.width( thumbnailbar.width() - (addpicbutton.css('padding-left').replace(/[^-\d\.]/g, '') *2))
+
+    if($('picdescpanel').height > mainpic.height) {
+      picdescpanelbody.height(picheight - (bodypadding*4));
+    }
+    }
+</script>
 
 
 

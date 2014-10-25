@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   root :to => "projects#index"
 
+  resources :projectpictures
+
   resources :profiles
 
   resources :projects

@@ -17,6 +17,8 @@
 //= require jquery.purr
 //= require best_in_place
 
+`import java.awt.MediaTracker;`
+
 function UserCheckAlert(logged_in){
 	$(".usercheck").click( function() {
 			if(logged_in){

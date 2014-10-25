@@ -49,6 +49,16 @@ class ProjectsController < ApplicationController
       end
   end
 
+  respond_to :html, :json
+  def addpicture
+      if logged_in?
+            # think this should save the user I think
+            @projectpicture = Projectpicture.create!(projectpicture_params)
+            @projectpicture.project = @project
+            format.html { redirect_to @project}
+      end
+  end
+
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   #def update
@@ -91,6 +101,12 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:title, :description, :image_url)
+      params.require(:project).permit(:title, :description, :image_url, :embedcode)
+      #not sure if I want to allow scripts the potential for disaster is huge but gist uses it
+
+    end
+
+    def projectpicture_params
+      params.require(:projectpicture).permit(:picture, :description)
     end
 end
