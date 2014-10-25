@@ -51,9 +51,10 @@
 
       <ul id='thumbnailbar' class="list-group scrollable">
         <% @project.projectpictures.each do |projectpicture| %>
-        <%# for i in 0..14 %>
           <li class="list-group-item">
-            <%= image_tag projectpicture.picture.url(:thumb) %>
+          	<%#= image_tag projectpicture.picture.url(), :class => 'fisrtpic', :onload => 'resizepicturearea()'%>
+            <%= image_tag projectpicture.picture.url(:thumb),
+            :onclick => "swappictures( '#{image_tag projectpicture.picture.url(:medium), :class => 'fisrtpic', :onload => 'resizepicturearea()'}', '#{projectpicture.description}')"%>
           </li>
         <%end%>
       </ul>
@@ -219,7 +220,11 @@
 </script>
 
 <script type="text/javascript">
-	function hi(){
-		alert('hi');
+	function swappictures(imagesrc, description) {
+		var mainpic = $('#mainpic');
+		var picdescpanelbody = $('#picdescpanelbody');
+
+		picdescpanelbody.html(description);
+		mainpic.html(imagesrc);
 	}
 </script>
