@@ -9,7 +9,7 @@
 projecs_list = [
 ['Ink Drawings', "These are ink drawings that depect several different themes.
 	It takes several days to complete each one and they are crafted with the utmost care.
-	They are compesed in black ink with a ballpoint pen on thick paper. The extra thickness
+	They are composed in black ink with a ballpoint pen on thick paper. The extra thickness
 	of the paper ensures that the drawings dont bleed",
 	'<iframe width="420" height="315" src="//www.youtube.com/embed/siwpn14IE7E" frameborder="0" allowfullscreen></iframe>',
  ],
