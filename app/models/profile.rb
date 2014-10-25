@@ -10,8 +10,15 @@ class Profile < ActiveRecord::Base
 	#validates :email, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
 
 	#for paperclip
-	has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
-  	validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+	#has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  	#validates_attachment_file_name :avater, :matches => [/jpe?g\z/, /gif\z/, /png\z/]
+
+  	has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  	#validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+  	validates_attachment_file_name :avatar, :matches => [/jpe?g\z/, /gif\z/, /png\z/]
+
+
+  	#validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
 #for oauth
 

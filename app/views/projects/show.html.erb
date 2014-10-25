@@ -40,11 +40,12 @@
     </div>
     <div id="thumbnaildiv" class="col-xs-4 panel panel-default">
       <!-- Button trigger modal -->
-
+      <!--
       <button id="addpicbutton" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
         add picture
       </button>
       <br>
+		-->
 
       <ul id='thumbnailbar' class="list-group scrollable">
         <% @project.projectpictures.each do |projectpicture| %>
@@ -120,6 +121,7 @@
 			<ul class="list-group">
 				<% @project.profiles.each do |profile| %>
 					<li class="list-group-item">
+						<%= image_tag profile.avatar.url(:thumb)%>
 						<%= link_to profile.first_name, profile_path(profile)%>
 					</li>
 				<%end%>
@@ -130,13 +132,16 @@
 		<div class="panel-heading">
 			<h3 class="panel-title">Other projects by the creators</h3>
 		</div		<div class="panel-body">
-			<ul class="list-group">
+			<ul class="list-group fourchildscroll">
 				<% @project.profiles.each do |profile| %>
-					<% creator_project = profile.projects.first%>
+					<% profile.projects.each do |profproj| %>
+					<%# creator_project = profile.projects.first%>
 					<li class="list-group-item">
-
-						<%= link_to "#{creator_project.title} by #{profile.first_name}", project_path(creator_project)%>
+						<%= image_tag profproj.projectpictures.first.picture.url(:thumb)%>
+						<%= link_to "#{profproj.title} by #{profile.first_name}", project_path(profproj)%>
+						<%#= link_to "#{creator_project.title} by #{profile.first_name}", project_path(creator_project)%>
 					</li>
+					<%end%>
 				<%end%>
 			</ul>
 		</div>
@@ -207,9 +212,10 @@
 		var header = $('#picdescpanelhead').outerHeight( true );
 		var bodypadding = picdescpanelbody.css('padding-top').replace(/[^-\d\.]/g, '');
 
-		thumbnailbar.height(picheight - addpicbuttonheight);
+		//thumbnailbar.height(picheight - addpicbuttonheight);
+		thumbnailbar.height(picheight);
 
-		addpicbutton.width( thumbnailbar.width() - (addpicbutton.css('padding-left').replace(/[^-\d\.]/g, '') *2))
+		//addpicbutton.width( thumbnailbar.width() - (addpicbutton.css('padding-left').replace(/[^-\d\.]/g, '') *2))
 
 		if($('picdescpanel').height > mainpic.height) {
 			picdescpanelbody.height(picheight - (bodypadding*4));
@@ -225,4 +231,25 @@
 		picdescpanelbody.html(description);
 		mainpic.html(imagesrc);
 	}
+</script>
+
+
+
+<script type="text/javascript">
+	//run on load of list
+	function moreprojects (profiles) {
+		var count = 0;
+		//profiles = [projlist, projlist, projlist,];
+
+		//run on click of more button
+		function run () {
+
+			for (var i = 0; i < 4; i++) {
+				var project = profiles[count%profiles.length].pop;
+				$().append(project);
+				count ++;
+			};
+		}
+	}
+
 </script>
