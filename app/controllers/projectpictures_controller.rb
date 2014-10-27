@@ -8,6 +8,7 @@ class ProjectpicturesController < ApplicationController
 	end
 
 	def create
+		binding.pry
 		@projectpicture = Projectpicture.new(projectpicture_params)
 		@projectpicture.project = session[:project]
 		#respond_to do |format|

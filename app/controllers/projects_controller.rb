@@ -93,6 +93,24 @@ class ProjectsController < ApplicationController
     #need to destroy all userprojects associated with this.
   end
 
+
+  #if I want to add restrict the more projects and putt more button
+  #need to figure out the html with is the bad
+  @count = 0;
+  pcount = 0
+  profilesprojects = Array.new(@project.profiles.length) { @project.profiles[pcount].projectpictures; pcount+=1}
+  def nextfourprojects
+
+    nextprojects
+    for (var i = 0; i < 4; i++)
+      project = profiles[@count % @project.profiles.length].shift
+      projecthtml = "shit"
+      nextprojects <<project
+      @count += 1
+    end
+    return nextprojects
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project

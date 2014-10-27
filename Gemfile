@@ -45,3 +45,9 @@ gem "paperclip", "~> 4.2"
 gem 'omniauth-shibboleth'
 
 gem 'best_in_place'
+
+gem 'better_errors'
+
+gem 'pry'
+gem 'pry-debugger'
+gem 'pry-stack_explorer'

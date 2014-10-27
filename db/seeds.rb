@@ -33,7 +33,7 @@ profiles_list = [
 ['James', 'Bond', "International man of mystery. My work is best not spoken of, but I enjoy a life of excitement and adventure", 'jbond007@fake.com', 'C:/Users/login_000/Documents/GitHub/gallery/public/system/profiles/seedpictures/james_bond.jpg'],
 ['Ford','Prefect', "I am probably best known for my works on the hitchikers guide to the galaxy.
  	Perhapse you have read my entry on earth, \"mostly harmless\". I have travled the lengths of the galaxy
- 	with only my towel, wits, and guide. Here is some of the wonderous things I have found. (note avoid the Vogon poetry)", 'ford@fake.com', "C:/Users/login_000/Documents/GitHub/gallery/public/system/profiles/seedpictures/arthur_dent.jpg"]
+ 	with only my towel, wits, and guide. Here is some of the wonderous things I have found. (note avoid the Vogon poetry)", 'ford@fake.com', "C:/Users/login_000/Documents/GitHub/gallery/public/system/profiles/seedpictures/ford_prefect.jpg"]
 ]
 
 [

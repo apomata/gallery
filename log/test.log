@@ -1,0 +1,642 @@
+  [1m[36m (18.0ms)[0m  [1mCREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "bio" text, "email" varchar(255), "image_url" varchar(255), "created_at" datetime, "updated_at" datetime, "avatar_file_name" varchar(255), "avatar_content_type" varchar(255), "avatar_file_size" integer, "avatar_updated_at" datetime, "uid" varchar(255)) [0m
+  [1m[35m (13.0ms)[0m  CREATE TABLE "projectpictures" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "created_at" datetime, "updated_at" datetime, "picture_file_name" varchar(255), "picture_content_type" varchar(255), "picture_file_size" integer, "picture_updated_at" datetime, "description" text) 
+  [1m[36m (13.0ms)[0m  [1mCREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "created_at" datetime, "updated_at" datetime, "embedcode" text) [0m
+  [1m[35m (13.0ms)[0m  CREATE TABLE "userprojects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "profile_id" integer, "project_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (12.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (12.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (12.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141024171921')[0m
+  [1m[35m (10.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140920201444')
+  [1m[36m (10.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140920220515')[0m
+  [1m[35m (11.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140922002327')
+  [1m[36m (9.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140929235722')[0m
+  [1m[35m (9.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140930225844')
+  [1m[36m (9.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141022214122')[0m
+  [1m[35m (11.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141022214628')
+  [1m[36m (10.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141024002440')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 20:52:52', '2014-10-26 20:52:52', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 20:52:52', '2014-10-26 20:52:52', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("integer", "created_at", "updated_at", "id") VALUES (NULL, '2014-10-26 20:52:52', '2014-10-26 20:52:52', 980190962)[0m
+SQLite3::SQLException: table projectpictures has no column named integer: INSERT INTO "projectpictures" ("integer", "created_at", "updated_at", "id") VALUES (NULL, '2014-10-26 20:52:52', '2014-10-26 20:52:52', 980190962)
+  [1m[35m (3.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 20:55:41', '2014-10-26 20:55:41', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 20:55:41', '2014-10-26 20:55:41', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO "projectpictures" ("integer", "created_at", "updated_at", "id") VALUES (NULL, '2014-10-26 20:55:41', '2014-10-26 20:55:41', 980190962)[0m
+SQLite3::SQLException: table projectpictures has no column named integer: INSERT INTO "projectpictures" ("integer", "created_at", "updated_at", "id") VALUES (NULL, '2014-10-26 20:55:41', '2014-10-26 20:55:41', 980190962)
+  [1m[35m (8.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 20:57:09', '2014-10-26 20:57:09', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 20:57:09', '2014-10-26 20:57:09', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("integer", "created_at", "updated_at", "id") VALUES (NULL, '2014-10-26 20:57:09', '2014-10-26 20:57:09', 980190962)[0m
+SQLite3::SQLException: table projectpictures has no column named integer: INSERT INTO "projectpictures" ("integer", "created_at", "updated_at", "id") VALUES (NULL, '2014-10-26 20:57:09', '2014-10-26 20:57:09', 980190962)
+  [1m[35m (10.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (2.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 21:01:09', '2014-10-26 21:01:09', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 21:01:09', '2014-10-26 21:01:09', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("integer", "created_at", "updated_at", "id") VALUES (NULL, '2014-10-26 21:01:10', '2014-10-26 21:01:10', 980190962)[0m
+SQLite3::SQLException: table projectpictures has no column named integer: INSERT INTO "projectpictures" ("integer", "created_at", "updated_at", "id") VALUES (NULL, '2014-10-26 21:01:10', '2014-10-26 21:01:10', 980190962)
+  [1m[35m (11.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 21:11:03', '2014-10-26 21:11:03', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 21:11:03', '2014-10-26 21:11:03', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("integer", "created_at", "updated_at", "id") VALUES (NULL, '2014-10-26 21:11:03', '2014-10-26 21:11:03', 980190962)[0m
+SQLite3::SQLException: table projectpictures has no column named integer: INSERT INTO "projectpictures" ("integer", "created_at", "updated_at", "id") VALUES (NULL, '2014-10-26 21:11:03', '2014-10-26 21:11:03', 980190962)
+  [1m[35m (9.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 21:14:44', '2014-10-26 21:14:44', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 21:14:44', '2014-10-26 21:14:44', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("integer", "created_at", "updated_at", "id") VALUES (NULL, '2014-10-26 21:14:44', '2014-10-26 21:14:44', 980190962)[0m
+SQLite3::SQLException: table projectpictures has no column named integer: INSERT INTO "projectpictures" ("integer", "created_at", "updated_at", "id") VALUES (NULL, '2014-10-26 21:14:44', '2014-10-26 21:14:44', 980190962)
+  [1m[35m (2.0ms)[0m  rollback transaction
+  [1m[36m (15.0ms)[0m  [1mCREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "bio" text, "email" varchar(255), "image_url" varchar(255), "created_at" datetime, "updated_at" datetime, "avatar_file_name" varchar(255), "avatar_content_type" varchar(255), "avatar_file_size" integer, "avatar_updated_at" datetime, "uid" varchar(255)) [0m
+  [1m[35m (9.0ms)[0m  CREATE TABLE "projectpictures" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "created_at" datetime, "updated_at" datetime, "picture_file_name" varchar(255), "picture_content_type" varchar(255), "picture_file_size" integer, "picture_updated_at" datetime, "description" text) 
+  [1m[36m (10.0ms)[0m  [1mCREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "created_at" datetime, "updated_at" datetime, "embedcode" text) [0m
+  [1m[35m (10.0ms)[0m  CREATE TABLE "userprojects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "profile_id" integer, "project_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (11.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (10.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (1.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (10.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141024171921')[0m
+  [1m[35m (10.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140920201444')
+  [1m[36m (10.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140920220515')[0m
+  [1m[35m (10.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140922002327')
+  [1m[36m (10.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140929235722')[0m
+  [1m[35m (10.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140930225844')
+  [1m[36m (10.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141022214122')[0m
+  [1m[35m (5.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141022214628')
+  [1m[36m (5.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141024002440')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM "profiles"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 21:29:16', '2014-10-26 21:29:16', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 21:29:16', '2014-10-26 21:29:16', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projectpictures"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("integer", "created_at", "updated_at", "id") VALUES (NULL, '2014-10-26 21:29:16', '2014-10-26 21:29:16', 980190962)
+SQLite3::SQLException: table projectpictures has no column named integer: INSERT INTO "projectpictures" ("integer", "created_at", "updated_at", "id") VALUES (NULL, '2014-10-26 21:29:16', '2014-10-26 21:29:16', 980190962)
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (15.0ms)[0m  [1mCREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "bio" text, "email" varchar(255), "image_url" varchar(255), "created_at" datetime, "updated_at" datetime, "avatar_file_name" varchar(255), "avatar_content_type" varchar(255), "avatar_file_size" integer, "avatar_updated_at" datetime, "uid" varchar(255)) [0m
+  [1m[35m (9.0ms)[0m  CREATE TABLE "projectpictures" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "created_at" datetime, "updated_at" datetime, "picture_file_name" varchar(255), "picture_content_type" varchar(255), "picture_file_size" integer, "picture_updated_at" datetime, "description" text) 
+  [1m[36m (9.0ms)[0m  [1mCREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "created_at" datetime, "updated_at" datetime, "embedcode" text) [0m
+  [1m[35m (11.0ms)[0m  CREATE TABLE "userprojects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "profile_id" integer, "project_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (10.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  select sqlite_version(*)
+  [1m[36m (10.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (10.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141024171921')[0m
+  [1m[35m (10.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140920201444')
+  [1m[36m (13.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140920220515')[0m
+  [1m[35m (12.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140922002327')
+  [1m[36m (12.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140929235722')[0m
+  [1m[35m (13.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140930225844')
+  [1m[36m (13.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141022214122')[0m
+  [1m[35m (16.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141022214628')
+  [1m[36m (13.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141024002440')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "profiles"
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 21:35:34', '2014-10-26 21:35:34', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 21:35:34', '2014-10-26 21:35:34', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projectpictures"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("profile_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-10-26 21:35:34', '2014-10-26 21:35:34', 980190962)
+SQLite3::SQLException: table projectpictures has no column named profile_id: INSERT INTO "projectpictures" ("profile_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-10-26 21:35:34', '2014-10-26 21:35:34', 980190962)
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (18.0ms)[0m  [1mCREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "bio" text, "email" varchar(255), "image_url" varchar(255), "created_at" datetime, "updated_at" datetime, "avatar_file_name" varchar(255), "avatar_content_type" varchar(255), "avatar_file_size" integer, "avatar_updated_at" datetime, "uid" varchar(255)) [0m
+  [1m[35m (13.0ms)[0m  CREATE TABLE "projectpictures" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "created_at" datetime, "updated_at" datetime, "picture_file_name" varchar(255), "picture_content_type" varchar(255), "picture_file_size" integer, "picture_updated_at" datetime, "description" text) 
+  [1m[36m (13.0ms)[0m  [1mCREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "created_at" datetime, "updated_at" datetime, "embedcode" text) [0m
+  [1m[35m (13.0ms)[0m  CREATE TABLE "userprojects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "profile_id" integer, "project_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (12.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (12.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (11.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141024171921')[0m
+  [1m[35m (12.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140920201444')
+  [1m[36m (13.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140920220515')[0m
+  [1m[35m (12.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140922002327')
+  [1m[36m (8.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140929235722')[0m
+  [1m[35m (8.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140930225844')
+  [1m[36m (9.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141022214122')[0m
+  [1m[35m (11.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141022214628')
+  [1m[36m (10.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141024002440')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (1.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM "profiles"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 21:42:08', '2014-10-26 21:42:08', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 21:42:08', '2014-10-26 21:42:08', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projectpictures"[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-10-26 21:42:08', '2014-10-26 21:42:08', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-10-26 21:42:08', '2014-10-26 21:42:08', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-10-26 21:42:08', '2014-10-26 21:42:08', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-10-26 21:42:08', '2014-10-26 21:42:08', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "userprojects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-10-26 21:42:08', '2014-10-26 21:42:08', 980190962)
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-10-26 21:42:08', '2014-10-26 21:42:08', 298486374)[0m
+  [1m[35m (10.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ProfileTest: test_does_not_save_without_first_name
+--------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 22:15:42', '2014-10-26 22:15:42', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 22:15:42', '2014-10-26 22:15:42', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-10-26 22:15:42', '2014-10-26 22:15:42', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-10-26 22:15:42', '2014-10-26 22:15:42', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-10-26 22:15:42', '2014-10-26 22:15:42', 980190962)
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-10-26 22:15:42', '2014-10-26 22:15:42', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-10-26 22:15:42', '2014-10-26 22:15:42', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-10-26 22:15:42', '2014-10-26 22:15:42', 298486374)
+  [1m[36m (10.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------------------------
+ProjectTest: test_should_not_save_with_title_longer_than_25_characters
+----------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------
+ProjectTest: test_should_not_save_without_title
+-----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+ProjectTest: test_should_save_with_only_title
+---------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "projects" ("created_at", "title", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-10-26 22:15:42.455540"], ["title", "title"], ["updated_at", "2014-10-26 22:15:42.455540"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (2.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 22:17:01', '2014-10-26 22:17:01', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 22:17:01', '2014-10-26 22:17:01', 298486374)[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-10-26 22:17:01', '2014-10-26 22:17:01', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-10-26 22:17:01', '2014-10-26 22:17:01', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-10-26 22:17:01', '2014-10-26 22:17:01', 980190962)
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-10-26 22:17:01', '2014-10-26 22:17:01', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-10-26 22:17:01', '2014-10-26 22:17:01', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-10-26 22:17:01', '2014-10-26 22:17:01', 298486374)
+  [1m[36m (17.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------
+ProfileTest: test_does_not_save_without_first_name
+--------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProfileTest: test_does_not_save_without_last_name
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 22:20:53', '2014-10-26 22:20:53', 980190962)
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 22:20:53', '2014-10-26 22:20:53', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-10-26 22:20:53', '2014-10-26 22:20:53', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-10-26 22:20:53', '2014-10-26 22:20:53', 298486374)
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-10-26 22:20:53', '2014-10-26 22:20:53', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-10-26 22:20:53', '2014-10-26 22:20:53', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-10-26 22:20:53', '2014-10-26 22:20:53', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-10-26 22:20:53', '2014-10-26 22:20:53', 298486374)
+  [1m[36m (16.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------
+ProfileTest: test_does_not_save_without_first_name
+--------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProfileTest: test_does_not_save_without_last_name
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------
+ProfileTest: test_save_with_both_names
+--------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "profiles" ("created_at", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2014-10-26 22:20:53.435138"], ["first_name", "first"], ["last_name", "last"], ["updated_at", "2014-10-26 22:20:53.435138"]]
+  [1m[36m (1.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (8.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (2.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 22:21:59', '2014-10-26 22:21:59', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 22:21:59', '2014-10-26 22:21:59', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-10-26 22:21:59', '2014-10-26 22:21:59', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-10-26 22:21:59', '2014-10-26 22:21:59', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-10-26 22:21:59', '2014-10-26 22:21:59', 980190962)
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-10-26 22:21:59', '2014-10-26 22:21:59', 298486374)[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (3.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-10-26 22:21:59', '2014-10-26 22:21:59', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-10-26 22:21:59', '2014-10-26 22:21:59', 298486374)
+  [1m[36m (29.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------
+ProfileTest: test_does_not_save_without_first_name
+--------------------------------------------------
+  [1m[36m (1.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProfileTest: test_does_not_save_without_last_name
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (1.0ms)[0m  begin transaction
+--------------------------------------
+ProfileTest: test_save_with_both_names
+--------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "profiles" ("created_at", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2014-10-26 22:21:59.678582"], ["first_name", "first"], ["last_name", "last"], ["updated_at", "2014-10-26 22:21:59.678582"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+ProfileTest: test_save_with_both_names_and_bio
+----------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "profiles" ("bio", "created_at", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["bio", "here is a bio as adasd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd"], ["created_at", "2014-10-26 22:21:59.685585"], ["first_name", "first"], ["last_name", "last"], ["updated_at", "2014-10-26 22:21:59.685585"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (4.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 22:23:08', '2014-10-26 22:23:08', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 22:23:08', '2014-10-26 22:23:08', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-10-26 22:23:08', '2014-10-26 22:23:08', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-10-26 22:23:08', '2014-10-26 22:23:08', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-10-26 22:23:08', '2014-10-26 22:23:08', 980190962)
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-10-26 22:23:08', '2014-10-26 22:23:08', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-10-26 22:23:08', '2014-10-26 22:23:08', 980190962)[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-10-26 22:23:08', '2014-10-26 22:23:08', 298486374)
+  [1m[36m (7.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------
+ProfileTest: test_does_not_save_without_first_name
+--------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProfileTest: test_does_not_save_without_last_name
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------
+ProfileTest: test_save_with_both_names
+--------------------------------------
+  [1m[36m (1.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "profiles" ("created_at", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2014-10-26 22:23:08.752718"], ["first_name", "first"], ["last_name", "last"], ["updated_at", "2014-10-26 22:23:08.752718"]]
+  [1m[36m (1.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (8.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+ProfileTest: test_save_with_both_names_and_bio
+----------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "profiles" ("bio", "created_at", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["bio", "here is a bio as adasd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd"], ["created_at", "2014-10-26 22:23:08.770751"], ["first_name", "first"], ["last_name", "last"], ["updated_at", "2014-10-26 22:23:08.770751"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (8.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------
+ProfileTest: test_save_with_both_names_correct_email
+----------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "profiles" ("created_at", "email", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2014-10-26 22:23:08.787763"], ["email", "fa_ke123@fake.com"], ["first_name", "first"], ["last_name", "last"], ["updated_at", "2014-10-26 22:23:08.787763"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (11.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 22:25:02', '2014-10-26 22:25:02', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 22:25:02', '2014-10-26 22:25:02', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-10-26 22:25:02', '2014-10-26 22:25:02', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-10-26 22:25:02', '2014-10-26 22:25:02', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-10-26 22:25:02', '2014-10-26 22:25:02', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-10-26 22:25:02', '2014-10-26 22:25:02', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-10-26 22:25:02', '2014-10-26 22:25:02', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-10-26 22:25:02', '2014-10-26 22:25:02', 298486374)
+  [1m[36m (9.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------------------
+ProfileTest: test__does_not_save_with_both_names_incorrect_email
+----------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "profiles" ("created_at", "email", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2014-10-26 22:25:02.591161"], ["email", "fa_ke123fake.com"], ["first_name", "first"], ["last_name", "last"], ["updated_at", "2014-10-26 22:25:02.591161"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (9.0ms)[0m  rollback transaction
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ProfileTest: test_does_not_save_without_first_name
+--------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+ProfileTest: test_does_not_save_without_last_name
+-------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (1.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------
+ProfileTest: test_save_with_both_names
+--------------------------------------
+  [1m[35m (1.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "profiles" ("created_at", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2014-10-26 22:25:02.650185"], ["first_name", "first"], ["last_name", "last"], ["updated_at", "2014-10-26 22:25:02.650185"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (5.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+ProfileTest: test_save_with_both_names_and_bio
+----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "profiles" ("bio", "created_at", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["bio", "here is a bio as adasd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd"], ["created_at", "2014-10-26 22:25:02.662214"], ["first_name", "first"], ["last_name", "last"], ["updated_at", "2014-10-26 22:25:02.662214"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (5.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+ProfileTest: test_save_with_both_names_correct_email
+----------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "profiles" ("created_at", "email", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2014-10-26 22:25:02.673222"], ["email", "fa_ke123@fake.com"], ["first_name", "first"], ["last_name", "last"], ["updated_at", "2014-10-26 22:25:02.673222"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (12.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 22:25:20', '2014-10-26 22:25:20', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 22:25:20', '2014-10-26 22:25:20', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-10-26 22:25:20', '2014-10-26 22:25:20', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-10-26 22:25:20', '2014-10-26 22:25:20', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-10-26 22:25:20', '2014-10-26 22:25:20', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-10-26 22:25:20', '2014-10-26 22:25:20', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-10-26 22:25:20', '2014-10-26 22:25:20', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-10-26 22:25:20', '2014-10-26 22:25:20', 298486374)
+  [1m[36m (7.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------------------
+ProfileTest: test__does_not_save_with_both_names_incorrect_email
+----------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "profiles" ("created_at", "email", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2014-10-26 22:25:20.599203"], ["email", "fa_ke123fake.com"], ["first_name", "first"], ["last_name", "last"], ["updated_at", "2014-10-26 22:25:20.599203"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (10.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ProfileTest: test_does_not_save_without_first_name
+--------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+ProfileTest: test_does_not_save_without_last_name
+-------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------
+ProfileTest: test_save_with_both_names
+--------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "profiles" ("created_at", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2014-10-26 22:25:20.647239"], ["first_name", "first"], ["last_name", "last"], ["updated_at", "2014-10-26 22:25:20.647239"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (4.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+ProfileTest: test_save_with_both_names_and_bio
+----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "profiles" ("bio", "created_at", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["bio", "here is a bio as adasd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd"], ["created_at", "2014-10-26 22:25:20.657243"], ["first_name", "first"], ["last_name", "last"], ["updated_at", "2014-10-26 22:25:20.657243"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+ProfileTest: test_save_with_both_names_correct_email
+----------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "profiles" ("created_at", "email", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2014-10-26 22:25:20.666252"], ["email", "fa_ke123@fake.com"], ["first_name", "first"], ["last_name", "last"], ["updated_at", "2014-10-26 22:25:20.666252"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (5.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 22:26:21', '2014-10-26 22:26:21', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 22:26:21', '2014-10-26 22:26:21', 298486374)[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-10-26 22:26:21', '2014-10-26 22:26:21', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-10-26 22:26:21', '2014-10-26 22:26:21', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-10-26 22:26:21', '2014-10-26 22:26:21', 980190962)
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-10-26 22:26:21', '2014-10-26 22:26:21', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-10-26 22:26:21', '2014-10-26 22:26:21', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-10-26 22:26:21', '2014-10-26 22:26:21', 298486374)
+  [1m[36m (12.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (1.0ms)[0m  begin transaction
+----------------------------------------------------------------
+ProfileTest: test__does_not_save_with_both_names_incorrect_email
+----------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "profiles" ("created_at", "email", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2014-10-26 22:26:21.357242"], ["email", "fa_ke123fake.com"], ["first_name", "first"], ["last_name", "last"], ["updated_at", "2014-10-26 22:26:21.357242"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (5.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ProfileTest: test_does_not_save_without_first_name
+--------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+ProfileTest: test_does_not_save_without_last_name
+-------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------
+ProfileTest: test_save_with_both_names
+--------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "profiles" ("created_at", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2014-10-26 22:26:21.393250"], ["first_name", "first"], ["last_name", "last"], ["updated_at", "2014-10-26 22:26:21.393250"]]
+  [1m[35m (1.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (8.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+ProfileTest: test_save_with_both_names_and_bio
+----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "profiles" ("bio", "created_at", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["bio", "here is a bio as adasd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd"], ["created_at", "2014-10-26 22:26:21.411263"], ["first_name", "first"], ["last_name", "last"], ["updated_at", "2014-10-26 22:26:21.411263"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (7.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+ProfileTest: test_save_with_both_names_correct_email
+----------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "profiles" ("created_at", "email", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2014-10-26 22:26:21.428303"], ["email", "fa_ke123@fake.com"], ["first_name", "first"], ["last_name", "last"], ["updated_at", "2014-10-26 22:26:21.428303"]]
+  [1m[35m (1.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (8.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 22:39:12', '2014-10-26 22:39:12', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 22:39:12', '2014-10-26 22:39:12', 298486374)[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-10-26 22:39:12', '2014-10-26 22:39:12', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-10-26 22:39:12', '2014-10-26 22:39:12', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-10-26 22:39:12', '2014-10-26 22:39:12', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-10-26 22:39:12', '2014-10-26 22:39:12', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-10-26 22:39:12', '2014-10-26 22:39:12', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-10-26 22:39:12', '2014-10-26 22:39:12', 298486374)
+  [1m[36m (6.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------
+ProjectTest: test_save_with_embed_code
+--------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------------------------
+ProjectTest: test_should_not_save_with_title_longer_than_25_characters
+----------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------
+ProjectTest: test_should_not_save_without_title
+-----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+ProjectTest: test_should_save_with_only_title
+---------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "projects" ("created_at", "title", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-10-26 22:39:12.839806"], ["title", "title"], ["updated_at", "2014-10-26 22:39:12.839806"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 22:40:23', '2014-10-26 22:40:23', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-10-26 22:40:23', '2014-10-26 22:40:23', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-10-26 22:40:23', '2014-10-26 22:40:23', 980190962)[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-10-26 22:40:23', '2014-10-26 22:40:23', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-10-26 22:40:23', '2014-10-26 22:40:23', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-10-26 22:40:23', '2014-10-26 22:40:23', 298486374)[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-10-26 22:40:23', '2014-10-26 22:40:23', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-10-26 22:40:23', '2014-10-26 22:40:23', 298486374)
+  [1m[36m (11.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (1.0ms)[0m  begin transaction
+--------------------------------------
+ProjectTest: test_save_with_embed_code
+--------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "projects" ("created_at", "embedcode", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2014-10-26 22:40:23.609400"], ["embedcode", "<iframe width=\"420\" height=\"315\" src=\"//www.youtube.com/embed/siwpn14IE7E\" frameborder=\"0\" allowfullscreen></iframe>"], ["title", "title"], ["updated_at", "2014-10-26 22:40:23.609400"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (5.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------
+ProjectTest: test_should_not_save_with_title_longer_than_25_characters
+----------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+ProjectTest: test_should_not_save_without_title
+-----------------------------------------------
+  [1m[35m (1.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+ProjectTest: test_should_save_with_only_title
+---------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "projects" ("created_at", "title", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-10-26 22:40:23.645455"], ["title", "title"], ["updated_at", "2014-10-26 22:40:23.645455"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (8.0ms)[0m  [1mrollback transaction[0m
