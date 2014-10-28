@@ -51,3 +51,8 @@ gem 'better_errors'
 gem 'pry'
 gem 'pry-debugger'
 gem 'pry-stack_explorer'
+
+
+
+
+

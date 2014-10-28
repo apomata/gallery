@@ -1,55 +1,81 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <% if current_user == @profile %>
-    <%= best_in_place @profile, :first_name, :nil => "Click me to add content!",  :ok_button => 'Save', :cancel_button => 'Cancel' %>
-  <% else %>
-    <%= @profile.first_name %>
-  <% end %>
+<div class="col-xs-11 col-xs-offset-1">
+    <h1 class="turninline-block">
+      <strong>
+      <%= @profile.first_name + " " +@profile.last_name %>
+      </strong>
+    </h1>
+</div>
 
-</p>
-<p>
-  <strong>Last name:</strong>
-  <% if current_user == @profile %>
-    <%= best_in_place @profile, :last_name, :nil => "Click me to add content!", :ok_button => 'Save', :cancel_button => 'Cancel'%>
-  <% else %>
-    <%= @profile.last_name %>
-  <% end %>
-</p>
+<div class="col-xs-11 col-xs-offset-1">
+  <div id="picdiv" class="col-xs-3" >
+    <%= image_tag @profile.avatar.url(:medium) %>
+  </div>
+  <div class="col-xs-9 container">
+    <% if current_user == @profile %>
+      <%= link_to 'Edit', edit_profile_path(@profile) %>
+      <%= link_to 'Destroy', @profile, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
 
-<p>
-  <strong>Bio:</strong>
-  <% if current_user == @profile %>
-    <%= best_in_place @profile, :bio, type: :textarea, :nil => "Click me to add content!", :ok_button => 'Save', :cancel_button => 'Cancel' %>
-  <% else %>
-    <%= @profile.bio %>
-  <% end %>
-</p>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+       <h3 class="panel-title">Contact Info</h3>
+      </div>
+      <div class="panel-body">
+       <%= @profile.email %>
+      </div>
+    </div>
 
-<p>
-  <strong>Email:</strong>
-  <% if current_user == @profile %>
-    <%= best_in_place @profile, :email, :nil => "Click me to add content!", :ok_button => 'Save', :cancel_button => 'Cancel' %>
-  <% else %>
-    <%= @profile.email %>
-  <% end %>
-</p>
-<!--
-<p><strong>Picture</strong></p>
-<%= image_tag(@profile.image_url, :class => 'list_image' ) %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Bio</h3>
+      </div>
+      <div class="panel-body">
+        <%= @profile.bio %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Image url:</strong>
-  <%= @profile.image_url %>
-</p>
--->
-<%= image_tag @profile.avatar.url %>
-<%= image_tag @profile.avatar.url(:medium) %>
-<%= image_tag @profile.avatar.url(:thumb) %>
+<div  class="col-xs-11 col-xs-offset-1">
 
-<% if current_user == @profile %>
-  <%= link_to 'Edit', edit_profile_path(@profile) %>
-  <%= link_to 'Destroy', @profile, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
-<%= link_to 'Back', profiles_path %>
+  <div  id="projectspanel" class="col-xs-6">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Projects</h3>
+      </div>
+      <div class="panel-body">
+        <ul class="list-group ">
+          <% @profile.projects.each do |profproj| %>
+            <li class="list-group-item">
+              <%= image_tag profproj.projectpictures.first.picture.url(:thumb)%>
+              <%= link_to "#{profproj.title}", project_path(profproj)%>
+            </li>
+          <%end%>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-6">
+    <div class="panel panel-primary ">
+      <div class="panel-heading">
+        <h3 class="panel-title">Collaborators</h3>
+      </div>
+      <div class="panel-body">
+        <ul class="list-group ">
+          <% count = course_user_count %>
+          <% collab = collaborators %>
+          <% collab.keys.each do |profile| %>
+            <li class="list-group-item">
+              <%= image_tag profile.avatar.url(:thumb)%>
+              <%= link_to "#{profile.first_name} #{profile.last_name}", profile_path(profile)%>
+            </li>
+          <%end%>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+

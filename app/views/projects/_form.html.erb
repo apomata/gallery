@@ -167,7 +167,7 @@
       <div class="modal-body">
         <%#= form_for(Projectpicture.new, :url => projectpicture_path, :html => {:method => :post}) do |f| %>
 
-          <%= form_for(Projectpicture.new, remote: true) do |f| %>
+          <%= form_for(Projectpicture.new, remote: true, :html => {:id => "pictureform"}) do |f| %>
                   <h4>
                     <strong>Picture</strong>
                   </h4>
@@ -200,7 +200,8 @@
       $('#myModal .btn-primary').click(function(e) {
           e.preventDefault();
           $('#myModal').modal('hide');
-           $('form').submit();
+           $('#pictureform').submit();
+           alert('here');
       });
   });
 </script>

@@ -3,6 +3,40 @@
     <p class="flash-error"><%= flash[:alert] %></p>
 <% end %>
 
+<script type="text/javascript">
+	function resizepicturearea() {
+
+		var thumbnaildiv = $('#thumbnaildiv');
+		var thumbnailbar = $('#thumbnailbar');
+		var addpicbutton =  $('#addpicbutton');
+		var picdescpanelbody = $('#picdescpanelbody');
+		var mainpic = $('#mainpic');
+
+		var picheight = mainpic.outerHeight( true );
+		var addpicbuttonheight = $('#addpicbutton').outerHeight( true );
+		var header = $('#picdescpanelhead').outerHeight( true );
+		var bodypadding = picdescpanelbody.css('padding-top').replace(/[^-\d\.]/g, '');
+
+		//thumbnailbar.height(picheight - addpicbuttonheight);
+		thumbnailbar.height(picheight);
+
+		//addpicbutton.width( thumbnailbar.width() - (addpicbutton.css('padding-left').replace(/[^-\d\.]/g, '') *2))
+
+		if($('picdescpanel').height > mainpic.height) {
+			picdescpanelbody.height(picheight - (bodypadding*4));
+		}
+    }
+</script>
+
+<script type="text/javascript">
+	function swappictures(imagesrc, description) {
+		var mainpic = $('#mainpic');
+		var picdescpanelbody = $('#picdescpanelbody');
+
+		picdescpanelbody.html(description);
+		mainpic.html(imagesrc);
+	}
+</script>
 
 <div class="col-xs-11 col-xs-offset-1 pull-left">
 		<h1 class="turninline-block">
@@ -106,7 +140,6 @@
 
 
 <div class="col-xs-3 col-xs-offset-1 container">
-	<br>
 	<%# if current_user == @profile %>
 	<% if @project.profiles.include?(current_user)%>
 	  <%= link_to 'Edit', edit_project_path(@project) %>
@@ -131,17 +164,15 @@
 	<div class="panel panel-primary">
 		<div class="panel-heading">
 			<h3 class="panel-title">Other projects by the creators</h3>
-		</div		<div class="panel-body">
-			<ul class="list-group fourchildscroll">
-				<% @project.profiles.each do |profile| %>
-					<% profile.projects.each do |profproj| %>
-					<%# creator_project = profile.projects.first%>
+		</div>
+		<div class="panel-body">
+			<ul class="list-group ">
+				<%projects = otherprojects%>
+				<% projects.keys.each do |project| %>
 					<li class="list-group-item">
-						<%= image_tag profproj.projectpictures.first.picture.url(:thumb)%>
-						<%= link_to "#{profproj.title} by #{profile.first_name}", project_path(profproj)%>
-						<%#= link_to "#{creator_project.title} by #{profile.first_name}", project_path(creator_project)%>
+						<%= image_tag project.projectpictures.first.picture.url(:thumb)%>
+						<%= link_to "#{project.title}", project_path(project)%>
 					</li>
-					<%end%>
 				<%end%>
 			</ul>
 		</div>
@@ -181,75 +212,5 @@
   </div>
 </div>
 
-<%#store project in session for picture to use%>
-<%session[:project] = @project%>
-
-<script type="text/javascript">
-	var options = {
-    "backdrop" : "static"
-	}
-
-	$(document).ready(function() {
-	    $('#myModal .btn-primary').click(function(e) {
-	        e.preventDefault();
-	        $('#myModal').modal('hide');
-	       	 $('form').submit();
-	    });
-	});
-</script>
-
-<script type="text/javascript">
-	function resizepicturearea() {
-
-		var thumbnaildiv = $('#thumbnaildiv');
-		var thumbnailbar = $('#thumbnailbar');
-		var addpicbutton =  $('#addpicbutton');
-		var picdescpanelbody = $('#picdescpanelbody');
-		var mainpic = $('#mainpic');
-
-		var picheight = mainpic.outerHeight( true );
-		var addpicbuttonheight = $('#addpicbutton').outerHeight( true );
-		var header = $('#picdescpanelhead').outerHeight( true );
-		var bodypadding = picdescpanelbody.css('padding-top').replace(/[^-\d\.]/g, '');
-
-		//thumbnailbar.height(picheight - addpicbuttonheight);
-		thumbnailbar.height(picheight);
-
-		//addpicbutton.width( thumbnailbar.width() - (addpicbutton.css('padding-left').replace(/[^-\d\.]/g, '') *2))
-
-		if($('picdescpanel').height > mainpic.height) {
-			picdescpanelbody.height(picheight - (bodypadding*4));
-		}
-    }
-</script>
-
-<script type="text/javascript">
-	function swappictures(imagesrc, description) {
-		var mainpic = $('#mainpic');
-		var picdescpanelbody = $('#picdescpanelbody');
-
-		picdescpanelbody.html(description);
-		mainpic.html(imagesrc);
-	}
-</script>
 
 
-
-<script type="text/javascript">
-	//run on load of list
-	function moreprojects (profiles) {
-		var count = 0;
-		//profiles = [projlist, projlist, projlist,];
-
-		//run on click of more button
-		function run () {
-
-			for (var i = 0; i < 4; i++) {
-				var project = profiles[count%profiles.length].pop;
-				$().append(project);
-				count ++;
-			};
-		}
-	}
-
-</script>

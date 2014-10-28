@@ -1,5 +1,8 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  #helper_method :collaborators
+  helper_method :course_user_count, :collaborators
+
 
   # GET /profiles
   # GET /profiles.json
@@ -70,6 +73,22 @@ class ProfilesController < ApplicationController
       format.html { redirect_to profiles_url, notice: 'Profile was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def collaborators
+    collaborators = Hash.new
+    @profile.projects.each do |project|
+      project.profiles.each do |profile|
+        if (profile != @profile)
+          collaborators[profile] = 1
+        end
+      end
+    end
+    return collaborators
+  end
+
+  def course_user_count
+    return 1
   end
 
   private

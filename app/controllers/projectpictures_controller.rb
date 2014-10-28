@@ -24,6 +24,10 @@ class ProjectpicturesController < ApplicationController
 		session.delete(:project)
 	end
 
+	def update
+		binding.pry
+	end
+
 	private
     # Use callbacks to share common setup or constraints between actions.
     def set_project

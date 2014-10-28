@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  helper_method :otherprojects
 
   # GET /projects
   # GET /projects.json
@@ -74,6 +75,7 @@ class ProjectsController < ApplicationController
   #end
   respond_to :html, :json
   def update
+    binding.pry
     if @project.update_attributes(project_params)
        flash[:alert] = "project successfully updated"
     else
@@ -93,23 +95,35 @@ class ProjectsController < ApplicationController
     #need to destroy all userprojects associated with this.
   end
 
+  def otherprojects
+    otherprojects = Hash.new
+    @project.profiles.each do |profile|
+     profile.projects.each do |project|
+        if (project != @project)
+          otherprojects[project] = 1
+        end
+      end
+    end
+    return otherprojects
+  end
+
 
   #if I want to add restrict the more projects and putt more button
   #need to figure out the html with is the bad
-  @count = 0;
-  pcount = 0
-  profilesprojects = Array.new(@project.profiles.length) { @project.profiles[pcount].projectpictures; pcount+=1}
-  def nextfourprojects
+  #@count = 0;
+  #pcount = 0
+  #profilesprojects = Array.new(@project.profiles.length) { @project.profiles[pcount].projectpictures; pcount+=1}
+  #def nextfourprojects
 
-    nextprojects
-    for (var i = 0; i < 4; i++)
-      project = profiles[@count % @project.profiles.length].shift
-      projecthtml = "shit"
-      nextprojects <<project
-      @count += 1
-    end
-    return nextprojects
-  end
+   # nextprojects
+    #for (var i = 0; i < 4; i++)
+     # project = profiles[@count % @project.profiles.length].shift
+      #projecthtml = "shit"
+      #nextprojects <<project
+      #@count += 1
+    #end
+    #return nextprojects
+  #end
 
   private
     # Use callbacks to share common setup or constraints between actions.
