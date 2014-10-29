@@ -16,42 +16,6 @@
 <%session[:project] = @project.id%>
 
 <script type="text/javascript">
-  var options = {
-    "backdrop" : "static"
-  }
-
-  $(document).ready(function() {
-      $('#myModal .btn-primary').click(function(e) {
-          e.preventDefault();
-          $('#myModal').modal('hide');
-                alert("wtf");
-
-                var picform = $("#pictureform");
-           $('#pictureform').submit(function() {
-                var valuesToSubmit = $(this).serialize();
-                $.ajax({
-                    type: "POST",
-                    url: $(this).attr('action'), //sumbits it to the given url of the form
-                    // url: $(this).attr('url'), //sumbits it to the given url of the form
-                    //url: "<%= url_for(:controller => 'projectpictures', :action => 'create')%>", //sumbits it to the given url of the form
-                    data: valuesToSubmit,
-                    dataType: "JSON", // you want a difference between normal and ajax-calls, and json is standard
-                }).success(function(json){
-                    //act on result.
-                    alert("woot!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-                });
-                return false; // prevents normal behaviour
-            });
-
-           //alert('here');
-      });
-  });
-
-
-
-</script>
-
-<script type="text/javascript">
   function resizepicturearea () {
 
     var thumbnaildiv = $('#thumbnaildiv');
@@ -87,7 +51,7 @@
 
 <script type="text/javascript">
   function removecreator() {
-    var r = confirm("Arou you sure you no longer with to be associated with this project?");
+    var r = confirm("Are you sure you no longer with to be associated with this project?");
     if (r == true) {
 
       $.post('/ajax/creatorremove.json', {
@@ -100,6 +64,18 @@
     }
 
   }
+</script>
+
+<script type="text/javascript">
+  $(document).ready (data) ->
+  $("#pictureform").bind "ajax:success", (evt, data, status, xhr) ->
+    $("#myModal").hide()
+    $("#thumbcontainer").html xhr.responseText
+  $("#pictureform").bind "ajax:error", (xhr, status, error) ->
+    $("#myModal").hide()
+    #Give an alert message
+  $("#pictureform").bind "ajax:before", (evt, data, status, xhr) ->
+    $("myModal").show()
 </script>
 
   <div class="col-xs-11 col-xs-offset-1 pull-left">
@@ -144,7 +120,10 @@
         add picture
       </button>
       <br>
-
+      <div id="thumbcontainer">
+        <%=render partial: "projects/thumbnailbar", object: @project, as: "project"%>
+      </div>
+      <!--
       <ul id='thumbnailbar' class="list-group scrollable">
         <% @project.projectpictures.each do |projectpicture| %>
           <li class="list-group-item">
@@ -153,6 +132,7 @@
           </li>
         <%end%>
       </ul>
+      -->
     </div>
   </div>
   <br>
@@ -247,7 +227,8 @@
       <div class="modal-body">
         <%#= form_for(Projectpicture.new, :url => projectpicture_path, :html => {:method => :post}) do |f| %>
         <%pic = Projectpicture.new%>
-        <%= form_for(pic, :url => new_projectpicture_path, remote: true, :authenticity_token => true, :html => {:id => "pictureform"}) do |p| %>
+        <%#= form_for(pic, :url => new_projectpicture_path, remote: true, :authenticity_token => true, :html => {:id => "pictureform"}) do |p| %>
+        <%= form_for(pic, remote: true, :authenticity_token => true, :html => {:id => "pictureform"}) do |p| %>
                   <h4>
                     <strong>Picture</strong>
                   </h4>
@@ -258,7 +239,8 @@
           </h4>
           <%= p.text_area :description, :class => "form_control col-xs-12 custom-control", :rows => '10'%>
 
-          <%= p.submit :id => "submitbutton"%>
+          <%#= p.submit :id => "submitbutton"%>
+          <%=p.submit "Save", :disable_with=>"Loading..."%>
 
       <%end%>
     </div>

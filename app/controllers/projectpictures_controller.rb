@@ -5,20 +5,18 @@ class ProjectpicturesController < ApplicationController
 	end
 
 	def create
-		binding.pry
 		@projectpicture = Projectpicture.new(projectpicture_params)
-		@projectpicture.project = Project.where(:id => session[:project]).first
-		#respond_to do |format|
+		project = Project.where(:id => session[:project]).first
+		@projectpicture.project = project
+		respond_to do |format|
 			if @projectpicture.save
-				#format.html { redirect_to @project, notice: 'Project was successfully created.' }
-				format.html { redirect_to project_path(session[:project]), notice: 'Project was successfully created.' }
-				#format.json { render :show, status: :created, location: @project }
-			else
-				#format.html { render :new }
-				#format.json { render json: @project.errors, status: :unprocessable_entity }
+				format.html {render partial: "projects/thumbnailbar", object: project, as: "project"}
+      			#format.js {render partial: "projects/thumbnailbar", object: project, as: "project"}
+    		else
+      			format.js {render status: :internal_server_error}
 			end
-		#end
-		session.delete(:project)
+			#session.delete(:project)
+		end
 	end
 
 	def update
