@@ -26,13 +26,13 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active">
+        <li class="active navitempadding">
 			<%= link_to 'Projects', projects_path%>
 		</li>
-        <li class="active">
+        <li class="active navitempadding">
 			<%= link_to 'Profiles', profiles_path%>
 		</li>
-       	<li class="active">
+       	<li class="active navitempadding">
 			<%#this is to disable the button if it  not logged in check allert script runs the popup%>
 			<%= link_to_if(logged_in?, 'New project', new_project_path, class: "usercheck")  do
 				link_to('New project', "", class: "usercheck")

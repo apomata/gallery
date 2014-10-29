@@ -13,13 +13,24 @@
   &:first-letter { text-transform: uppercase; }
 }
 
+.turnblock{
+	display:block;
+}
+.turninline-block{
+	display:inline-block;
+}
+
+.scrollable{
+	overflow:auto;
+}
+
 #picdiv{
-	//padding-left: 0px;
+	padding-left: 0px;
 	margin-bottom: 20px;
 }
 
-#killpadding{
-	//padding-left: 0px;
+#projectspanel{
+	padding-left: 0px;
 }
 
 .removeleftpadding{

@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'userproject/create'
-
-  get 'userproject/destroy'
 
   get 'sessions/create'
 
@@ -13,6 +10,8 @@ Rails.application.routes.draw do
   get  '/auth/shibboleth/callback', to: 'sessions#create'
 
   root :to => "projects#index"
+
+  post '/ajax/creatorremove' => 'projects#creatorremove'
 
   resources :projectpictures
 

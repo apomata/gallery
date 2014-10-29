@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :removecreator]
   helper_method :otherprojects
 
   # GET /projects
@@ -87,6 +87,7 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
+    binding.pry
     @project.destroy
     respond_to do |format|
       format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
@@ -105,6 +106,44 @@ class ProjectsController < ApplicationController
       end
     end
     return otherprojects
+  end
+
+
+  ## POST /ajax/removecreator
+  #def removecreator
+  #  binding.pry
+  #  if @project.profiles.include?(current_user)
+  #    #look up how to remove a has many relation
+  #    respond_to do |format|
+  #      if @project.profiles.delete(current_user)
+  #        format.json {render :json => {:result => "Creater successfully removed"}}
+  #      else
+  #        format.json { render json: @project.errors, status: :unprocessable_entity }
+  #      end
+  #    end
+  #  end
+  #end
+
+  # POST /ajax/sum
+  def creatorremove
+
+    result = params["p"].to_i
+    project = Project.where(:id => params["p"].to_i).first
+    # Do something with input parameter and respond as JSON with the output
+    #result =  project.profiles.include?(current_user)
+    if project.profiles.include?(current_user)
+      #look up how to remove a has many relation
+      respond_to do |format|
+        if project.profiles.delete(current_user)
+          format.json {render :json => {:result => "Creater successfully removed"}}
+        else
+        #  format.json { render json: project.errors, status: :unprocessable_entity }
+        end
+      end
+    end
+    #respond_to do |format|
+    #  format.json {render :json => {:result => result}}
+    #end
   end
 
 
