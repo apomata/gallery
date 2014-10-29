@@ -1,7 +1,4 @@
 class ProjectpicturesController < ApplicationController
-	belongs_to :project
-	protect_from_forgery
-
 
 	def new
 		@projectpicture = Projectpicture.new
@@ -10,7 +7,7 @@ class ProjectpicturesController < ApplicationController
 	def create
 		binding.pry
 		@projectpicture = Projectpicture.new(projectpicture_params)
-		@projectpicture.project = session[:project]
+		@projectpicture.project = Project.where(:id => session[:project]).first
 		#respond_to do |format|
 			if @projectpicture.save
 				#format.html { redirect_to @project, notice: 'Project was successfully created.' }

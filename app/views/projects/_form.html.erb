@@ -13,7 +13,7 @@
   <% end %>
 
   <%#store project in session for picture to use%>
-<%session[:project] = @project%>
+<%session[:project] = @project.id%>
 
 <script type="text/javascript">
   var options = {
@@ -24,10 +24,31 @@
       $('#myModal .btn-primary').click(function(e) {
           e.preventDefault();
           $('#myModal').modal('hide');
-           $('#pictureform').submit();
-           alert('here');
+                alert("wtf");
+
+                var picform = $("#pictureform");
+           $('#pictureform').submit(function() {
+                var valuesToSubmit = $(this).serialize();
+                $.ajax({
+                    type: "POST",
+                    url: $(this).attr('action'), //sumbits it to the given url of the form
+                    // url: $(this).attr('url'), //sumbits it to the given url of the form
+                    //url: "<%= url_for(:controller => 'projectpictures', :action => 'create')%>", //sumbits it to the given url of the form
+                    data: valuesToSubmit,
+                    dataType: "JSON", // you want a difference between normal and ajax-calls, and json is standard
+                }).success(function(json){
+                    //act on result.
+                    alert("woot!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                });
+                return false; // prevents normal behaviour
+            });
+
+           //alert('here');
       });
   });
+
+
+
 </script>
 
 <script type="text/javascript">
@@ -213,6 +234,8 @@
   </div>
 </div>
 
+<% end %>
+
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -223,26 +246,27 @@
       </div>
       <div class="modal-body">
         <%#= form_for(Projectpicture.new, :url => projectpicture_path, :html => {:method => :post}) do |f| %>
-
-          <%= form_for(Projectpicture.new, remote: true, :html => {:id => "pictureform"}) do |f| %>
+        <%pic = Projectpicture.new%>
+        <%= form_for(pic, :url => new_projectpicture_path, remote: true, :authenticity_token => true, :html => {:id => "pictureform"}) do |p| %>
                   <h4>
                     <strong>Picture</strong>
                   </h4>
-          <%= f.file_field :picture %>
+          <%= p.file_field :picture %>
           <br>
           <h4>
             <strong>Picture Description</strong>
           </h4>
-          <%= f.text_area :description, :class => "form_control col-xs-12 custom-control", :rows => '10'%>
+          <%= p.text_area :description, :class => "form_control col-xs-12 custom-control", :rows => '10'%>
+
+          <%= p.submit :id => "submitbutton"%>
+
       <%end%>
     </div>
       <div class="modal-footer">
         <br>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
 </div>
-
-<% end %>

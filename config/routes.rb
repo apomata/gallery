@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   post '/ajax/creatorremove' => 'projects#creatorremove'
 
+  post '/projectpictures/new' => 'projectpictures#create'
+
   resources :projectpictures
 
   resources :profiles

@@ -104,7 +104,6 @@
             <li class="list-group-item">
               <%= image_tag project.projectpictures.first.picture.url(:thumb)%>
               <%= link_to "#{project.title}", project_path(project)%>
-              <%= link_to 'Remove project', project, method: :removecreator, data: { confirm: 'Are you sure?' } %>
               <%= button_tag "Remove project", :type => "button", :onclick => "removecreator(this, #{project.id})"%>
             </li>
           <%end%>
