@@ -53,6 +53,6 @@ gem 'pry-debugger'
 gem 'pry-stack_explorer'
 
 
-
+gem 'remotipart', '~> 1.2'
 
 

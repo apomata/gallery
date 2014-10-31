@@ -273,7 +273,7 @@
         <%end%>
         -->
 
-      <%= form_tag({:action => 'preview'}, :remote => true, :'data-update-target' => 'update-container', :authenticity_token => true) do %>
+      <%= form_tag({:action => 'preview'}, :format => 'js', :remote => true, :'data-update-target' => 'update-container', :authenticity_token => true) do %>
            <%= hidden_field_tag :id, @project.id %>
           <%= file_field :projectpicture, :picture %>
           <%=text_area :description, :class => "form_control col-xs-12 custom-control", :rows => '10', :id => "descriptioninput"%>
