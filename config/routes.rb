@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   root :to => "projects#index"
 
   post '/ajax/creatorremove' => 'projects#creatorremove'
+  post '/ajax/picadd' => 'projects#picadd'
 
+  post "projects/:id/createpic/" => 'projects#createpic'
+  patch "projects/:id/createpic/" => 'projects#createpic'
+  post "projects/preview" => "projects#preview"
   #post '/projectpictures/new' => 'projectpictures#create'
 
   resources :projectpictures

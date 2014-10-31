@@ -10,14 +10,16 @@ class ProjectpicturesController < ApplicationController
 		@projectpicture.project = project
 		respond_to do |format|
 			if @projectpicture.save
-				format.html {render partial: "projects/thumbnailbar", object: project, as: "project"}
-      			#format.js {render partial: "projects/thumbnailbar", object: project, as: "project"}
+				#format.html {render partial: "projects/thumbnailbar", object: project, as: "project"}
+      			format.js { render :js => "alert('hello there')"}
     		else
       			format.js {render status: :internal_server_error}
 			end
 			#session.delete(:project)
 		end
 	end
+
+
 
 	def update
 		binding.pry

@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy, :removecreator]
+  before_action :set_project, only: [:show, :edit, :update, :destroy,]
   helper_method :otherprojects
 
   # GET /projects
@@ -65,7 +65,7 @@ class ProjectsController < ApplicationController
   #end
   respond_to :html, :json
   def update
-    binding.pry
+
     if @project.update_attributes(project_params)
        flash[:alert] = "project successfully updated"
     else
@@ -98,7 +98,7 @@ class ProjectsController < ApplicationController
     return otherprojects
   end
 
-  # POST /ajax/sum
+  # POST /ajax/creatorremove
   def creatorremove
 
     result = params["p"].to_i
@@ -113,10 +113,59 @@ class ProjectsController < ApplicationController
         end
       end
     end
+  end
+
+  def picadd
+    picture = params["picture"]
+    description = params["description"]
+    binding.pry
+    Projectpicture.create(project: @project, picture: picture, description: description)
+
+    respond_to do |format|
+        if true
+          format.json {render :json => {:result => "picture added"}}
+        else
+        #  format.json { render json: project.errors, status: :unprocessable_entity }
+        end
+      end
 
   end
 
+  def createpic
+    projectpicture = Projectpicture.new(projectpicture_params)
+    @project = Project.where(:id => params["id"].to_i).first
+    projectpicture.project = @project
+    binding.pry
+    #respond_to do |format|
+      if projectpicture.save
+        #format.html {render partial: "projects/thumbnailbar", object: @project, as: "project"}
+        #format.js {render "alert(fuck);"}
+        render partial: "projects/thumbnailbar", object: @project, as: "project"
+        else
+            #format.js {render status: :internal_server_error}
+      end
+      #session.delete(:project)
+    #end
+  end
+
+   def preview
+    # ... do something meaningful here ...
+    #render :partial => 'preview', :content_type => 'text/html'
+    @project = Project.where(:id => params["id"].to_i).first
+    binding.pry
+    render partial: "projects/thumbnailbar", object: @project, as: "project"
+  end
+
+
   private
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def projectpicture_params
+      binding.pry
+      #params.require(:projectpicture).permit(:picture, :description)
+      params.require(:project).permit(:picture, :description)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_project
       @project = Project.find(params[:id])
@@ -124,7 +173,7 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:title, :description, :image_url, :embedcode)
+      params.require(:project).permit(:title, :description, :image_url, :embedcode, :images)
       #not sure if I want to allow scripts the potential for disaster is huge but gist uses it
 
     end
