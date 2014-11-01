@@ -66,21 +66,6 @@
   }
 </script>
 
-
-
-<script type="text/javascript">
-  //$(document).ready (data) ->
-  //$("#pictureform").bind "ajax:success", (evt, data, status, xhr) ->
-  //  $("#myModal").hide()
-  //  $("#thumbcontainer").html xhr.responseText
-  //$("#pictureform").bind "ajax:error", (xhr, status, error) ->
-  //  $("#myModal").hide()
-  //  #Give an alert message
-  //$("#pictureform").bind "ajax:before", (evt, data, status, xhr) ->
-  //  $("myModal").show()
-</script>
-
-
   <div class="col-xs-11 col-xs-offset-1 pull-left">
     <h1 class="turninline-block">
       <%= f.label :title %><br>
@@ -125,10 +110,6 @@
       <br>
 
       <div id="update-container">
-      ...
-      </div>
-
-      <div id="thumbcontainer">
         <%=render partial: "projects/thumbnailbar", object: @project, as: "project"%>
       </div>
       <!--
@@ -253,8 +234,8 @@
         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
       </div>
       <div class="modal-body">
-      <!--
-        <%pic = Projectpicture.new%>
+
+      <%pic = Projectpicture.new%>
         <%#= form_for(pic, remote: true, :authenticity_token => true, :html => {:id => "pictureform"}) do |p| %>
         <%#= form_for(pic, :url => url_for(:controller => 'projects', :action => 'createpic'), remote: true, :authenticity_token => true, :html => {:id => "pictureform"}) do |p| %>
         <%= form_for(@project, format: 'js', :url => url_for(:controller => 'projects', :action => 'createpic'), remote: true, :authenticity_token => true, :html => {:id => "pictureform"}) do |p| %>
@@ -271,13 +252,20 @@
           <%#= p.submit :id => "submitbutton"%>
           <%=p.submit "Save", :disable_with=>"Loading..."%>
         <%end%>
-        -->
 
       <%= form_tag({:action => 'preview'}, :format => 'js', :remote => true, :'data-update-target' => 'update-container', :authenticity_token => true) do %>
            <%= hidden_field_tag :id, @project.id %>
+                  <h4>
+                    <strong>Picture</strong>
+                  </h4>
           <%= file_field :projectpicture, :picture %>
-          <%=text_area :description, :class => "form_control col-xs-12 custom-control", :rows => '10', :id => "descriptioninput"%>
+          <br>
+          <h4>
+            <strong>Picture Description</strong>
+          </h4>
+          <%= text_area :description, :class => "form_control col-xs-12 custom-control", :rows => '10', :id => "descriptioninput"%>
           <%= submit_tag 'Submit', :disable_with => 'Please wait...', :class => 'submit' %>
+
       <% end %>
 
     </div>

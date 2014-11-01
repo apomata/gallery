@@ -1,8 +1,11 @@
-<ul id='thumbnailbar' class="list-group scrollable">
-        <% project.projectpictures.each do |projectpicture| %>
-          <li class="list-group-item">
-            <%= image_tag projectpicture.picture.url(:thumb),
-            :onclick => "swappictures( '#{image_tag projectpicture.picture.url(:medium), :class => 'fisrtpic', :onload => 'resizepicturearea()'}', '#{projectpicture.description}')"%>
+<div id="thumbcontainer">
+	<ul id='thumbnailbar' class="list-group scrollable">
+		<% project.projectpictures.each do |projectpicture| %>
+		  <li class="list-group-item">
+		    <%= image_tag projectpicture.picture.url(:thumb),
+		    :onclick => "swappictures( '#{image_tag projectpicture.picture.url(:medium), :class => 'fisrtpic', :onload => 'resizepicturearea()'}', '#{projectpicture.description}')"%>
           </li>
         <%end%>
-      </ul>
+	</ul>
+</div>
+

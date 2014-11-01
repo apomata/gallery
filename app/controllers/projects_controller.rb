@@ -77,7 +77,6 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
-    binding.pry
     @project.destroy
     respond_to do |format|
       format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
@@ -115,27 +114,11 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def picadd
-    picture = params["picture"]
-    description = params["description"]
-    binding.pry
-    Projectpicture.create(project: @project, picture: picture, description: description)
-
-    respond_to do |format|
-        if true
-          format.json {render :json => {:result => "picture added"}}
-        else
-        #  format.json { render json: project.errors, status: :unprocessable_entity }
-        end
-      end
-
-  end
-
   def createpic
+    binding.pry
     projectpicture = Projectpicture.new(projectpicture_params)
     @project = Project.where(:id => params["id"].to_i).first
     projectpicture.project = @project
-    binding.pry
     #respond_to do |format|
       if projectpicture.save
         #format.html {render partial: "projects/thumbnailbar", object: @project, as: "project"}
@@ -150,10 +133,25 @@ class ProjectsController < ApplicationController
 
    def preview
     # ... do something meaningful here ...
-    #render :partial => 'preview', :content_type => 'text/html'
     @project = Project.where(:id => params["id"].to_i).first
+    projectpicture = Projectpicture.new(projectpicture_params)
+    description = params["description"].values.first
     binding.pry
-    render partial: "projects/thumbnailbar", object: @project, as: "project"
+    if params["projectpicture"]
+      picture = params["projectpicture"].values.first
+      projectpicture = Projectpicture.new(description: description, picture: picture)
+    else
+      projectpicture = Projectpicture.new(description: description)
+    end
+    projectpicture.project = @project
+    if projectpicture.save
+      binding.pry
+      render partial: "projects/thumbnailbar", object: @project, as: "project"
+    else
+        #may not work
+      #binding.pry
+      render status: :internal_server_error
+    end
   end
 
 
@@ -161,9 +159,8 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def projectpicture_params
-      binding.pry
       #params.require(:projectpicture).permit(:picture, :description)
-      params.require(:project).permit(:picture, :description)
+      params.permit("picture", "description")
     end
 
     # Use callbacks to share common setup or constraints between actions.
