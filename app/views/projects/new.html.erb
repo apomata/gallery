@@ -9,6 +9,100 @@
 <% if flash[:alert] %>
     <p class="flash-error"><%= flash[:alert] %></p>
 <% end %>
-<%= render 'form' %>
+<%#= render 'form' %>
+<%#= form_for(@project) do |f| %>
+<%= form_tag({:action => 'create'}, :multipart => true) do%>
 
-<%= link_to 'Back', projects_path %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% @project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-xs-11 col-xs-offset-1 pull-left">
+    <h1 class="turninline-block">
+      <%= label :project, :title %><br>
+      <strong>
+        <%= text_field :project, :title %>
+      </strong>
+    </h1>
+      <button type="submit">Create</button>
+  </div>
+
+<div class="col-xs-7 col-xs-offset-1 container">
+  <h3>
+    <strong>Picture</strong>
+  </h3>
+
+  <div class="row">
+    <div id="mainpic" class="col-xs-4">
+    	<div class="panel panel-default">
+      <div class="panel-heading">
+       <h3 class="panel-title">Change profile picture</h3>
+      </div>
+      <div class="panel-body">
+        <div class="field">
+	    	<%= file_field :projectpicture, :picture %>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="col-xs-4">
+
+      <div id="picdescpanel" class="panel panel-default">
+        <div id='picdescpanelhead' class="panel-heading">
+          <h3 class="panel-title">Picture Description</h3>
+        </div>
+        <div id='picdescpanelbody' class="panel-body scrollable">
+    		<%= text_area :projectpicture, :description, :class => "form_control col-xs-12 custom-control", :rows => '10', :id => "descriptioninput"%>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Embedcode</h3>
+    </div>
+    <div class="panel-body">
+      <%= text_area :project, :embedcode, :class => "form_control col-xs-12", :rows => '3' %>
+  </div>
+
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Description</h3>
+    </div>
+    <div class="panel-body">
+      <%= text_area :project, :description, :class => "form_control col-xs-12", :rows => '15' %>
+    </div>
+  </div>
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Special Links</h3>
+    </div>
+    <div class="panel-body">
+      <ul class="list-group">
+        <%# @project.profiles.each do |profile| %>
+          <li class="list-group-item">
+            links will go here
+          </li>
+        <%#end%>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<% end %>
+
+

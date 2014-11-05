@@ -27,11 +27,24 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
 
+    if !newprojectpicture_params[:picture].nil? || !(newprojectpicture_params[:description] == "")
+      @projectpicture = Projectpicture.new(newprojectpicture_params)
+      @projectpicture.project = @project
+    end
+
       if logged_in?
         respond_to do |format|
           if @project.save
             # think this should save the user I think
             @userproject = Userproject.create!(profile: current_user, project: @project)
+            if @projectpicture
+              if @projectpicture.save
+                #not sure if need anything here
+              else
+                format.html { render :new }
+                format.json { render json: @projectpicture.errors, status: :unprocessable_entity }
+              end
+            end
             format.html { redirect_to @project, notice: 'Project was successfully created.' }
             format.json { render :show, status: :created, location: @project }
           else
@@ -161,6 +174,9 @@ class ProjectsController < ApplicationController
     def projectpicture_params
       #params.require(:projectpicture).permit(:picture, :description)
       params.permit("picture", "description")
+    end
+    def newprojectpicture_params
+      params.require(:projectpicture).permit(:picture, :description,)
     end
 
     # Use callbacks to share common setup or constraints between actions.
