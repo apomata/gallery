@@ -1,9 +1,27 @@
+<script type="text/javascript">
+	function swappictures(imagesrc, picid) {
+		var mainpic = $('#mainpic');
+		var picdescpanelbody = $('#picdescpanelbody');
+
+		$.post('/ajax/getpicture.json', {
+            pid: picid
+        }, function(data) {
+            var description = data.description;
+            var image = data.image;
+            //alert(description);
+			picdescpanelbody.html(description);
+			mainpic.html(imagesrc);
+        })
+
+	}
+</script>
+
 <div id="thumbcontainer">
 	<ul id='thumbnailbar' class="list-group scrollable">
 		<% project.projectpictures.each do |projectpicture| %>
 		  <li class="list-group-item">
-		    <%= image_tag projectpicture.picture.url(:thumb),
-		    :onclick => "swappictures( '#{image_tag projectpicture.picture.url(:medium), :class => 'fisrtpic', :onload => 'resizepicturearea()'}', '#{projectpicture.description}')"%>
+		    <%= image_tag projectpicture.picture.url(:thumb), :onclick => "swappictures( '#{image_tag projectpicture.picture.url(:medium), :class => 'fisrtpic', :onload => 'resizepicturearea()'}', #{projectpicture.id})"%>
+
           </li>
         <%end%>
 	</ul>

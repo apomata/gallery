@@ -1,15 +1,23 @@
 <div id="projectpicture_list"  class="col-xs-12">
-  <h1>Listing projectpictures</h1>
-    <% @projectpictures.each do |projectpicture| %>
+  <div class="col-xs-11 col-xs-offset-1">
+    <h1 >Listing Pictures</h1>
+    <%= link_to 'back to project', project_path(@projectpictures.first.project) %>
+  </div>
+  <div class=" col-xs-11 col-xs-offset-1">
 
-        <%=render partial: "form", object: projectpicture, as: "projectpicture"%>
-
-          <%= link_to 'Destroy' , projectpicture, :confirm => 'Are you sure?' , :method => :delete %>
-
-
-
-    <% end %>
-    <% newpic = Projectpicture.new%>
-    <%=render partial: "form", object: newpic, as: "projectpicture"%>
-
+    <ul class="list-group">
+      <% @projectpictures.each do |projectpicture| %>
+        <li class="list-group-item row">
+          <div class="">
+            <%=render partial: "form", object: projectpicture, as: "projectpicture", locals: {projectid: params[:id]}%>
+          </div>
+          <%= link_to 'Remove picture' , projectpicture, :confirm => 'Are you sure?' , :method => :delete %>
+        </li>
+      <% end %>
+      <% newpic = Projectpicture.new%>
+      <li class="list-group-item row">
+        <%=render partial: "form", object: newpic, as: "projectpicture", locals: {projectid: params[:id]} %>
+      </li>
+    </ul>
+  </div>
 </div>

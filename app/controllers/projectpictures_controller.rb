@@ -11,34 +11,48 @@ class ProjectpicturesController < ApplicationController
 
 	def create
 		@projectpicture = Projectpicture.new(projectpicture_params)
-		project = Project.where(:id => session[:project]).first
+		#need to
+		project = Project.where(:id => params[:projectid].to_i).first
 		@projectpicture.project = project
 		respond_to do |format|
-			if @projectpicture.save
-				format.html {render partial: "projects/thumbnailbar", object: project, as: "project"}
-    		else
-      			format.js {render status: :internal_server_error}
+			if project.profiles.include?(current_user)
+				if @projectpicture.save
+    		  		format.html { redirect_to project_path(@projectpicture.project.id)+"/managepictures", notice: 'Project was successfully destroyed.' }
+    			else
+      				format.js {render status: :internal_server_error}
+				end
+			else
+    			format.html { redirect_to project_path(@projectpicture.project.id), notice: 'Must be a creator to edit pictures' }
 			end
-			#session.delete(:project)
 		end
 	end
 
 	def update
-    	#if @projectpicture.update_attributes(projectpicture_params)
-    	#   redirect_to project_path(@projectpicture.project.id)+"/managepictures", notice: 'picture was successfully updated.' }
-    	#else
-    	#  redirect_to project_path(@projectpicture.project.id)+"/managepictures", notice: 'Updating picture failed.' }
-    	#end
+		@projectpicture = Projectpicture.where(:id => params[:id].to_i).first
+		respond_to do |format|
+			if @projectpicture.project.profiles.include?(current_user)
+    			if @projectpicture.update_attributes(projectpicture_params)
+    			  	format.html { redirect_to project_path(@projectpicture.project.id)+"/managepictures", notice: 'Project was successfully updated.' }
+    			else
+    			  	format.html { redirect_to project_path(@projectpicture.project.id)+"/managepictures", notice: 'Update failed.' }
+    			end
+			else
+    			format.html { redirect_to project_path(@projectpicture.project.id), notice: 'Must be a creator to edit pictures' }
+			end
+    	end
 	end
 
 	def destroy
 		#have to figure this out
-		binding.pry
 		@projectpicture = Projectpicture.where(:id => params[:id].to_i).first
-    	@projectpicture.destroy
     	respond_to do |format|
-    	  format.html { redirect_to project_path(@projectpicture.project.id)+"/managepictures", notice: 'Project was successfully destroyed.' }
-    	  format.json { head :no_content }
+    		if @projectpicture.project.profiles.include?(current_user)
+    			@projectpicture.destroy
+    		  	format.html { redirect_to project_path(@projectpicture.project.id)+"/managepictures", notice: 'Project was successfully destroyed.' }
+    		  	format.json { head :no_content }
+			else
+    			format.html { redirect_to project_path(@projectpicture.project.id), notice: 'Must be a creator to edit pictures' }
+			end
     	end
     	#need to destroy all userprojects associated with this.
 	end

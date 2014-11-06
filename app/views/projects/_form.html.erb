@@ -39,15 +39,6 @@
   }
 </script>
 
-<script type="text/javascript">
-  function swappictures(imagesrc, description) {
-    var mainpic = $('#mainpic');
-    var picdescpanelbody = $('#picdescpanelbody');
-
-    picdescpanelbody.html(description);
-    mainpic.html(imagesrc);
-  }
-</script>
 
 <%if @project.id%>
 <script type="text/javascript">
@@ -82,50 +73,40 @@
   <h3>
     <strong>Picture</strong>
   </h3>
-  <div class="row">
-    <div id="mainpic" class="col-xs-4">
-      <% displayedpicture = @project.projectpictures.first%>
-      <%if !displayedpicture.nil?%>
-      <%= image_tag displayedpicture.picture.url(:medium), :class => 'fisrtpic img-responsive', :onload => 'resizepicturearea()'%>
-      <%end%>
-    </div>
-    <div class="col-xs-4">
-
-      <div id="picdescpanel" class="panel panel-default">
-        <div id='picdescpanelhead' class="panel-heading">
-          <h3 class="panel-title">Description</h3>
-        </div>
-        <div id='picdescpanelbody' class="panel-body scrollable">
-          <%if !displayedpicture.nil?%>
-            <%= displayedpicture.description %>
-          <%end%>
-        </div>
-      </div>
-
-    </div>
-    <div id="thumbnaildiv" class="col-xs-4 panel panel-default">
-      <!-- Button trigger modal -->
-
-      <button id="addpicbutton" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-        add picture
-      </button>
-      <br>
-
-      <div id="update-container">
-        <%=render partial: "projects/thumbnailbar", object: @project, as: "project"%>
-      </div>
-      <!--
-      <ul id='thumbnailbar' class="list-group scrollable">
-        <% @project.projectpictures.each do |projectpicture| %>
-          <li class="list-group-item">
-            <%= image_tag projectpicture.picture.url(:thumb),
-            :onclick => "swappictures( '#{image_tag projectpicture.picture.url(:medium), :class => 'fisrtpic', :onload => 'resizepicturearea()'}', '#{projectpicture.description}')"%>
-          </li>
+    <div class="row">
+      <div id="mainpic" class="col-xs-4">
+        <% displayedpicture = @project.projectpictures.first%>
+        <%if !displayedpicture.nil?%>
+        <%= image_tag displayedpicture.picture.url(:medium), :class => 'fisrtpic img-responsive', :onload => 'resizepicturearea()'%>
         <%end%>
-      </ul>
-      -->
+      </div>
+      <div class="col-xs-4">
+
+        <div id="picdescpanel" class="panel panel-default">
+          <div id='picdescpanelhead' class="panel-heading">
+            <h3 class="panel-title">Description</h3>
+          </div>
+          <div id='picdescpanelbody' class="panel-body scrollable">
+            <%if !displayedpicture.nil?%>
+              <%= displayedpicture.description %>
+            <%end%>
+          </div>
+        </div>
+
+      </div>
+      <div id="thumbnaildiv" class="col-xs-4 panel panel-default">
+        <!-- Button trigger modal -->
+
+        <button id="addpicbutton" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+          add picture
+        </button>
+        <br>
+
+        <div id="update-container">
+          <%=render partial: "projects/thumbnailbar", object: @project, as: "project"%>
+        </div>
+      </div>
     </div>
-  </div>
   <br>
   <br>
 

@@ -2,19 +2,23 @@
 
 <%= form_for(@projectpicture) do |f| %>
 
-	<div class="row inline-block">
+    <%= hidden_field_tag :projectid, projectid %>
+
+	<div class="">
 			<%if !projectpicture.picture_file_name.nil?%>
 				<div id="mainpic" class="turninline-block pull-left">
 					<%= image_tag(@projectpicture.picture.url(:medium), :class => 'list_image img-responsive' ) %>
 				</div>
 			<%else%>
-				<div class="panel panel-default col-xs-3">
-					<div class="panel-heading">
-						<h3 class="panel-title">Add picture</h3>
-					</div>
-					<div class="panel-body">
-						<div class="field">
-							<%= f.file_field :picture %>
+				<div class="col-xs-3">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Add picture</h3>
+						</div>
+						<div class="panel-body">
+							<div class="field">
+								<%= f.file_field :picture %>
+							</div>
 						</div>
 					</div>
 				</div>

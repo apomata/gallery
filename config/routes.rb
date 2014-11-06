@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   post '/ajax/creatorremove' => 'projects#creatorremove'
   post '/ajax/picadd' => 'projects#picadd'
+  post '/ajax/getpicture' => "projects#getpic"
 
   post "projects/:id/createpic/" => 'projects#createpic'
   patch "projects/:id/createpic/" => 'projects#createpic'

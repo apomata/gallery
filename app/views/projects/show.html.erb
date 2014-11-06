@@ -4,34 +4,29 @@
 <% end %>
 
 <script type="text/javascript">
-	function resizepicturearea() {
+  function resizepicturearea () {
 
-		var thumbnaildiv = $('#thumbnaildiv');
-		var thumbnailbar = $('#thumbnailbar');
-		var addpicbutton =  $('#addpicbutton');
-		var picdescpanelbody = $('#picdescpanelbody');
-		var mainpic = $('#mainpic');
+    var thumbnaildiv = $('#thumbnaildiv');
+    var thumbnailbar = $('#thumbnailbar');
+    var addpicbutton =  $('#addpicbutton');
+    var picdescpanelbody = $('#picdescpanelbody');
+    var mainpic = $('#mainpic');
 
-		var picheight = mainpic.outerHeight( true );
-		var addpicbuttonheight = $('#addpicbutton').outerHeight( true );
-		var header = $('#picdescpanelhead').outerHeight( true );
-		var bodypadding = picdescpanelbody.css('padding-top').replace(/[^-\d\.]/g, '');
-		thumbnailbar.height(picheight);
+    var picheight = mainpic.outerHeight( true );
+    var addpicbuttonheight = $('#addpicbutton').outerHeight( true );
+    var header = $('#picdescpanelhead').outerHeight( true );
+    var bodypadding = picdescpanelbody.css('padding-top').replace(/[^-\d\.]/g, '');
 
-		if($('picdescpanel').height > mainpic.height) {
-			picdescpanelbody.height(picheight - (bodypadding*4));
-		}
-    }
-</script>
+    thumbnailbar.height(picheight - addpicbuttonheight);
 
-<script type="text/javascript">
-	function swappictures(imagesrc, description) {
-		var mainpic = $('#mainpic');
-		var picdescpanelbody = $('#picdescpanelbody');
-
-		picdescpanelbody.html(description);
-		mainpic.html(imagesrc);
+    if (addpicbutton) {
+    	addpicbutton.width( thumbnailbar.width() - (addpicbutton.css('padding-left').replace(/[^-\d\.]/g, '') *2))
 	}
+
+    if($('picdescpanel').height > mainpic.height) {
+      picdescpanelbody.height(picheight - (bodypadding*4));
+      }
+  }
 </script>
 
 <div class="col-xs-11 col-xs-offset-1 pull-left">
@@ -65,16 +60,21 @@
     	    </div>
     	  </div>
     	</div>
-    	<div id="thumbnaildiv" class="col-xs-4 panel panel-default">
-    	  <ul id='thumbnailbar' class="list-group scrollable">
-    	    <% @project.projectpictures.each do |projectpicture| %>
-    	      <li class="list-group-item">
-    	        <%= image_tag projectpicture.picture.url(:thumb),
-    	        :onclick => "swappictures( '#{image_tag projectpicture.picture.url(:medium), :class => 'fisrtpic', :onload => 'resizepicturearea()'}', '#{projectpicture.description}')"%>
-    	      </li>
-    	    <%end%>
-    	  </ul>
-    	</div>
+
+		<div id="thumbnaildiv" class="col-xs-4 panel panel-default">
+			<% if @project.profiles.include?(current_user)%>
+				<a href=<%= project_path(@project)+"/managepictures"%>>
+        			<button id="addpicbutton" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+          			Manage pictures
+        			</button>
+        		</a>
+        		<br>
+        	<%end%>
+        	<div id="update-container">
+         		<%=render partial: "projects/thumbnailbar", object: @project, as: "project"%>
+        	</div>
+      </div>
+
     <%end%>
   </div>
 

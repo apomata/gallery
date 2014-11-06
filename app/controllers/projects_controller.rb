@@ -127,6 +127,15 @@ class ProjectsController < ApplicationController
     end
   end
 
+
+  def getpic
+    pic = Projectpicture.where(:id => params["pid"].to_i).first
+    respond_to do |format|
+        format.json {render :json => {:description => pic.description}}
+      #  format.json { render json: project.errors, status: :unprocessable_entity }
+    end
+  end
+
   def createpic
     binding.pry
     projectpicture = Projectpicture.new(projectpicture_params)
