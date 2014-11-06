@@ -1,0 +1,15 @@
+<div id="projectpicture_list"  class="col-xs-12">
+  <h1>Listing projectpictures</h1>
+    <% @projectpictures.each do |projectpicture| %>
+
+        <%=render partial: "form", object: projectpicture, as: "projectpicture"%>
+
+          <%= link_to 'Destroy' , projectpicture, :confirm => 'Are you sure?' , :method => :delete %>
+
+
+
+    <% end %>
+    <% newpic = Projectpicture.new%>
+    <%=render partial: "form", object: newpic, as: "projectpicture"%>
+
+</div>

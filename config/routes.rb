@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   #get 'auth/:provider/callback', to: 'sessions#create'
   get 'test/:firstname', to: 'sessions#test_login'
 
+  get '/sessions/logout', to: 'sessions#log_out'
+  get ':controler/sessions/logout', to: 'sessions#log_out'
+
   #i have no clue what I am doing
   get  '/auth/shibboleth/callback', to: 'sessions#create'
 
@@ -16,8 +19,10 @@ Rails.application.routes.draw do
 
   post "projects/:id/createpic/" => 'projects#createpic'
   patch "projects/:id/createpic/" => 'projects#createpic'
+
   post "projects/preview" => "projects#preview"
   #post '/projectpictures/new' => 'projectpictures#create'
+  get 'projects/:id/managepictures' => "projectpictures#managepics"
 
   resources :projectpictures
 

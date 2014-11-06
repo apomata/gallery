@@ -22,3 +22,15 @@ div{
 	padding-left: 1px;
 	padding-right: 1px;
 }
+
+
+.turnblock{
+	display:block;
+}
+.turninline-block{
+	display:inline-block;
+}
+
+.scrollable{
+	overflow:auto;
+}

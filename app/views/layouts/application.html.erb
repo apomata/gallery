@@ -46,15 +46,28 @@
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
+
       <ul class="nav navbar-nav navbar-right">
-      	<li class="active">
-			<% if logged_in? %>
+		<% if logged_in? %>
+      		<li class="active">
 				<%= link_to current_user.first_name, profile_path(current_user)%>
-			<%else%>
+			</li>
+
+			<li class="dropdown active">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					<b class="caret"></b>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a href='sessions/logout' >log out</a></li>
+				</ul>
+			</li>
+		<%else%>
+      		<li class="active">
 				<%= link_to 'log in', root_path%>
-			<%end%>
-		</li>
-      </ul>
+			</li>
+		<%end%>
+	  </ul>
+
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

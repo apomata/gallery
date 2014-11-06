@@ -1,0 +1,36 @@
+<%@projectpicture = projectpicture%>
+
+<%= form_for(@projectpicture) do |f| %>
+
+	<div class="row inline-block">
+			<%if !projectpicture.picture_file_name.nil?%>
+				<div id="mainpic" class="turninline-block pull-left">
+					<%= image_tag(@projectpicture.picture.url(:medium), :class => 'list_image img-responsive' ) %>
+				</div>
+			<%else%>
+				<div class="panel panel-default col-xs-3">
+					<div class="panel-heading">
+						<h3 class="panel-title">Add picture</h3>
+					</div>
+					<div class="panel-body">
+						<div class="field">
+							<%= f.file_field :picture %>
+						</div>
+					</div>
+				</div>
+			<%end%>
+
+		<div class="col-xs-6">
+			<div id="picdescpanel" class="panel panel-default">
+				<div id='picdescpanelhead' class="panel-heading">
+					<h3 class="panel-title">Description</h3>
+				</div>
+				<div id='picdescpanelbody' class="panel-body scrollable">
+					<%= f.text_area :description, :class => "form_control col-xs-12 custom-control", :rows => '10', :id => "descriptioninput"%>
+				</div>
+			</div>
+		</div>
+		<%=f.submit%>
+	</div>
+
+<%end%>

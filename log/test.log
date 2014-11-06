@@ -640,3 +640,1316 @@ ProjectTest: test_should_save_with_only_title
   [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "projects" ("created_at", "title", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-10-26 22:40:23.645455"], ["title", "title"], ["updated_at", "2014-10-26 22:40:23.645455"]]
   [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
   [1m[36m (8.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (6.0ms)[0m  [1mCREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "bio" text, "email" varchar(255), "image_url" varchar(255), "created_at" datetime, "updated_at" datetime, "avatar_file_name" varchar(255), "avatar_content_type" varchar(255), "avatar_file_size" integer, "avatar_updated_at" datetime, "uid" varchar(255)) [0m
+  [1m[35m (4.0ms)[0m  CREATE TABLE "projectpictures" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "created_at" datetime, "updated_at" datetime, "picture_file_name" varchar(255), "picture_content_type" varchar(255), "picture_file_size" integer, "picture_updated_at" datetime, "description" text) 
+  [1m[36m (9.0ms)[0m  [1mCREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "image_url" varchar(255), "created_at" datetime, "updated_at" datetime, "embedcode" text) [0m
+  [1m[35m (9.0ms)[0m  CREATE TABLE "userprojects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "profile_id" integer, "project_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (8.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (9.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (1.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (10.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141024171921')[0m
+  [1m[35m (10.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140920201444')
+  [1m[36m (9.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140920220515')[0m
+  [1m[35m (9.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140922002327')
+  [1m[36m (9.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140929235722')[0m
+  [1m[35m (9.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140930225844')
+  [1m[36m (9.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141022214122')[0m
+  [1m[35m (10.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141022214628')
+  [1m[36m (9.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141024002440')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "profiles"
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-06 00:18:50', '2014-11-06 00:18:50', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-06 00:18:50', '2014-11-06 00:18:50', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projectpictures"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-06 00:18:50', '2014-11-06 00:18:50', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-06 00:18:50', '2014-11-06 00:18:50', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-06 00:18:50', '2014-11-06 00:18:50', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-06 00:18:50', '2014-11-06 00:18:50', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "userprojects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-06 00:18:50', '2014-11-06 00:18:50', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-06 00:18:50', '2014-11-06 00:18:50', 298486374)[0m
+  [1m[35m (6.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------
+ProfileTest: test_at_page
+-------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-06 00:20:22', '2014-11-06 00:20:22', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-06 00:20:22', '2014-11-06 00:20:22', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-06 00:20:22', '2014-11-06 00:20:22', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-06 00:20:22', '2014-11-06 00:20:22', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-06 00:20:22', '2014-11-06 00:20:22', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-06 00:20:22', '2014-11-06 00:20:22', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-06 00:20:22', '2014-11-06 00:20:22', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-06 00:20:22', '2014-11-06 00:20:22', 298486374)
+  [1m[36m (8.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------
+ProfileTest: test_at_page
+-------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-06 00:21:35', '2014-11-06 00:21:35', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-06 00:21:35', '2014-11-06 00:21:35', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-06 00:21:35', '2014-11-06 00:21:35', 980190962)[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-06 00:21:35', '2014-11-06 00:21:35', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-06 00:21:35', '2014-11-06 00:21:35', 980190962)
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-06 00:21:35', '2014-11-06 00:21:35', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-06 00:21:35', '2014-11-06 00:21:35', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-06 00:21:35', '2014-11-06 00:21:35', 298486374)
+  [1m[36m (12.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------
+ProfileTest: test_at_page
+-------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-06 00:22:22', '2014-11-06 00:22:22', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-06 00:22:22', '2014-11-06 00:22:22', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-06 00:22:22', '2014-11-06 00:22:22', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-06 00:22:22', '2014-11-06 00:22:22', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-06 00:22:22', '2014-11-06 00:22:22', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-06 00:22:22', '2014-11-06 00:22:22', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-06 00:22:22', '2014-11-06 00:22:22', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-06 00:22:22', '2014-11-06 00:22:22', 298486374)
+  [1m[36m (8.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (1.0ms)[0m  begin transaction
+-------------------------
+ProfileTest: test_at_page
+-------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-06 00:25:47', '2014-11-06 00:25:47', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-06 00:25:47', '2014-11-06 00:25:47', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-06 00:25:47', '2014-11-06 00:25:47', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-06 00:25:47', '2014-11-06 00:25:47', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-06 00:25:47', '2014-11-06 00:25:47', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-06 00:25:47', '2014-11-06 00:25:47', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-06 00:25:47', '2014-11-06 00:25:47', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-06 00:25:47', '2014-11-06 00:25:47', 298486374)
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------
+ProfilepageTest: test_at_page
+-----------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-06 00:26:20', '2014-11-06 00:26:20', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-06 00:26:20', '2014-11-06 00:26:20', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-06 00:26:20', '2014-11-06 00:26:20', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-06 00:26:20', '2014-11-06 00:26:20', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-06 00:26:20', '2014-11-06 00:26:20', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-06 00:26:20', '2014-11-06 00:26:20', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-06 00:26:20', '2014-11-06 00:26:20', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-06 00:26:20', '2014-11-06 00:26:20', 298486374)
+  [1m[36m (13.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------
+ProfilepageTest: test_at_page
+-----------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-06 00:31:31', '2014-11-06 00:31:31', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-06 00:31:31', '2014-11-06 00:31:31', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-06 00:31:31', '2014-11-06 00:31:31', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-06 00:31:31', '2014-11-06 00:31:31', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-06 00:31:31', '2014-11-06 00:31:31', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-06 00:31:31', '2014-11-06 00:31:31', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-06 00:31:31', '2014-11-06 00:31:31', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-06 00:31:31', '2014-11-06 00:31:31', 298486374)
+  [1m[36m (8.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (1.0ms)[0m  begin transaction
+-------------------------------------------------
+UserprojectControllerTest: test_should_get_create
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------
+UserprojectControllerTest: test_should_get_destroy
+--------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------
+ProjectsControllerTest: test_should_create_project
+--------------------------------------------------
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "projects"
+Processing by ProjectsController#create as HTML
+  Parameters: {"project"=>{"description"=>"MyText", "image_url"=>"MyString", "title"=>"MyString"}}
+Completed 400 Bad Request in 0ms
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------
+ProjectsControllerTest: test_should_destroy_project
+---------------------------------------------------
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "projects"
+Processing by ProjectsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUserproject Load (1.0ms)[0m  [1mSELECT "userprojects".* FROM "userprojects"  WHERE "userprojects"."project_id" = ?[0m  [["project_id", 980190962]]
+  [1m[35mProjectpicture Load (0.0ms)[0m  SELECT "projectpictures".* FROM "projectpictures"  WHERE "projectpictures"."project_id" = ?  [["project_id", 980190962]]
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/projects
+Completed 302 Found in 50ms (ActiveRecord: 1.0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "projects"[0m
+  [1m[35m (3.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+ProjectsControllerTest: test_should_get_edit
+--------------------------------------------
+  [1m[35mProject Load (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mProjectpicture Load (0.0ms)[0m  SELECT  "projectpictures".* FROM "projectpictures"  WHERE "projectpictures"."project_id" = ?  ORDER BY "projectpictures"."id" ASC LIMIT 1  [["project_id", 980190962]]
+  [1m[36mProjectpicture Load (0.0ms)[0m  [1mSELECT "projectpictures".* FROM "projectpictures"  WHERE "projectpictures"."project_id" = ?[0m  [["project_id", 980190962]]
+  Rendered projects/_thumbnailbar.html.erb (2.0ms)
+  [1m[35mProfile Load (0.0ms)[0m  SELECT "profiles".* FROM "profiles" INNER JOIN "userprojects" ON "profiles"."id" = "userprojects"."profile_id" WHERE "userprojects"."project_id" = ?  [["project_id", 980190962]]
+  Rendered projects/_form.html.erb (78.1ms)
+Completed 200 OK in 1747ms (Views: 1744.5ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+ProjectsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.0ms)[0m  SELECT "projects".* FROM "projects"
+Completed 200 OK in 74ms (Views: 74.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+ProjectsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjectsController#new as HTML
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+ProjectsControllerTest: test_should_show_project
+------------------------------------------------
+  [1m[35mProject Load (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mProjectpicture Load (0.0ms)[0m  SELECT  "projectpictures".* FROM "projectpictures"  WHERE "projectpictures"."project_id" = ?  ORDER BY "projectpictures"."id" ASC LIMIT 1  [["project_id", 980190962]]
+  [1m[36mProfile Load (0.0ms)[0m  [1mSELECT "profiles".* FROM "profiles" INNER JOIN "userprojects" ON "profiles"."id" = "userprojects"."profile_id" WHERE "userprojects"."project_id" = ?[0m  [["project_id", 980190962]]
+Completed 200 OK in 11ms (Views: 9.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ProjectsControllerTest: test_should_update_project
+--------------------------------------------------
+  [1m[35mProject Load (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProjectsController#update as HTML
+  Parameters: {"project"=>{"description"=>"MyText", "image_url"=>"MyString", "title"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projects/980190962
+Completed 302 Found in 30ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------
+ProjectTest: test_delete_elements
+---------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "projects" ("created_at", "description", "embedcode", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2014-11-06 00:31:33.794871"], ["description", "description"], ["embedcode", "<iframe width=\"420\" height=\"315\" src=\"//www.youtube.com/embed/siwpn14IE7E\" frameborder=\"0\" allowfullscreen></iframe>"], ["title", "title"], ["updated_at", "2014-11-06 00:31:33.794871"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------
+ProjectTest: test_save_with_description
+---------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "projects" ("created_at", "description", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2014-11-06 00:31:33.799875"], ["description", "asdadf asdf asdf asdfasdf asdf asf sdfasdf asd fasdf asdfasdf sdf saddf asdf asdf asdf asdf asdf asdf sd fasdf asdf asdf asdf asdf "], ["title", "title"], ["updated_at", "2014-11-06 00:31:33.799875"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------
+ProjectTest: test_save_with_embed_code
+--------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "projects" ("created_at", "embedcode", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2014-11-06 00:31:33.804868"], ["embedcode", "<iframe width=\"420\" height=\"315\" src=\"//www.youtube.com/embed/siwpn14IE7E\" frameborder=\"0\" allowfullscreen></iframe>"], ["title", "title"], ["updated_at", "2014-11-06 00:31:33.804868"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------------------------
+ProjectTest: test_should_not_save_with_title_longer_than_25_characters
+----------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------
+ProjectTest: test_should_not_save_without_title
+-----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+ProjectTest: test_should_save_with_only_title
+---------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "projects" ("created_at", "title", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-11-06 00:31:33.811877"], ["title", "title"], ["updated_at", "2014-11-06 00:31:33.811877"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ProfilesControllerTest: test_should_create_profile
+--------------------------------------------------
+  [1m[35mProfile Load (0.0ms)[0m  SELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "profiles"[0m
+Processing by ProfilesController#create as HTML
+  Parameters: {"profile"=>{"bio"=>"MyText", "email"=>"MyString", "first_name"=>"MyString", "image_url"=>"MyString", "last_name"=>"MyString"}}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "profiles" ("bio", "created_at", "email", "first_name", "image_url", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["bio", "MyText"], ["created_at", "2014-11-06 00:31:33.853920"], ["email", "mystring"], ["first_name", "MyString"], ["image_url", "MyString"], ["last_name", "MyString"], ["updated_at", "2014-11-06 00:31:33.853920"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/profiles/980190963
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "profiles"[0m
+  [1m[35m (7.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+ProfilesControllerTest: test_should_destroy_profile
+---------------------------------------------------
+  [1m[35mProfile Load (0.0ms)[0m  SELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "profiles"[0m
+Processing by ProfilesController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProfile Load (0.0ms)[0m  SELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUserproject Load (0.0ms)[0m  SELECT "userprojects".* FROM "userprojects"  WHERE "userprojects"."profile_id" = ?  [["profile_id", 980190962]]
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "profiles" WHERE "profiles"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/profiles
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "profiles"[0m
+  [1m[35m (2.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+ProfilesControllerTest: test_should_get_edit
+--------------------------------------------
+  [1m[35mProfile Load (0.0ms)[0m  SELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProfilesController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mProfile Load (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mProject Load (0.0ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN "userprojects" ON "projects"."id" = "userprojects"."project_id" WHERE "userprojects"."profile_id" = ?  [["profile_id", 980190962]]
+  Rendered profiles/_form.html.erb (6.0ms)
+Completed 200 OK in 14ms (Views: 14.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+ProfilesControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36mProfile Load (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProfilesController#index as HTML
+  [1m[35mProfile Load (0.0ms)[0m  SELECT "profiles".* FROM "profiles"
+Completed 200 OK in 5ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+ProfilesControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mProfile Load (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProfilesController#new as HTML
+  Rendered profiles/_form.html.erb (3.0ms)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+ProfilesControllerTest: test_should_show_profile
+------------------------------------------------
+  [1m[35mProfile Load (0.0ms)[0m  SELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mProfile Load (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mProject Load (1.0ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN "userprojects" ON "projects"."id" = "userprojects"."project_id" WHERE "userprojects"."profile_id" = ?  [["profile_id", 980190962]]
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 1.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------
+ProfilesControllerTest: test_should_update_profile
+--------------------------------------------------
+  [1m[36mProfile Load (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProfilesController#update as HTML
+  Parameters: {"profile"=>{"bio"=>"MyText", "email"=>"MyString", "first_name"=>"MyString", "image_url"=>"MyString", "last_name"=>"MyString"}, "id"=>"980190962"}
+  [1m[35mProfile Load (0.0ms)[0m  SELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/profiles/980190962
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+SessionsControllerTest: test_should_get_create
+----------------------------------------------
+Processing by SessionsController#create as HTML
+Completed 500 Internal Server Error in 2ms
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------
+SessionsControllerTest: test_should_get_destroy
+-----------------------------------------------
+Processing by SessionsController#destroy as HTML
+Completed 200 OK in 5ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------
+ProfileTest: test_does_not_save_without_first_name
+--------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProfileTest: test_does_not_save_without_last_name
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------
+ProfileTest: test_save_with_both_names
+--------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "profiles" ("created_at", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2014-11-06 00:31:33.977002"], ["first_name", "first"], ["last_name", "last"], ["updated_at", "2014-11-06 00:31:33.977002"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+ProfileTest: test_save_with_both_names_and_bio
+----------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "profiles" ("bio", "created_at", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["bio", "here is a bio as adasd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd"], ["created_at", "2014-11-06 00:31:33.982011"], ["first_name", "first"], ["last_name", "last"], ["updated_at", "2014-11-06 00:31:33.982011"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (1.0ms)[0m  begin transaction
+----------------------------------------------------
+ProfileTest: test_save_with_both_names_correct_email
+----------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "profiles" ("created_at", "email", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2014-11-06 00:31:33.986010"], ["email", "fa_ke123@fake.com"], ["first_name", "first"], ["last_name", "last"], ["updated_at", "2014-11-06 00:31:33.986010"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-06 00:33:38', '2014-11-06 00:33:38', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-06 00:33:38', '2014-11-06 00:33:38', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-06 00:33:38', '2014-11-06 00:33:38', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-06 00:33:38', '2014-11-06 00:33:38', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-06 00:33:38', '2014-11-06 00:33:38', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-06 00:33:38', '2014-11-06 00:33:38', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-06 00:33:38', '2014-11-06 00:33:38', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-06 00:33:38', '2014-11-06 00:33:38', 298486374)
+  [1m[36m (9.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------
+ProjectsControllerTest: test_should_create_project
+--------------------------------------------------
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "projects"
+Processing by ProjectsController#create as HTML
+  Parameters: {"project"=>{"description"=>"MyText", "image_url"=>"MyString", "title"=>"MyString"}}
+Completed 400 Bad Request in 1ms
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------
+ProjectsControllerTest: test_should_destroy_project
+---------------------------------------------------
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "projects"
+Processing by ProjectsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUserproject Load (0.0ms)[0m  [1mSELECT "userprojects".* FROM "userprojects"  WHERE "userprojects"."project_id" = ?[0m  [["project_id", 980190962]]
+  [1m[35mProjectpicture Load (0.0ms)[0m  SELECT "projectpictures".* FROM "projectpictures"  WHERE "projectpictures"."project_id" = ?  [["project_id", 980190962]]
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/projects
+Completed 302 Found in 52ms (ActiveRecord: 1.0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "projects"[0m
+  [1m[35m (3.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+ProjectsControllerTest: test_should_get_edit
+--------------------------------------------
+  [1m[35mProject Load (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mProjectpicture Load (0.0ms)[0m  SELECT  "projectpictures".* FROM "projectpictures"  WHERE "projectpictures"."project_id" = ?  ORDER BY "projectpictures"."id" ASC LIMIT 1  [["project_id", 980190962]]
+  [1m[36mProjectpicture Load (0.0ms)[0m  [1mSELECT "projectpictures".* FROM "projectpictures"  WHERE "projectpictures"."project_id" = ?[0m  [["project_id", 980190962]]
+  Rendered projects/_thumbnailbar.html.erb (1.0ms)
+  [1m[35mProfile Load (0.0ms)[0m  SELECT "profiles".* FROM "profiles" INNER JOIN "userprojects" ON "profiles"."id" = "userprojects"."profile_id" WHERE "userprojects"."project_id" = ?  [["project_id", 980190962]]
+  Rendered projects/_form.html.erb (76.0ms)
+Completed 200 OK in 142ms (Views: 141.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+ProjectsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.0ms)[0m  SELECT "projects".* FROM "projects"
+Completed 200 OK in 83ms (Views: 83.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+ProjectsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjectsController#new as HTML
+Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+ProjectsControllerTest: test_should_show_project
+------------------------------------------------
+  [1m[35mProject Load (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mProjectpicture Load (0.0ms)[0m  SELECT  "projectpictures".* FROM "projectpictures"  WHERE "projectpictures"."project_id" = ?  ORDER BY "projectpictures"."id" ASC LIMIT 1  [["project_id", 980190962]]
+  [1m[36mProfile Load (0.0ms)[0m  [1mSELECT "profiles".* FROM "profiles" INNER JOIN "userprojects" ON "profiles"."id" = "userprojects"."profile_id" WHERE "userprojects"."project_id" = ?[0m  [["project_id", 980190962]]
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ProjectsControllerTest: test_should_update_project
+--------------------------------------------------
+  [1m[35mProject Load (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProjectsController#update as HTML
+  Parameters: {"project"=>{"description"=>"MyText", "image_url"=>"MyString", "title"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projects/980190962
+Completed 302 Found in 18ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ProfileTest: test_does_not_save_without_first_name
+--------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+ProfileTest: test_does_not_save_without_last_name
+-------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------
+ProfileTest: test_save_with_both_names
+--------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "profiles" ("created_at", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2014-11-06 00:33:39.079432"], ["first_name", "first"], ["last_name", "last"], ["updated_at", "2014-11-06 00:33:39.079432"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+ProfileTest: test_save_with_both_names_and_bio
+----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "profiles" ("bio", "created_at", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["bio", "here is a bio as adasd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd"], ["created_at", "2014-11-06 00:33:39.085436"], ["first_name", "first"], ["last_name", "last"], ["updated_at", "2014-11-06 00:33:39.085436"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+ProfileTest: test_save_with_both_names_correct_email
+----------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "profiles" ("created_at", "email", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2014-11-06 00:33:39.090439"], ["email", "fa_ke123@fake.com"], ["first_name", "first"], ["last_name", "last"], ["updated_at", "2014-11-06 00:33:39.090439"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (3.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------
+ProjectTest: test_delete_elements
+---------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "projects" ("created_at", "description", "embedcode", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2014-11-06 00:33:39.097444"], ["description", "description"], ["embedcode", "<iframe width=\"420\" height=\"315\" src=\"//www.youtube.com/embed/siwpn14IE7E\" frameborder=\"0\" allowfullscreen></iframe>"], ["title", "title"], ["updated_at", "2014-11-06 00:33:39.097444"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------
+ProjectTest: test_save_with_description
+---------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "projects" ("created_at", "description", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2014-11-06 00:33:39.102447"], ["description", "asdadf asdf asdf asdfasdf asdf asf sdfasdf asd fasdf asdfasdf sdf saddf asdf asdf asdf asdf asdf asdf sd fasdf asdf asdf asdf asdf "], ["title", "title"], ["updated_at", "2014-11-06 00:33:39.102447"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (3.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------
+ProjectTest: test_save_with_embed_code
+--------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "projects" ("created_at", "embedcode", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2014-11-06 00:33:39.132474"], ["embedcode", "<iframe width=\"420\" height=\"315\" src=\"//www.youtube.com/embed/siwpn14IE7E\" frameborder=\"0\" allowfullscreen></iframe>"], ["title", "title"], ["updated_at", "2014-11-06 00:33:39.132474"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------
+ProjectTest: test_should_not_save_with_title_longer_than_25_characters
+----------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+ProjectTest: test_should_not_save_without_title
+-----------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+ProjectTest: test_should_save_with_only_title
+---------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "projects" ("created_at", "title", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-11-06 00:33:39.140461"], ["title", "title"], ["updated_at", "2014-11-06 00:33:39.140461"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+SessionsControllerTest: test_should_get_create
+----------------------------------------------
+Processing by SessionsController#create as HTML
+Completed 500 Internal Server Error in 2ms
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------
+SessionsControllerTest: test_should_get_destroy
+-----------------------------------------------
+Processing by SessionsController#destroy as HTML
+Completed 200 OK in 6ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+UserprojectControllerTest: test_should_get_create
+-------------------------------------------------
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------
+UserprojectControllerTest: test_should_get_destroy
+--------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------
+ProfilesControllerTest: test_should_create_profile
+--------------------------------------------------
+  [1m[36mProfile Load (1.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "profiles"
+Processing by ProfilesController#create as HTML
+  Parameters: {"profile"=>{"bio"=>"MyText", "email"=>"MyString", "first_name"=>"MyString", "image_url"=>"MyString", "last_name"=>"MyString"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "profiles" ("bio", "created_at", "email", "first_name", "image_url", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["bio", "MyText"], ["created_at", "2014-11-06 00:33:39.177508"], ["email", "mystring"], ["first_name", "MyString"], ["image_url", "MyString"], ["last_name", "MyString"], ["updated_at", "2014-11-06 00:33:39.177508"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/profiles/980190963
+Completed 302 Found in 3ms (ActiveRecord: 1.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "profiles"
+  [1m[36m (3.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------
+ProfilesControllerTest: test_should_destroy_profile
+---------------------------------------------------
+  [1m[36mProfile Load (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "profiles"
+Processing by ProfilesController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mProfile Load (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUserproject Load (0.0ms)[0m  [1mSELECT "userprojects".* FROM "userprojects"  WHERE "userprojects"."profile_id" = ?[0m  [["profile_id", 980190962]]
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "profiles" WHERE "profiles"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/profiles
+Completed 302 Found in 3ms (ActiveRecord: 1.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "profiles"
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------
+ProfilesControllerTest: test_should_get_edit
+--------------------------------------------
+  [1m[36mProfile Load (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProfilesController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProfile Load (0.0ms)[0m  SELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN "userprojects" ON "projects"."id" = "userprojects"."project_id" WHERE "userprojects"."profile_id" = ?[0m  [["profile_id", 980190962]]
+  Rendered profiles/_form.html.erb (6.0ms)
+Completed 200 OK in 13ms (Views: 13.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+ProfilesControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[35mProfile Load (0.0ms)[0m  SELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.0ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+Completed 200 OK in 5ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+ProfilesControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[35mProfile Load (0.0ms)[0m  SELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProfilesController#new as HTML
+  Rendered profiles/_form.html.erb (3.0ms)
+Completed 200 OK in 7ms (Views: 7.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------
+ProfilesControllerTest: test_should_show_profile
+------------------------------------------------
+  [1m[36mProfile Load (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProfile Load (0.0ms)[0m  SELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN "userprojects" ON "projects"."id" = "userprojects"."project_id" WHERE "userprojects"."profile_id" = ?[0m  [["profile_id", 980190962]]
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ProfilesControllerTest: test_should_update_profile
+--------------------------------------------------
+  [1m[35mProfile Load (0.0ms)[0m  SELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProfilesController#update as HTML
+  Parameters: {"profile"=>{"bio"=>"MyText", "email"=>"MyString", "first_name"=>"MyString", "image_url"=>"MyString", "last_name"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mProfile Load (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/profiles/980190962
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-06 00:34:20', '2014-11-06 00:34:20', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-06 00:34:20', '2014-11-06 00:34:20', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-06 00:34:21', '2014-11-06 00:34:21', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-06 00:34:21', '2014-11-06 00:34:21', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-06 00:34:21', '2014-11-06 00:34:21', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-06 00:34:21', '2014-11-06 00:34:21', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-06 00:34:21', '2014-11-06 00:34:21', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-06 00:34:21', '2014-11-06 00:34:21', 298486374)
+  [1m[36m (9.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------
+ProjectTest: test_delete_elements
+---------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "projects" ("created_at", "description", "embedcode", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2014-11-06 00:34:21.036489"], ["description", "description"], ["embedcode", "<iframe width=\"420\" height=\"315\" src=\"//www.youtube.com/embed/siwpn14IE7E\" frameborder=\"0\" allowfullscreen></iframe>"], ["title", "title"], ["updated_at", "2014-11-06 00:34:21.036489"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------
+ProjectTest: test_save_with_description
+---------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "projects" ("created_at", "description", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2014-11-06 00:34:21.041506"], ["description", "asdadf asdf asdf asdfasdf asdf asf sdfasdf asd fasdf asdfasdf sdf saddf asdf asdf asdf asdf asdf asdf sd fasdf asdf asdf asdf asdf "], ["title", "title"], ["updated_at", "2014-11-06 00:34:21.041506"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------
+ProjectTest: test_save_with_embed_code
+--------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "projects" ("created_at", "embedcode", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2014-11-06 00:34:21.045498"], ["embedcode", "<iframe width=\"420\" height=\"315\" src=\"//www.youtube.com/embed/siwpn14IE7E\" frameborder=\"0\" allowfullscreen></iframe>"], ["title", "title"], ["updated_at", "2014-11-06 00:34:21.045498"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------
+ProjectTest: test_should_not_save_with_title_longer_than_25_characters
+----------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+ProjectTest: test_should_not_save_without_title
+-----------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+ProjectTest: test_should_save_with_only_title
+---------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "projects" ("created_at", "title", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-11-06 00:34:21.060519"], ["title", "title"], ["updated_at", "2014-11-06 00:34:21.060519"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+UserprojectControllerTest: test_should_get_create
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------
+UserprojectControllerTest: test_should_get_destroy
+--------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (1.0ms)[0m  begin transaction
+--------------------------------------------------
+ProfilesControllerTest: test_should_create_profile
+--------------------------------------------------
+  [1m[36mProfile Load (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "profiles"
+Processing by ProfilesController#create as HTML
+  Parameters: {"profile"=>{"bio"=>"MyText", "email"=>"MyString", "first_name"=>"MyString", "image_url"=>"MyString", "last_name"=>"MyString"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "profiles" ("bio", "created_at", "email", "first_name", "image_url", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["bio", "MyText"], ["created_at", "2014-11-06 00:34:21.114558"], ["email", "mystring"], ["first_name", "MyString"], ["image_url", "MyString"], ["last_name", "MyString"], ["updated_at", "2014-11-06 00:34:21.114558"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/profiles/980190963
+Completed 302 Found in 3ms (ActiveRecord: 1.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "profiles"
+  [1m[36m (3.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------
+ProfilesControllerTest: test_should_destroy_profile
+---------------------------------------------------
+  [1m[36mProfile Load (1.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "profiles"
+Processing by ProfilesController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mProfile Load (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUserproject Load (0.0ms)[0m  [1mSELECT "userprojects".* FROM "userprojects"  WHERE "userprojects"."profile_id" = ?[0m  [["profile_id", 980190962]]
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "profiles" WHERE "profiles"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/profiles
+Completed 302 Found in 65ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "profiles"
+  [1m[36m (3.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------
+ProfilesControllerTest: test_should_get_edit
+--------------------------------------------
+  [1m[36mProfile Load (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProfilesController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProfile Load (0.0ms)[0m  SELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN "userprojects" ON "projects"."id" = "userprojects"."project_id" WHERE "userprojects"."profile_id" = ?[0m  [["profile_id", 980190962]]
+  Rendered profiles/_form.html.erb (58.0ms)
+Completed 200 OK in 125ms (Views: 123.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+ProfilesControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[35mProfile Load (0.0ms)[0m  SELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.0ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+Completed 200 OK in 5ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+ProfilesControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[35mProfile Load (0.0ms)[0m  SELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProfilesController#new as HTML
+  Rendered profiles/_form.html.erb (3.0ms)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------
+ProfilesControllerTest: test_should_show_profile
+------------------------------------------------
+  [1m[36mProfile Load (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProfile Load (0.0ms)[0m  SELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN "userprojects" ON "projects"."id" = "userprojects"."project_id" WHERE "userprojects"."profile_id" = ?[0m  [["profile_id", 980190962]]
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ProfilesControllerTest: test_should_update_profile
+--------------------------------------------------
+  [1m[35mProfile Load (0.0ms)[0m  SELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProfilesController#update as HTML
+  Parameters: {"profile"=>{"bio"=>"MyText", "email"=>"MyString", "first_name"=>"MyString", "image_url"=>"MyString", "last_name"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mProfile Load (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/profiles/980190962
+Completed 302 Found in 21ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ProjectsControllerTest: test_should_create_project
+--------------------------------------------------
+  [1m[35mProject Load (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "projects"[0m
+Processing by ProjectsController#create as HTML
+  Parameters: {"project"=>{"description"=>"MyText", "image_url"=>"MyString", "title"=>"MyString"}}
+Completed 400 Bad Request in 0ms
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+ProjectsControllerTest: test_should_destroy_project
+---------------------------------------------------
+  [1m[35mProject Load (1.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "projects"[0m
+Processing by ProjectsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProject Load (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUserproject Load (0.0ms)[0m  SELECT "userprojects".* FROM "userprojects"  WHERE "userprojects"."project_id" = ?  [["project_id", 980190962]]
+  [1m[36mProjectpicture Load (0.0ms)[0m  [1mSELECT "projectpictures".* FROM "projectpictures"  WHERE "projectpictures"."project_id" = ?[0m  [["project_id", 980190962]]
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "projects" WHERE "projects"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projects
+Completed 302 Found in 5ms (ActiveRecord: 1.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "projects"
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------
+ProjectsControllerTest: test_should_get_edit
+--------------------------------------------
+  [1m[36mProject Load (1.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProject Load (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36mProjectpicture Load (0.0ms)[0m  [1mSELECT  "projectpictures".* FROM "projectpictures"  WHERE "projectpictures"."project_id" = ?  ORDER BY "projectpictures"."id" ASC LIMIT 1[0m  [["project_id", 980190962]]
+  [1m[35mProjectpicture Load (0.0ms)[0m  SELECT "projectpictures".* FROM "projectpictures"  WHERE "projectpictures"."project_id" = ?  [["project_id", 980190962]]
+  Rendered projects/_thumbnailbar.html.erb (0.0ms)
+  [1m[36mProfile Load (0.0ms)[0m  [1mSELECT "profiles".* FROM "profiles" INNER JOIN "userprojects" ON "profiles"."id" = "userprojects"."profile_id" WHERE "userprojects"."project_id" = ?[0m  [["project_id", 980190962]]
+  Rendered projects/_form.html.erb (9.0ms)
+Completed 200 OK in 16ms (Views: 16.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+ProjectsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[35mProject Load (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+Completed 200 OK in 59ms (Views: 59.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+ProjectsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[35mProject Load (1.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProjectsController#new as HTML
+Completed 200 OK in 4ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------
+ProjectsControllerTest: test_should_show_project
+------------------------------------------------
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProject Load (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36mProjectpicture Load (1.0ms)[0m  [1mSELECT  "projectpictures".* FROM "projectpictures"  WHERE "projectpictures"."project_id" = ?  ORDER BY "projectpictures"."id" ASC LIMIT 1[0m  [["project_id", 980190962]]
+  [1m[35mProfile Load (0.0ms)[0m  SELECT "profiles".* FROM "profiles" INNER JOIN "userprojects" ON "profiles"."id" = "userprojects"."profile_id" WHERE "userprojects"."project_id" = ?  [["project_id", 980190962]]
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 1.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------
+ProjectsControllerTest: test_should_update_project
+--------------------------------------------------
+  [1m[36mProject Load (1.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjectsController#update as HTML
+  Parameters: {"project"=>{"description"=>"MyText", "image_url"=>"MyString", "title"=>"MyString"}, "id"=>"980190962"}
+  [1m[35mProject Load (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/projects/980190962
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+SessionsControllerTest: test_should_get_create
+----------------------------------------------
+Processing by SessionsController#create as HTML
+Completed 500 Internal Server Error in 2ms
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------
+SessionsControllerTest: test_should_get_destroy
+-----------------------------------------------
+Processing by SessionsController#destroy as HTML
+Completed 200 OK in 5ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------
+ProfileTest: test_does_not_save_without_first_name
+--------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProfileTest: test_does_not_save_without_last_name
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------
+ProfileTest: test_save_with_both_names
+--------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "profiles" ("created_at", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2014-11-06 00:34:21.590894"], ["first_name", "first"], ["last_name", "last"], ["updated_at", "2014-11-06 00:34:21.590894"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+ProfileTest: test_save_with_both_names_and_bio
+----------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "profiles" ("bio", "created_at", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["bio", "here is a bio as adasd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd"], ["created_at", "2014-11-06 00:34:21.595898"], ["first_name", "first"], ["last_name", "last"], ["updated_at", "2014-11-06 00:34:21.595898"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (3.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------
+ProfileTest: test_save_with_both_names_correct_email
+----------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "profiles" ("created_at", "email", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2014-11-06 00:34:21.600902"], ["email", "fa_ke123@fake.com"], ["first_name", "first"], ["last_name", "last"], ["updated_at", "2014-11-06 00:34:21.600902"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-06 00:35:16', '2014-11-06 00:35:16', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-06 00:35:16', '2014-11-06 00:35:16', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-06 00:35:16', '2014-11-06 00:35:16', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-06 00:35:16', '2014-11-06 00:35:16', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-06 00:35:16', '2014-11-06 00:35:16', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-06 00:35:16', '2014-11-06 00:35:16', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-06 00:35:16', '2014-11-06 00:35:16', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-06 00:35:16', '2014-11-06 00:35:16', 298486374)
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------
+ProjectsControllerTest: test_should_create_project
+--------------------------------------------------
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "projects"
+Processing by ProjectsController#create as HTML
+  Parameters: {"project"=>{"description"=>"MyText", "image_url"=>"MyString", "title"=>"MyString"}}
+Completed 400 Bad Request in 1ms
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------
+ProjectsControllerTest: test_should_destroy_project
+---------------------------------------------------
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "projects"
+Processing by ProjectsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUserproject Load (0.0ms)[0m  [1mSELECT "userprojects".* FROM "userprojects"  WHERE "userprojects"."project_id" = ?[0m  [["project_id", 980190962]]
+  [1m[35mProjectpicture Load (0.0ms)[0m  SELECT "projectpictures".* FROM "projectpictures"  WHERE "projectpictures"."project_id" = ?  [["project_id", 980190962]]
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/projects
+Completed 302 Found in 50ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "projects"[0m
+  [1m[35m (2.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+ProjectsControllerTest: test_should_get_edit
+--------------------------------------------
+  [1m[35mProject Load (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mProjectpicture Load (1.0ms)[0m  SELECT  "projectpictures".* FROM "projectpictures"  WHERE "projectpictures"."project_id" = ?  ORDER BY "projectpictures"."id" ASC LIMIT 1  [["project_id", 980190962]]
+  [1m[36mProjectpicture Load (0.0ms)[0m  [1mSELECT "projectpictures".* FROM "projectpictures"  WHERE "projectpictures"."project_id" = ?[0m  [["project_id", 980190962]]
+  Rendered projects/_thumbnailbar.html.erb (2.0ms)
+  [1m[35mProfile Load (0.0ms)[0m  SELECT "profiles".* FROM "profiles" INNER JOIN "userprojects" ON "profiles"."id" = "userprojects"."profile_id" WHERE "userprojects"."project_id" = ?  [["project_id", 980190962]]
+  Rendered projects/_form.html.erb (92.1ms)
+Completed 200 OK in 165ms (Views: 164.1ms | ActiveRecord: 1.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+ProjectsControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.0ms)[0m  SELECT "projects".* FROM "projects"
+Completed 200 OK in 58ms (Views: 58.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+ProjectsControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProjectsController#new as HTML
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------
+ProjectsControllerTest: test_should_show_project
+------------------------------------------------
+  [1m[35mProject Load (0.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mProjectpicture Load (0.0ms)[0m  SELECT  "projectpictures".* FROM "projectpictures"  WHERE "projectpictures"."project_id" = ?  ORDER BY "projectpictures"."id" ASC LIMIT 1  [["project_id", 980190962]]
+  [1m[36mProfile Load (0.0ms)[0m  [1mSELECT "profiles".* FROM "profiles" INNER JOIN "userprojects" ON "profiles"."id" = "userprojects"."profile_id" WHERE "userprojects"."project_id" = ?[0m  [["project_id", 980190962]]
+Completed 200 OK in 6ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ProjectsControllerTest: test_should_update_project
+--------------------------------------------------
+  [1m[35mProject Load (1.0ms)[0m  SELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProjectsController#update as HTML
+  Parameters: {"project"=>{"description"=>"MyText", "image_url"=>"MyString", "title"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT  "projects".* FROM "projects"  WHERE "projects"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/projects/980190962
+Completed 302 Found in 16ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+UserprojectControllerTest: test_should_get_create
+-------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+UserprojectControllerTest: test_should_get_destroy
+--------------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ProfileTest: test_does_not_save_without_first_name
+--------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+ProfileTest: test_does_not_save_without_last_name
+-------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------
+ProfileTest: test_save_with_both_names
+--------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "profiles" ("created_at", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2014-11-06 00:35:16.554550"], ["first_name", "first"], ["last_name", "last"], ["updated_at", "2014-11-06 00:35:16.554550"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+ProfileTest: test_save_with_both_names_and_bio
+----------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "profiles" ("bio", "created_at", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["bio", "here is a bio as adasd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd asd"], ["created_at", "2014-11-06 00:35:16.559554"], ["first_name", "first"], ["last_name", "last"], ["updated_at", "2014-11-06 00:35:16.559554"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------
+ProfileTest: test_save_with_both_names_correct_email
+----------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "profiles" ("created_at", "email", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2014-11-06 00:35:16.565545"], ["email", "fa_ke123@fake.com"], ["first_name", "first"], ["last_name", "last"], ["updated_at", "2014-11-06 00:35:16.565545"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------
+ProjectTest: test_delete_elements
+---------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "projects" ("created_at", "description", "embedcode", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2014-11-06 00:35:16.596581"], ["description", "description"], ["embedcode", "<iframe width=\"420\" height=\"315\" src=\"//www.youtube.com/embed/siwpn14IE7E\" frameborder=\"0\" allowfullscreen></iframe>"], ["title", "title"], ["updated_at", "2014-11-06 00:35:16.596581"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------
+ProjectTest: test_save_with_description
+---------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "projects" ("created_at", "description", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2014-11-06 00:35:16.602584"], ["description", "asdadf asdf asdf asdfasdf asdf asf sdfasdf asd fasdf asdfasdf sdf saddf asdf asdf asdf asdf asdf asdf sd fasdf asdf asdf asdf asdf "], ["title", "title"], ["updated_at", "2014-11-06 00:35:16.602584"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------
+ProjectTest: test_save_with_embed_code
+--------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "projects" ("created_at", "embedcode", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2014-11-06 00:35:16.607589"], ["embedcode", "<iframe width=\"420\" height=\"315\" src=\"//www.youtube.com/embed/siwpn14IE7E\" frameborder=\"0\" allowfullscreen></iframe>"], ["title", "title"], ["updated_at", "2014-11-06 00:35:16.607589"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------
+ProjectTest: test_should_not_save_with_title_longer_than_25_characters
+----------------------------------------------------------------------
+  [1m[35m (1.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+ProjectTest: test_should_not_save_without_title
+-----------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+ProjectTest: test_should_save_with_only_title
+---------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "projects" ("created_at", "title", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-11-06 00:35:16.614593"], ["title", "title"], ["updated_at", "2014-11-06 00:35:16.614593"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+SessionsControllerTest: test_should_get_create
+----------------------------------------------
+Processing by SessionsController#create as HTML
+Completed 500 Internal Server Error in 1ms
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------
+SessionsControllerTest: test_should_get_destroy
+-----------------------------------------------
+Processing by SessionsController#destroy as HTML
+Completed 200 OK in 5ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------
+ProfilesControllerTest: test_should_create_profile
+--------------------------------------------------
+  [1m[36mProfile Load (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "profiles"
+Processing by ProfilesController#create as HTML
+  Parameters: {"profile"=>{"bio"=>"MyText", "email"=>"MyString", "first_name"=>"MyString", "image_url"=>"MyString", "last_name"=>"MyString"}}
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "profiles" ("bio", "created_at", "email", "first_name", "image_url", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["bio", "MyText"], ["created_at", "2014-11-06 00:35:16.645603"], ["email", "mystring"], ["first_name", "MyString"], ["image_url", "MyString"], ["last_name", "MyString"], ["updated_at", "2014-11-06 00:35:16.645603"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/profiles/980190963
+Completed 302 Found in 2ms (ActiveRecord: 1.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "profiles"
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------
+ProfilesControllerTest: test_should_destroy_profile
+---------------------------------------------------
+  [1m[36mProfile Load (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "profiles"
+Processing by ProfilesController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mProfile Load (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUserproject Load (0.0ms)[0m  [1mSELECT "userprojects".* FROM "userprojects"  WHERE "userprojects"."profile_id" = ?[0m  [["profile_id", 980190962]]
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "profiles" WHERE "profiles"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/profiles
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms)
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "profiles"
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------
+ProfilesControllerTest: test_should_get_edit
+--------------------------------------------
+  [1m[36mProfile Load (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProfilesController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProfile Load (0.0ms)[0m  SELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN "userprojects" ON "projects"."id" = "userprojects"."project_id" WHERE "userprojects"."profile_id" = ?[0m  [["profile_id", 980190962]]
+  Rendered profiles/_form.html.erb (6.0ms)
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+ProfilesControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[35mProfile Load (1.0ms)[0m  SELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProfilesController#index as HTML
+  [1m[36mProfile Load (0.0ms)[0m  [1mSELECT "profiles".* FROM "profiles"[0m
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+ProfilesControllerTest: test_should_get_new
+-------------------------------------------
+  [1m[35mProfile Load (0.0ms)[0m  SELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProfilesController#new as HTML
+  Rendered profiles/_form.html.erb (3.0ms)
+Completed 200 OK in 6ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------
+ProfilesControllerTest: test_should_show_profile
+------------------------------------------------
+  [1m[36mProfile Load (0.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by ProfilesController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mProfile Load (0.0ms)[0m  SELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN "userprojects" ON "projects"."id" = "userprojects"."project_id" WHERE "userprojects"."profile_id" = ?[0m  [["profile_id", 980190962]]
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ProfilesControllerTest: test_should_update_profile
+--------------------------------------------------
+  [1m[35mProfile Load (0.0ms)[0m  SELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by ProfilesController#update as HTML
+  Parameters: {"profile"=>{"bio"=>"MyText", "email"=>"MyString", "first_name"=>"MyString", "image_url"=>"MyString", "last_name"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mProfile Load (1.0ms)[0m  [1mSELECT  "profiles".* FROM "profiles"  WHERE "profiles"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/profiles/980190962
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction

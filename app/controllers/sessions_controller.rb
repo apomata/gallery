@@ -26,5 +26,10 @@ class SessionsController < ApplicationController
 		session[:user_id] = id
 		redirect_to profiles_path(id), notice: "Signed in."
 	end
+
+	def log_out
+		session[:user_id] = nil
+		redirect_to projects_path notice; "Logged out"
+	end
 end
 

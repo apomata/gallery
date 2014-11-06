@@ -50,7 +50,9 @@
         <ul class="list-group ">
           <% @profile.projects.each do |profproj| %>
             <li class="list-group-item">
+              <%if profproj.projectpictures.first%>
               <%= image_tag profproj.projectpictures.first.picture.url(:thumb)%>
+              <%end%>
               <%= link_to "#{profproj.title}", project_path(profproj)%>
             </li>
           <%end%>
@@ -69,7 +71,9 @@
           <% collab = collaborators %>
           <% collab.keys.each do |profile| %>
             <li class="list-group-item">
+              <%if profile.avatar%>
               <%= image_tag profile.avatar.url(:thumb)%>
+              <%end%>
               <%= link_to "#{profile.first_name} #{profile.last_name}", profile_path(profile)%>
             </li>
           <%end%>
