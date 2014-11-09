@@ -11,6 +11,7 @@ class ActiveSupport::TestCase
 end
 
 class ActionDispatch::IntegrationTest
+	include Rails.application.routes.url_helpers # for x_path and x_url helpers
   # Make the Capybara DSL available in all integration tests
   include Capybara::DSL
 end
