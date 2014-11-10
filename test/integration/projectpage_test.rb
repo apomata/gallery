@@ -1,5 +1,5 @@
 require 'test_helper'
-class ProjectIndexTest < ActionDispatch::IntegrationTest
+class ProjectShowTest < ActionDispatch::IntegrationTest
 
   Capybara.configure do |config|
     config.run_server = false
@@ -7,8 +7,29 @@ class ProjectIndexTest < ActionDispatch::IntegrationTest
     config.app_host = 'localhost:3000' # change url
   end
 
-  test "at page" do
-    visit(projects_path)
-    assert page.has_content?('Listing projects')
+  test "has description area" do
+    visit(project_path(1))
+    assert page.has_content?('Description')
   end
+
+  test "has creators area" do
+    visit(project_path(1))
+    assert page.has_content?('Creators')
+  end
+
+  test "has other projects area" do
+    visit(project_path(1))
+    assert page.has_content?("Other projects by the creators")
+  end
+  test "has special links area" do
+    visit(project_path(1))
+    assert page.has_content?("Special Links")
+  end
+
+
+
+
+
+
+
 end

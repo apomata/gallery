@@ -1990,3 +1990,729 @@ Completed 302 Found in 4ms (ActiveRecord: 1.0ms)
 ProjectIndexTest: test_at_page
 ------------------------------
   [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (2.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:12:49', '2014-11-09 23:12:49', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:12:49', '2014-11-09 23:12:49', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:12:49', '2014-11-09 23:12:49', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:12:49', '2014-11-09 23:12:49', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:12:49', '2014-11-09 23:12:49', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:12:49', '2014-11-09 23:12:49', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:12:49', '2014-11-09 23:12:49', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:12:49', '2014-11-09 23:12:49', 298486374)
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------
+ProjectIndexTest: test_at_page
+------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_profiles_link_works
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:13:41', '2014-11-09 23:13:41', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:13:41', '2014-11-09 23:13:41', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:13:41', '2014-11-09 23:13:41', 980190962)[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:13:41', '2014-11-09 23:13:41', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:13:41', '2014-11-09 23:13:41', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:13:41', '2014-11-09 23:13:41', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:13:41', '2014-11-09 23:13:41', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:13:41', '2014-11-09 23:13:41', 298486374)
+  [1m[36m (8.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------
+ProjectIndexTest: test_at_page
+------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_profiles_link_works
+-------------------------------------------------
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:15:08', '2014-11-09 23:15:08', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:15:08', '2014-11-09 23:15:08', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:15:08', '2014-11-09 23:15:08', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:15:08', '2014-11-09 23:15:08', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:15:08', '2014-11-09 23:15:08', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:15:08', '2014-11-09 23:15:08', 298486374)[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:15:08', '2014-11-09 23:15:08', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:15:08', '2014-11-09 23:15:08', 298486374)
+  [1m[36m (7.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------
+ProjectIndexTest: test_at_page
+------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_profiles_link_works
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:20:45', '2014-11-09 23:20:45', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:20:45', '2014-11-09 23:20:45', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:20:45', '2014-11-09 23:20:45', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:20:45', '2014-11-09 23:20:45', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:20:45', '2014-11-09 23:20:45', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:20:45', '2014-11-09 23:20:45', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:20:45', '2014-11-09 23:20:45', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:20:45', '2014-11-09 23:20:45', 298486374)
+  [1m[36m (7.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------
+ProjectIndexTest: test_at_page
+------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_profiles_link_works
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:21:44', '2014-11-09 23:21:44', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:21:44', '2014-11-09 23:21:44', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:21:44', '2014-11-09 23:21:44', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:21:44', '2014-11-09 23:21:44', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:21:44', '2014-11-09 23:21:44', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:21:44', '2014-11-09 23:21:44', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:21:44', '2014-11-09 23:21:44', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:21:44', '2014-11-09 23:21:44', 298486374)
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------
+ProjectIndexTest: test_at_page
+------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_profiles_link_works
+-------------------------------------------------
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:27:30', '2014-11-09 23:27:30', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:27:30', '2014-11-09 23:27:30', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:27:30', '2014-11-09 23:27:30', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:27:30', '2014-11-09 23:27:30', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:27:30', '2014-11-09 23:27:30', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:27:30', '2014-11-09 23:27:30', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:27:30', '2014-11-09 23:27:30', 980190962)[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:27:30', '2014-11-09 23:27:30', 298486374)
+  [1m[36m (12.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------
+ProjectIndexTest: test_at_page
+------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_profiles_link_works
+-------------------------------------------------
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:29:59', '2014-11-09 23:29:59', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:29:59', '2014-11-09 23:29:59', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:29:59', '2014-11-09 23:29:59', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:29:59', '2014-11-09 23:29:59', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:29:59', '2014-11-09 23:29:59', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:29:59', '2014-11-09 23:29:59', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:29:59', '2014-11-09 23:29:59', 980190962)[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:29:59', '2014-11-09 23:29:59', 298486374)
+  [1m[36m (8.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------
+ProjectIndexTest: test_at_page
+------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_profiles_link_works
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:30:35', '2014-11-09 23:30:35', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:30:35', '2014-11-09 23:30:35', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:30:35', '2014-11-09 23:30:35', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:30:35', '2014-11-09 23:30:35', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:30:35', '2014-11-09 23:30:35', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:30:35', '2014-11-09 23:30:35', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:30:35', '2014-11-09 23:30:35', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:30:35', '2014-11-09 23:30:35', 298486374)
+  [1m[36m (8.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------
+ProjectIndexTest: test_at_page
+------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_profiles_link_works
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:31:09', '2014-11-09 23:31:09', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:31:09', '2014-11-09 23:31:09', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:31:09', '2014-11-09 23:31:09', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:31:09', '2014-11-09 23:31:09', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:31:09', '2014-11-09 23:31:09', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:31:09', '2014-11-09 23:31:09', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:31:09', '2014-11-09 23:31:09', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:31:09', '2014-11-09 23:31:09', 298486374)
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------
+ProjectIndexTest: test_at_page
+------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_profiles_link_works
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:36:38', '2014-11-09 23:36:38', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:36:38', '2014-11-09 23:36:38', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:36:38', '2014-11-09 23:36:38', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:36:38', '2014-11-09 23:36:38', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:36:38', '2014-11-09 23:36:38', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:36:38', '2014-11-09 23:36:38', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:36:38', '2014-11-09 23:36:38', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:36:38', '2014-11-09 23:36:38', 298486374)
+  [1m[36m (8.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------
+ProjectIndexTest: test_at_page
+------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_profiles_link_works
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:38:09', '2014-11-09 23:38:09', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:38:09', '2014-11-09 23:38:09', 298486374)[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:38:09', '2014-11-09 23:38:09', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:38:09', '2014-11-09 23:38:09', 298486374)
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:38:09', '2014-11-09 23:38:09', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:38:09', '2014-11-09 23:38:09', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:38:09', '2014-11-09 23:38:09', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:38:09', '2014-11-09 23:38:09', 298486374)
+  [1m[36m (8.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------
+ProjectIndexTest: test_at_page
+------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_profiles_link_works
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_projects_link_works
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:43:09', '2014-11-09 23:43:09', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:43:09', '2014-11-09 23:43:09', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:43:09', '2014-11-09 23:43:09', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:43:09', '2014-11-09 23:43:09', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:43:09', '2014-11-09 23:43:09', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:43:09', '2014-11-09 23:43:09', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:43:09', '2014-11-09 23:43:09', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:43:09', '2014-11-09 23:43:09', 298486374)
+  [1m[36m (14.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------
+ProjectIndexTest: test_at_page
+------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------
+ProjectIndexTest: test_navbar_new_project_link_works
+----------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_profiles_link_works
+-------------------------------------------------
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_projects_link_works
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:44:55', '2014-11-09 23:44:55', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:44:55', '2014-11-09 23:44:55', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:44:55', '2014-11-09 23:44:55', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:44:55', '2014-11-09 23:44:55', 298486374)
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:44:55', '2014-11-09 23:44:55', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:44:55', '2014-11-09 23:44:55', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:44:55', '2014-11-09 23:44:55', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:44:55', '2014-11-09 23:44:55', 298486374)
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------
+ProjectIndexTest: test_at_page
+------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------
+ProjectIndexTest: test_navbar_new_project_link_works
+----------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_profiles_link_works
+-------------------------------------------------
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_projects_link_works
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:52:43', '2014-11-09 23:52:43', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:52:43', '2014-11-09 23:52:43', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:52:43', '2014-11-09 23:52:43', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:52:43', '2014-11-09 23:52:43', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:52:43', '2014-11-09 23:52:43', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:52:43', '2014-11-09 23:52:43', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:52:43', '2014-11-09 23:52:43', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:52:43', '2014-11-09 23:52:43', 298486374)
+  [1m[36m (12.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------
+ProjectIndexTest: test_at_page
+------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------
+ProjectIndexTest: test_navbar_new_project_link_works
+----------------------------------------------------
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_profiles_link_works
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_projects_link_works
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:56:35', '2014-11-09 23:56:35', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:56:35', '2014-11-09 23:56:35', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:56:35', '2014-11-09 23:56:35', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:56:35', '2014-11-09 23:56:35', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:56:35', '2014-11-09 23:56:35', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:56:35', '2014-11-09 23:56:35', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:56:35', '2014-11-09 23:56:35', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:56:35', '2014-11-09 23:56:35', 298486374)
+  [1m[36m (15.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------
+ProjectIndexTest: test_at_page
+------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------
+ProjectIndexTest: test_navbar_new_project_link_works
+----------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_profiles_link_works
+-------------------------------------------------
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_projects_link_works
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:57:44', '2014-11-09 23:57:44', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-09 23:57:44', '2014-11-09 23:57:44', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:57:44', '2014-11-09 23:57:44', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-09 23:57:44', '2014-11-09 23:57:44', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:57:44', '2014-11-09 23:57:44', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-09 23:57:44', '2014-11-09 23:57:44', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:57:44', '2014-11-09 23:57:44', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-09 23:57:44', '2014-11-09 23:57:44', 298486374)
+  [1m[36m (8.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------
+ProjectIndexTest: test_at_page
+------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------
+ProjectIndexTest: test_navbar_new_project_link_works
+----------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_profiles_link_works
+-------------------------------------------------
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_projects_link_works
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-10 00:00:12', '2014-11-10 00:00:12', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-10 00:00:12', '2014-11-10 00:00:12', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-10 00:00:12', '2014-11-10 00:00:12', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-10 00:00:12', '2014-11-10 00:00:12', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-10 00:00:12', '2014-11-10 00:00:12', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-10 00:00:12', '2014-11-10 00:00:12', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-10 00:00:12', '2014-11-10 00:00:12', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-10 00:00:12', '2014-11-10 00:00:12', 298486374)
+  [1m[36m (13.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------
+ProjectIndexTest: test_at_page
+------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------------------------
+ProjectIndexTest: test_navbar_new_project_link_reject_if_not_logged_in
+----------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------------------------
+ProjectIndexTest: test_navbar_new_project_link_works_if_logged_in
+-----------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_profiles_link_works
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_projects_link_works
+-------------------------------------------------
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-10 00:01:43', '2014-11-10 00:01:43', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-10 00:01:43', '2014-11-10 00:01:43', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-10 00:01:43', '2014-11-10 00:01:43', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-10 00:01:43', '2014-11-10 00:01:43', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-10 00:01:43', '2014-11-10 00:01:43', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-10 00:01:43', '2014-11-10 00:01:43', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-10 00:01:43', '2014-11-10 00:01:43', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-10 00:01:43', '2014-11-10 00:01:43', 298486374)
+  [1m[36m (6.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------
+ProjectIndexTest: test_at_page
+------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------------------------
+ProjectIndexTest: test_navbar_new_project_link_reject_if_not_logged_in
+----------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------------------------
+ProjectIndexTest: test_navbar_new_project_link_works_if_logged_in
+-----------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_profiles_link_works
+-------------------------------------------------
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_projects_link_works
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-10 00:03:48', '2014-11-10 00:03:48', 980190962)
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-10 00:03:48', '2014-11-10 00:03:48', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-10 00:03:48', '2014-11-10 00:03:48', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-10 00:03:48', '2014-11-10 00:03:48', 298486374)
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-10 00:03:48', '2014-11-10 00:03:48', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-10 00:03:48', '2014-11-10 00:03:48', 298486374)[0m
+  [1m[35mFixture Delete (1.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-10 00:03:48', '2014-11-10 00:03:48', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-10 00:03:48', '2014-11-10 00:03:48', 298486374)
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------
+ProjectIndexTest: test_at_page
+------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------------------------
+ProjectIndexTest: test_navbar_new_project_link_reject_if_not_logged_in
+----------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------------------------
+ProjectIndexTest: test_navbar_new_project_link_works_if_logged_in
+-----------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_profiles_link_works
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_projects_link_works
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-10 00:05:13', '2014-11-10 00:05:13', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-10 00:05:13', '2014-11-10 00:05:13', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-10 00:05:13', '2014-11-10 00:05:13', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-10 00:05:13', '2014-11-10 00:05:13', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-10 00:05:13', '2014-11-10 00:05:13', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-10 00:05:13', '2014-11-10 00:05:13', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-10 00:05:13', '2014-11-10 00:05:13', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-10 00:05:13', '2014-11-10 00:05:13', 298486374)
+  [1m[36m (14.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------
+ProjectIndexTest: test_at_page
+------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------------------------
+ProjectIndexTest: test_navbar_new_project_link_reject_if_not_logged_in
+----------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------------------------
+ProjectIndexTest: test_navbar_new_project_link_works_if_logged_in
+-----------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_profiles_link_works
+-------------------------------------------------
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_projects_link_works
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-10 00:11:50', '2014-11-10 00:11:50', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-10 00:11:50', '2014-11-10 00:11:50', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-10 00:11:50', '2014-11-10 00:11:50', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-10 00:11:50', '2014-11-10 00:11:50', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-10 00:11:50', '2014-11-10 00:11:50', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-10 00:11:50', '2014-11-10 00:11:50', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-10 00:11:50', '2014-11-10 00:11:50', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-10 00:11:50', '2014-11-10 00:11:50', 298486374)
+  [1m[36m (14.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------
+ProjectIndexTest: test_at_page
+------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------------------------
+ProjectIndexTest: test_navbar_new_project_link_reject_if_not_logged_in
+----------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------------------------
+ProjectIndexTest: test_navbar_new_project_link_works_if_logged_in
+-----------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_profiles_link_works
+-------------------------------------------------
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------
+ProjectIndexTest: test_navbar_projects_link_works
+-------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (1.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-10 00:29:25', '2014-11-10 00:29:25', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-10 00:29:25', '2014-11-10 00:29:25', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-10 00:29:25', '2014-11-10 00:29:25', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-10 00:29:25', '2014-11-10 00:29:25', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-10 00:29:25', '2014-11-10 00:29:25', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-10 00:29:25', '2014-11-10 00:29:25', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-10 00:29:25', '2014-11-10 00:29:25', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-10 00:29:25', '2014-11-10 00:29:25', 298486374)
+  [1m[36m (9.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------
+ProjectShowTest: test_has_creators_area
+---------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------
+ProjectShowTest: test_has_description_area
+------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------
+ProjectShowTest: test_has_other_projects_area
+---------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------
+ProjectShowTest: test_has_special_links_area
+--------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "profiles"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-10 00:34:12', '2014-11-10 00:34:12', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "profiles" ("first_name", "last_name", "bio", "email", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', 'MyText', 'MyString', 'MyString', '2014-11-10 00:34:12', '2014-11-10 00:34:12', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projectpictures"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-10 00:34:12', '2014-11-10 00:34:12', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projectpictures" ("project_id", "description", "created_at", "updated_at", "id") VALUES (1, 'MyText', '2014-11-10 00:34:12', '2014-11-10 00:34:12', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (1.0ms)[0m  INSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-10 00:34:12', '2014-11-10 00:34:12', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("title", "description", "image_url", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', 'MyString', '2014-11-10 00:34:12', '2014-11-10 00:34:12', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "userprojects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-10 00:34:12', '2014-11-10 00:34:12', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "userprojects" ("profile_id", "project_id", "created_at", "updated_at", "id") VALUES (1, 1, '2014-11-10 00:34:12', '2014-11-10 00:34:12', 298486374)
+  [1m[36m (8.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------
+ProjectShowTest: test_has_bio_area
+----------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------
+ProjectShowTest: test_has_collaborators_area
+--------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------
+ProjectShowTest: test_has_contact_info_area
+-------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------
+ProjectShowTest: test_has_projects_area
+---------------------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m

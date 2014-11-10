@@ -98,7 +98,9 @@
         <ul class="list-group ">
           <% @profile.projects.each do |project| %>
             <li class="list-group-item">
+              <%if project.projectpictures.first%>
               <%= image_tag project.projectpictures.first.picture.url(:thumb)%>
+              <%end%>
               <%= link_to "#{project.title}", project_path(project)%>
               <%= button_tag "Remove project", :type => "button", :onclick => "removecreator(this, #{project.id})"%>
             </li>

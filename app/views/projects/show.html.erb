@@ -78,7 +78,8 @@
     <%end%>
   </div>
 
-	<%if !@project.embedcode.nil? %>
+  	<%#by default it saves a space not sure why%>
+	<%if @project.embedcode == " " %>
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h3 class="panel-title">Embed</h3>
