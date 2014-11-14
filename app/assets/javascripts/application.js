@@ -35,8 +35,10 @@ $(function() {
     The returned markup will be inserted into the element id specified.
      */
     //I have a feeling the reason this doesnt work with a picture is that it doesnt trigger the success
+    //$('form[data-update-target]').on('ajax:success', function(evt, data) {
     $('form[data-update-target]').on('ajax:success', function(evt, data) {
         var target = $(this).data('update-target');
+        alert("im running")
         $('#' + target).html(data);
     });
 });

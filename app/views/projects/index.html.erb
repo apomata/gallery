@@ -1,26 +1,46 @@
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+    squarifyMe('.square');
+});
+
+function squarifyMe(element) {
+  squareItUp()
+  window.onresize = function(element) {
+    squareItUp();
+    $('.square').each(
+        function () {
+            var e = '#'+$(this).attr('id');
+            trimImage(e);
+        }
+    );
+  }
+  function squareItUp() {
+    $(element).height($(element).width());
+  }
+}
+
+function trimImage (element) {
+  var theight = $(element).children(".title").outerHeight(true);
+  var iheight = $(element).children(".imageheight").outerHeight(true);
+  var eheight = $(element).height();
+  //removed so when expanded resizes though it does push the title down
+  //if( iheight - theight > eheight || iheight - theight) {
+    $(element).find(".imageheight").height($(element).height() - theight);
+  //}
+}
+
+
+</script>
+
+
 <div id="project_list" >
+  <div class="col-xs-11 col-xs-offset-1">
   <h1>Listing projects</h1>
-  <table>
     <% @projects.each do |project| %>
-      <tr class=" <%= cycle('list_line_odd' , 'list_line_even' ) %>" >
-        <td>
-          <%= image_tag(project.image_url, :class => 'list_image' ) %>
-        </td>
-        <td class="list_description" >
-          <dl>
-            <dt><%= project.title %></dt>
-            <dd><%= truncate(strip_tags(project.description), :length => 80) %></dd>
-          </dl>
-        </td>
-        <td class="list_actions" >
-          <%= link_to 'Show' , project %><br/>
-          <!--
-          <%= link_to 'Edit' , edit_project_path(project) %><br/>
-          <%= link_to 'Destroy' , project, :confirm => 'Are you sure?' , :method => :delete %>
-          -->
-        </td>
-      </tr>
+      <%=render partial: "projects/indexedproject", object: project, as: "project"%>
     <% end %>
-  </table>
+  </div>
+
 </div>
-<br />

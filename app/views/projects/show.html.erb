@@ -47,8 +47,8 @@
   <div class="row">
    	<% displayedpicture = @project.projectpictures.first%>
    	<%if !displayedpicture.nil?%>
-    	<div id="mainpic" class="col-xs-4">
-    	  <%= image_tag displayedpicture.picture.url(:medium), :class => 'fisrtpic img-responsive ', :onload => 'resizepicturearea()'%>
+    	<div id="mainpic" class="col-xs-6">
+    	  <%= image_tag displayedpicture.picture.url(), :class => 'fisrtpic img-responsive ', :onload => 'resizepicturearea()'%>
     	</div>
     	<div class="col-xs-4">
     	  <div id="picdescpanel" class="panel panel-default">
@@ -61,11 +61,11 @@
     	  </div>
     	</div>
 
-		<div id="thumbnaildiv" class="col-xs-4 panel panel-default">
+		<div id="thumbnaildiv" class="col-xs-2 panel panel-default">
 			<% if @project.profiles.include?(current_user)%>
 				<a href=<%= project_path(@project)+"/managepictures"%>>
         			<button id="addpicbutton" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-          			Manage pictures
+          			<span style="font-size:smaller;">Manage pictures</span>
         			</button>
         		</a>
         		<br>

@@ -20,7 +20,7 @@
 	<ul id='thumbnailbar' class="list-group scrollable">
 		<% project.projectpictures.each do |projectpicture| %>
 		  <li class="list-group-item">
-		    <%= image_tag projectpicture.picture.url(:thumb), :onclick => "swappictures( '#{image_tag projectpicture.picture.url(:medium), :class => 'fisrtpic', :onload => 'resizepicturearea()'}', #{projectpicture.id})"%>
+		    <%= image_tag projectpicture.picture.url(:thumb), :onclick => "swappictures( '#{image_tag projectpicture.picture.url(), :class => 'fisrtpic img-responsive', :onload => 'resizepicturearea()'}', #{projectpicture.id})"%>
 
           </li>
         <%end%>

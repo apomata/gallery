@@ -43,6 +43,7 @@ class NavbarTest < ActionDispatch::IntegrationTest
   	page.has_content?('Listing profiles')
   	visit(projects_path)
   	click_link('New project')
+  	#throw a get witha a hash with the params needed to fake user
   	#so page loads?
   	page.has_content?('New Project')
   	assert current_path == new_project_path
