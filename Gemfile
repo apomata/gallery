@@ -57,5 +57,6 @@ gem 'remotipart', '~> 1.2'
 
 gem 'capybara'
 gem 'selenium-webdriver'
+gem 'rack_session_access'
 
 

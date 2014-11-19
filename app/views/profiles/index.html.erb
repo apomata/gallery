@@ -1,34 +1,17 @@
-<h1>Listing profiles</h1>
+<script type="text/javascript">
 
-<table>
-  <thead>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Bio</th>
-      <th>Email</th>
-      <th>Image url</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+$(document).ready(function() {
+    squarifyMe('.square');
+});
+</script>
 
-  <tbody>
+
+<div id="project_list" >
+  <div class="col-xs-11 col-xs-offset-1">
+  <h1>Listing profiles</h1>
     <% @profiles.each do |profile| %>
-      <tr>
-        <td><%= profile.first_name %></td>
-        <td><%= profile.last_name %></td>
-        <td><%= profile.bio %></td>
-        <td><%= profile.email %></td>
-        <td><%= profile.image_url %></td>
-        <td><%= link_to 'Show', profile %></td>
-        <!-- remove from index page move to project page -->
-        <!-- <td><%= link_to 'Edit', edit_profile_path(profile) %></td> -->
-        <!-- <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-      </tr>
+      <%=render partial: "profiles/indexedprofile", object: profile, as: "profile"%>
     <% end %>
-  </tbody>
-</table>
+  </div>
 
-<br>
-
-<%= link_to 'New Profile', new_profile_path %>
+</div>

@@ -39,4 +39,8 @@ Rails.application.configure do
 
 
   Paperclip.options[:command_path] = "C:\\Program Files\\ImageMagick-6.8.9-Q16\\"
+
+  config.middleware.use RackSessionAccess::Middleware
+
+
 end

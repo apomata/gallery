@@ -14,9 +14,12 @@
   </div>
   <div class="col-xs-9 container">
     <% if current_user == @profile %>
+      <div class="pull-right">
       <%= link_to 'Edit', edit_profile_path(@profile) %>
       |
       <%= link_to 'Destroy', @profile, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+      <br>
     <% end %>
 
     <div class="panel panel-primary">

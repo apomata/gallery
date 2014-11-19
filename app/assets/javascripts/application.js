@@ -43,3 +43,31 @@ $(function() {
     });
 });
 
+function squarifyMe(element) {
+  squareItUp()
+  window.onresize = function(element) {
+    squareItUp();
+    $('.square').each(
+        function () {
+            var e = '#'+$(this).attr('id');
+            trimImage(e);
+        }
+    );
+  }
+  function squareItUp() {
+    $(element).height($(element).width());
+  }
+}
+
+function trimImage (element) {
+  var theight = $(element).children(".title").outerHeight(true);
+  var iheight = $(element).children(".imageheight").outerHeight(true);
+  var eheight = $(element).height();
+  //removed so when expanded resizes though it does push the title down
+  //if( iheight - theight > eheight || iheight - theight) {
+    $(element).find(".imageheight").height($(element).height() - theight);
+  //}
+}
+
+
+

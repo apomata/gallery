@@ -34,3 +34,7 @@ div{
 .scrollable{
 	overflow:auto;
 }
+
+.img-responsive {
+    margin: 0 auto;
+}

@@ -1,0 +1,15 @@
+<%#can write on on click script to redirect to the project%>
+<a href=<%= profile_path(profile)%>>
+  <div id="<%= profile.id %>" class="col-xs-4 col panel panel-default square" >
+    <div class="imageheight">
+      <% displayedpicture = profile.avatar%>
+      <%if !displayedpicture.nil?%>
+        <%= image_tag displayedpicture.url(), :class => 'fisrtpic img-responsive', :onload => "trimImage(\"##{profile.id}\")"%>
+      <%end%>
+    </div>
+    <h4 class="title text-center">
+      <%=profile.full_name%>
+      <%#= link_to project.title, project_path(project) %>
+    </h4>
+  </div>
+</a>

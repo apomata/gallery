@@ -146,6 +146,7 @@
 
 
 <div class="col-xs-3 col-xs-offset-1 container">
+  <%= link_to 'back', @project%>
   <div class="panel panel-primary">
     <div class="panel-heading">
       <h3 class="panel-title">Creators</h3>
@@ -157,7 +158,6 @@
             <%= image_tag profile.avatar.url(:thumb)%>
             <%= link_to profile.first_name, profile_path(profile)%>
             <%if current_user == profile%>
-              <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %>
               <button type="button" onclick="removecreator()">Remove from project</button>
             <%end%>
           </li>
