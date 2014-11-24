@@ -32,7 +32,7 @@ class ProjectpicturesController < ApplicationController
 		respond_to do |format|
 			if @projectpicture.project.profiles.include?(current_user)
     			if @projectpicture.update_attributes(projectpicture_params)
-    			  	format.html { redirect_to project_path(@projectpicture.project.id)+"/managepictures", notice: 'Project was successfully updated.' }
+    			  	format.html { redirect_to project_path(@projectpicture.project.id)+"/managepictures", notice: 'picture was successfully updated.' }
     			else
     			  	format.html { redirect_to project_path(@projectpicture.project.id)+"/managepictures", notice: 'Update failed.' }
     			end
@@ -48,7 +48,7 @@ class ProjectpicturesController < ApplicationController
     	respond_to do |format|
     		if @projectpicture.project.profiles.include?(current_user)
     			@projectpicture.destroy
-    		  	format.html { redirect_to project_path(@projectpicture.project.id)+"/managepictures", notice: 'Project was successfully destroyed.' }
+    		  	format.html { redirect_to project_path(@projectpicture.project.id)+"/managepictures", notice: 'picture was successfully destroyed.' }
     		  	format.json { head :no_content }
 			else
     			format.html { redirect_to project_path(@projectpicture.project.id), notice: 'Must be a creator to edit pictures' }

@@ -16,26 +16,8 @@
 <%session[:project] = @project.id%>
 
 <script type="text/javascript">
-  function resizepicturearea () {
-
-    var thumbnaildiv = $('#thumbnaildiv');
-    var thumbnailbar = $('#thumbnailbar');
-    var addpicbutton =  $('#addpicbutton');
-    var picdescpanelbody = $('#picdescpanelbody');
-    var mainpic = $('#mainpic');
-
-    var picheight = mainpic.outerHeight( true );
-    var addpicbuttonheight = $('#addpicbutton').outerHeight( true );
-    var header = $('#picdescpanelhead').outerHeight( true );
-    var bodypadding = picdescpanelbody.css('padding-top').replace(/[^-\d\.]/g, '');
-
-    thumbnailbar.height(picheight - addpicbuttonheight);
-
-    addpicbutton.width( thumbnailbar.width() - (addpicbutton.css('padding-left').replace(/[^-\d\.]/g, '') *2))
-
-    if($('picdescpanel').height > mainpic.height) {
-      picdescpanelbody.height(picheight - (bodypadding*4));
-      }
+  window.onresize = function() {
+    resizepicturearea();
   }
 </script>
 
@@ -68,23 +50,22 @@
     </h1>
       <%= f.submit %>
   </div>
-
 <div class="col-xs-7 col-xs-offset-1 container">
   <h3>
     <strong>Picture</strong>
   </h3>
     <div class="row">
-      <div id="mainpic" class="col-xs-6">
+      <div id="mainpic" class="col-md-6">
         <% displayedpicture = @project.projectpictures.first%>
         <%if !displayedpicture.nil?%>
         <%= image_tag displayedpicture.picture.url(), :class => 'fisrtpic img-responsive', :onload => 'resizepicturearea()'%>
         <%end%>
       </div>
-      <div class="col-xs-4">
+      <div class="col-md-4 col-xs-8">
 
-        <div id="picdescpanel" class="panel panel-default">
+        <div id="picdescpanel" class="panel panel-primary">
           <div id='picdescpanelhead' class="panel-heading">
-            <h3 class="panel-title">Description</h3>
+            <h3 class="panel-title">Picture Description</h3>
           </div>
           <div id='picdescpanelbody' class="panel-body scrollable">
             <%if !displayedpicture.nil?%>
@@ -94,14 +75,14 @@
         </div>
 
       </div>
-      <div id="thumbnaildiv" class="col-xs-2 panel panel-default">
+      <div id="thumbnaildiv" class="col-md-2 col-xs-4 panel panel-primary">
         <!-- Button trigger modal -->
-
+        <!--
         <button id="addpicbutton" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
           add picture
         </button>
         <br>
-
+        -->
         <div id="update-container">
           <%=render partial: "projects/thumbnailbar", object: @project, as: "project"%>
         </div>
@@ -110,7 +91,7 @@
   <br>
   <br>
 
-  <div class="panel panel-default">
+  <div class="panel panel-primary">
     <div class="panel-heading">
       <h3 class="panel-title">Embedcode</h3>
     </div>
@@ -119,34 +100,19 @@
   </div>
 
   </div>
-  <div class="panel panel-default">
+  <div class="panel panel-primary">
     <div class="panel-heading">
-      <h3 class="panel-title">Description</h3>
+      <h3 class="panel-title">Project Description</h3>
     </div>
     <div class="panel-body">
       <%= f.text_area :description, :class => "form_control col-xs-12", :rows => '15' %>
     </div>
   </div>
 
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title">Special Links</h3>
-    </div>
-    <div class="panel-body">
-      <ul class="list-group">
-        <%# @project.profiles.each do |profile| %>
-          <li class="list-group-item">
-            links will go here
-          </li>
-        <%#end%>
-      </ul>
-    </div>
-  </div>
 </div>
 
 
 <div class="col-xs-3 col-xs-offset-1 container">
-  <%= link_to 'back', @project%>
   <div class="panel panel-primary">
     <div class="panel-heading">
       <h3 class="panel-title">Creators</h3>
@@ -155,8 +121,12 @@
       <ul class="list-group">
         <% @project.profiles.each do |profile| %>
           <li class="list-group-item">
-            <%= image_tag profile.avatar.url(:thumb)%>
-            <%= link_to profile.first_name, profile_path(profile)%>
+            <%if profile.avatar%>
+              <div class="turninline-block">
+              <%= image_tag profile.avatar.url(:thumb), :class => "img-responsive"%>
+              </div>
+            <%end%>
+            <%=profile.full_name%>
             <%if current_user == profile%>
               <button type="button" onclick="removecreator()">Remove from project</button>
             <%end%>
@@ -176,9 +146,11 @@
           <li class="list-group-item">
             <% pic = project.projectpictures.first%>
             <% if !pic.nil? && !pic.picture.nil? %>
-              <%= image_tag pic.picture.url(:thumb)%>
+              <div class="turninline-block">
+              <%= image_tag pic.picture.url(:thumb), :class => "img-responsive"%>
+              </div>
             <%end%>
-            <%= link_to "#{project.title}", project_path(project)%>
+            <%=project.title%>
           </li>
         <%end%>
       </ul>

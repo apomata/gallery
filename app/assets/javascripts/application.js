@@ -69,5 +69,30 @@ function trimImage (element) {
   //}
 }
 
+function resizepicturearea () {
+
+    var thumbnaildiv = $('#thumbnaildiv');
+    var thumbnailbar = $('#thumbnailbar');
+    var addpicbutton =  $('#addpicbutton');
+    var picdescpanelbody = $('#picdescpanelbody');
+    var mainpic = $('#mainpic');
+
+    var picheight = mainpic.outerHeight( true );
+    var addpicbuttonheight = $('#addpicbutton').outerHeight( true );
+    var header = $('#picdescpanelhead').outerHeight( true );
+    var bodypadding = picdescpanelbody.css('padding-top').replace(/[^-\d\.]/g, '');
+
+    thumbnailbar.height(picheight - addpicbuttonheight);
+
+    if (addpicbutton) {
+    	addpicbutton.width( thumbnailbar.width() - (addpicbutton.css('padding-left').replace(/[^-\d\.]/g, '') *2));
+	}
+
+    //if($('#picdescpanel').height() > mainpic.height()) {
+      picdescpanelbody.height(picheight - $('#picdescpanelhead').outerHeight(true) - picdescpanelbody.css('padding-top').replace(/[^-\d\.]/g, '') *2);
+    //}
+
+  }
+
 
 

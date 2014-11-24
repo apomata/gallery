@@ -35,6 +35,22 @@ div{
 	overflow:auto;
 }
 
-.img-responsive {
-    margin: 0 auto;
+.center-img {
+	margin: 0 auto;
+}
+
+.img-responsive{
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.square{
+	margin-left: 5px;
+}
+
+.bottom_right {
+   position: absolute;
+   right: 0;
+   bottom: 0;
+   padding-right: 30px;
 }

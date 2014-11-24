@@ -1,8 +1,8 @@
 <div class="col-xs-11 col-xs-offset-1">
-	<h1>Editing profile</h1>
+	<h1 class="turninline-block">Editing profile</h1>
+	<h4 class="turninline-block">
+    <%= link_to "back", @profile%>
+	</h4>
 </div>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @profile %> |
-<%= link_to 'Back', profiles_path %>
