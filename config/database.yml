@@ -21,5 +21,13 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
+  #<<: *default
+  adapter: postgresql
+  encoding: unicode
+  database: [insert your dev database name]
+  pool: 5
+  password:
+  #to deploy to heroku will have to change this to probably
   database: db/production.sqlite3
+
+
