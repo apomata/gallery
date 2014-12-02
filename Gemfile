@@ -50,8 +50,8 @@ gem 'best_in_place'
 gem 'better_errors'
 
 gem 'pry'
-gem 'pry-debugger'
-gem 'pry-stack_explorer'
+#gem 'pry-debugger'
+#gem 'pry-stack_explorer'
 
 
 gem 'remotipart', '~> 1.2'
