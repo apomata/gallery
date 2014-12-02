@@ -28,33 +28,35 @@ projecs_list = [
 profiles_list = [
 ['Arthur', 'Dent', "I am a student at Brandeis. I graduate in 2014 and hope to be working shortly there after.
  I am a computer science major with a classics minor, but I also love art. All of these have influenced my work
- and I think it forms interresting combinations of ideas.", 'fake@fake.com', 'C:/Users/login_000/Documents/GitHub/gallery/public/system/profiles/seedpictures/arthur_dent.jpg'],
-['Remington', 'Steele', "I am a down to earch student who just likes to make stuff for fun. Hope you enjoy my work.", 'fake2@fake.com', 'C:/Users/login_000/Documents/GitHub/gallery/public/system/profiles/seedpictures/remington_steele.jpg'],
-['James', 'Bond', "International man of mystery. My work is best not spoken of, but I enjoy a life of excitement and adventure", 'jbond007@fake.com', 'C:/Users/login_000/Documents/GitHub/gallery/public/system/profiles/seedpictures/james_bond.jpg'],
+ and I think it forms interresting combinations of ideas.", 'fake@fake.com', Rails.root.join('public', 'system', 'profiles', 'seedpictures', 'arthur_dent.jpg').to_s],
+['Remington', 'Steele', "I am a down to earch student who just likes to make stuff for fun. Hope you enjoy my work.", 'fake2@fake.com', Rails.root.join('public', 'system', 'profiles', 'seedpictures', 'remington_steele.jpg').to_s],
+['James', 'Bond', "International man of mystery. My work is best not spoken of, but I enjoy a life of excitement and adventure", 'jbond007@fake.com', Rails.root.join('public', 'system', 'profiles', 'seedpictures', 'james_bond.jpg').to_s],
 ['Ford','Prefect', "I am probably best known for my works on the hitchikers guide to the galaxy.
  	Perhapse you have read my entry on earth, \"mostly harmless\". I have travled the lengths of the galaxy
- 	with only my towel, wits, and guide. Here is some of the wonderous things I have found. (note avoid the Vogon poetry)", 'ford@fake.com', "C:/Users/login_000/Documents/GitHub/gallery/public/system/profiles/seedpictures/ford_prefect.jpg"]
+ 	with only my towel, wits, and guide. Here is some of the wonderous things I have found. (note avoid the Vogon poetry)", 'ford@fake.com', Rails.root.join('public', 'system', 'profiles', 'seedpictures','ford_prefect.jpg').to_s]
 ]
 
 [
 	['Athur', 'Dent', "I am a student at Brandeis. I graduate in 2014 and hope to be working shortly there after.
 	 I am a computer science major with a classics minor, but I also love art. All of these have influenced my work
 	 and I think it forms interresting combinations of ideas.", 'fake@fake.com',
-	 "C:/Users/login_000/Documents/GitHub/gallery/public/system/profiles/seedpictures/arthur_dent.jpg"],
+	 Rails.root.join('public', 'system', 'profiles', 'seedpictures', 'arthur_dent.jpg').to_s],
 	['Remington', 'Steele', "I am a down to earch student who just likes to make stuff for fun. Hope you enjoy my work.", 'fake2@fake.com',
-		"C:/Users/login_000/Documents/GitHub/gallery/public/system/profiles/seedpictures/remington_steele.jpg"],
+		Rails.root.join('public', 'system', 'profiles', 'seedpictures', 'remington_steele.jpg').to_s],
 	['James', 'Bond', "International man of mystery. My work is best not spoken of, but I enjoy a life of excitement and adventure", 'jbond007@fake.com',
-		"C:/Users/login_000/Documents/GitHub/gallery/public/system/profiles/seedpictures/james_bond.jpg"],
+		Rails.root.join('public', 'system', 'profiles', 'seedpictures', 'james_bond.jpg').to_s],
 	['Ford','Prefect', "I am probably best known for my works on the hitchikers guide to the galaxy.
 	 	Perhapse you have read my entry on earth, \"mostly harmless\". I have travled the lengths of the galaxy
 	 	with only my towel, wits, and guide. Here is some of the wonderous things I have found. (note avoid the Vogon poetry)",
-	 "C:/Users/login_000/Documents/GitHub/gallery/public/system/profiles/seedpictures/arthur_dent.jpg"]
+	 Rails.root.join('public', 'system', 'profiles', 'seedpictures','ford_prefect.jpg').to_s]
 ]
 
 pictures = [
 	[
-		['C:\Users\login_000\Documents\GitHub\gallery\public\system\projects\seedpictures\ink\_217_morning_bird_by_365_daysofdoodles-d7vxnkn.jpg', 'description of picture and stuff'],
-		['C:\Users\login_000\Documents\GitHub\gallery\public\system\projects\seedpictures\ink\_239_owl_city_by_365_daysofdoodles-d7zr542.jpg', 'description of picture and stuff',
+		#['C:\Users\login_000\Documents\GitHub\gallery\public\system\projects\seedpictures\ink\_217_morning_bird_by_365_daysofdoodles-d7vxnkn.jpg', 'description of picture and stuff'],
+		[ Rails.root.join( 'public', 'system', 'projects', 'seedpictures', 'ink', '_217_morning_bird_by_365_daysofdoodles-d7vxnkn.jpg').to_s, 'description of picture and stuff'],
+		#['C:\Users\login_000\Documents\GitHub\gallery\public\system\projects\seedpictures\ink\_239_owl_city_by_365_daysofdoodles-d7zr542.jpg', 'description of picture and stuff',
+		[Rails.root.join('public', 'system', 'projects', 'seedpictures', 'ink', '_239_owl_city_by_365_daysofdoodles-d7zr542.jpg').to_s, 'description of picture and stuff',
 			"description of picture and stuff i mean like a really long ass description of this picture like so long you probebly wont even
 			want to finish looking at it like holy crap long like why would anyone in there right mind make something this long to describe a
 			 picture to which i reply i am no longer in my right mind too much time staring at broken code has finally broken me i mearly write
@@ -64,20 +66,22 @@ pictures = [
 			 better to do? well it is hearting to see another lost soul wasting away in front of meaningless text . . . hello? hello? oh the darkness is closing in
 			 	eyes no longer working, despare beyond reconing are you still there? please take my hand i dont want to go alone reader promis me one thing
 			 	youll see the sun for me wont you? i wish i could have seen it one last ti............................."],
-		['C:\Users\login_000\Documents\GitHub\gallery\public\system\projects\seedpictures\ink\_255_salem_by_365_daysofdoodles-d82czhn.jpg', 'description of picture and stuff'],
-		['C:\Users\login_000\Documents\GitHub\gallery\public\system\projects\seedpictures\ink\inktober_day_16___iron_giant_by_dereklaufman-d83iy1x.jpg',],
+		#['C:\Users\login_000\Documents\GitHub\gallery\public\system\projects\seedpictures\ink\_255_salem_by_365_daysofdoodles-d82czhn.jpg', 'description of picture and stuff'],
+		[Rails.root.join('public', 'system', 'projects', 'seedpictures', 'ink', '_255_salem_by_365_daysofdoodles-d82czhn.jpg').to_s, 'description of picture and stuff'],
+		#['C:\Users\login_000\Documents\GitHub\gallery\public\system\projects\seedpictures\ink\inktober_day_16___iron_giant_by_dereklaufman-d83iy1x.jpg',],
+		[Rails.root.join('public', 'system', 'projects', 'seedpictures', 'ink', 'inktober_day_16___iron_giant_by_dereklaufman-d83iy1x.jpg').to_s	,],
 	],
 
 	[
-		['C:\Users\login_000\Documents\GitHub\gallery\public\system\projects\seedpictures\sketch\0a68b2e77c3da1c8e4488e73570e5b2e-d5j7td5.jpg', ],
-		['C:\Users\login_000\Documents\GitHub\gallery\public\system\projects\seedpictures\sketch\druid_by_thiago_almeida-d6fmjuu.jpg', 'description of picture and stuff'],
+		[Rails.root.join('public', 'system', 'projects', 'seedpictures', 'sketch', '0a68b2e77c3da1c8e4488e73570e5b2e-d5j7td5.jpg').to_s, ],
+		[Rails.root.join('public', 'system', 'projects', 'seedpictures', 'sketch', 'druid_by_thiago_almeida-d6fmjuu.jpg').to_s, 'description of picture and stuff'],
 	],
 
 	[
-		['C:\Users\login_000\Documents\GitHub\gallery\public\system\projects\seedpictures\website\deadlink.png', 'description of picture and stuff'],
+		[Rails.root.join('public', 'system', 'projects', 'seedpictures', 'website', 'deadlink.png').to_s, 'description of picture and stuff'],
 	],
 	[
-		['C:\Users\login_000\Documents\GitHub\gallery\public\system\projects\seedpictures\knitting\owlbears.jpg','description of picture and stuff'],
+		[Rails.root.join('public', 'system', 'projects', 'seedpictures', 'knitting', 'owlbears.jpg').to_s,'description of picture and stuff'],
 	],
 ]
 
