@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.6'
 # Use sqlite3 as the database for Active Record
 #comment out for heroku
-gem 'sqlite3'
+#gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -61,6 +61,6 @@ gem 'selenium-webdriver'
 gem 'rack_session_access'
 
 #for heroku
-#gem 'pg'
-#gem 'rails_12factor', group: :production
+gem 'pg'
+gem 'rails_12factor', group: :production
 
