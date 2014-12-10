@@ -9,8 +9,7 @@
 <% if flash[:alert] %>
     <p class="flash-error"><%= flash[:alert] %></p>
 <% end %>
-<%#= render 'form' %>
-<%#= form_for(@project) do |f| %>
+
 <%= form_tag({:action => 'create'}, :multipart => true) do%>
 
   <% if @project.errors.any? %>

@@ -11,7 +11,6 @@ class ProjectpicturesController < ApplicationController
 
 	def create
 		@projectpicture = Projectpicture.new(projectpicture_params)
-		#need to
 		project = Project.where(:id => params[:projectid].to_i).first
 		@projectpicture.project = project
 		respond_to do |format|

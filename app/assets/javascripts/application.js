@@ -63,7 +63,7 @@ function trimImage (element) {
   var theight = $(element).children(".title").outerHeight(true);
   var iheight = $(element).children(".imageheight").outerHeight(true);
   var eheight = $(element).height();
-  //removed so when expanded resizes though it does push the title down
+  //removed check so when expanded resizes though it does push the title down
   //if( iheight - theight > eheight || iheight - theight) {
     $(element).find(".imageheight").height($(element).height() - theight);
   //}
@@ -88,6 +88,7 @@ function resizepicturearea () {
     	addpicbutton.width( thumbnailbar.width() - (addpicbutton.css('padding-left').replace(/[^-\d\.]/g, '') *2));
 	}
 
+	//removed check so the image resizes when it expands
     //if($('#picdescpanel').height() > mainpic.height()) {
       picdescpanelbody.height(picheight - $('#picdescpanelhead').outerHeight(true) - picdescpanelbody.css('padding-top').replace(/[^-\d\.]/g, '') *2);
     //}

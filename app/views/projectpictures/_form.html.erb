@@ -6,11 +6,11 @@
 
 	<div class="">
 			<%if !projectpicture.picture_file_name.nil?%>
-				<div id="mainpic" class="turninline-block pull-left">
-					<%= image_tag(@projectpicture.picture.url(:medium), :class => 'list_image img-responsive' ) %>
+				<div id="mainpic" class="turninline-block col-lg-4 col-sm-6">
+					<%= image_tag(@projectpicture.picture.url(), :class => 'list_image img-responsive' ) %>
 				</div>
 			<%else%>
-				<div class="col-xs-3">
+				<div class="col-md-6">
 					<div class="panel panel-default">
 						<div class="panel-heading">
 							<h3 class="panel-title">Add picture</h3>
@@ -24,7 +24,7 @@
 				</div>
 			<%end%>
 
-		<div class="col-xs-6">
+		<div class="col-sm-6">
 			<div id="picdescpanel" class="panel panel-default">
 				<div id='picdescpanelhead' class="panel-heading">
 					<h3 class="panel-title">Description</h3>

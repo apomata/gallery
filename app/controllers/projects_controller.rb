@@ -35,11 +35,10 @@ class ProjectsController < ApplicationController
       if logged_in?
         respond_to do |format|
           if @project.save
-            # think this should save the user I think
             @userproject = Userproject.create!(profile: current_user, project: @project)
             if @projectpicture
               if @projectpicture.save
-                #not sure if need anything here
+
               else
                 format.html { render :new }
                 format.json { render json: @projectpicture.errors, status: :unprocessable_entity }
@@ -54,28 +53,13 @@ class ProjectsController < ApplicationController
         end
       else
         ActiveSupport::Notifications.instrument('render', extra: :information) do
-        #render text: 'You must be signed in to create a project'
+
         render :new
-        #format.html { render :new }
-        #format.json { render json: @project.errors, status: :unprocessable_entity }
         end
          flash[:alert] = "You must be signed in to create a project"
       end
   end
 
-  # PATCH/PUT /projects/1
-  # PATCH/PUT /projects/1.json
-  #def update
-  #  respond_to do |format|
-  #    if @project.update(project_params)
-  #      format.html { redirect_to @project, notice: 'Project was successfully updated.' }
-  #      format.json { render :show, status: :ok, location: @project }
-  #    else
-  #      format.html { render :edit }
-  #      format.json { render json: @project.errors, status: :unprocessable_entity }
-  #    end
-  #  end
-  #end
   respond_to :html, :json
   def update
 
@@ -95,7 +79,7 @@ class ProjectsController < ApplicationController
       format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
       format.json { head :no_content }
     end
-    #need to destroy all userprojects associated with this.
+
   end
 
   def otherprojects
@@ -116,12 +100,12 @@ class ProjectsController < ApplicationController
     result = params["p"].to_i
     project = Project.where(:id => params["p"].to_i).first
     if project.profiles.include?(current_user)
-      #look up how to remove a has many relation
+
       respond_to do |format|
         if project.profiles.delete(current_user)
           format.json {render :json => {:result => "Creater successfully removed"}}
         else
-        #  format.json { render json: project.errors, status: :unprocessable_entity }
+
         end
       end
     end
@@ -132,7 +116,6 @@ class ProjectsController < ApplicationController
     pic = Projectpicture.where(:id => params["pid"].to_i).first
     respond_to do |format|
         format.json {render :json => {:description => pic.description}}
-      #  format.json { render json: project.errors, status: :unprocessable_entity }
     end
   end
 
@@ -141,20 +124,18 @@ class ProjectsController < ApplicationController
     projectpicture = Projectpicture.new(projectpicture_params)
     @project = Project.where(:id => params["id"].to_i).first
     projectpicture.project = @project
-    #respond_to do |format|
+
       if projectpicture.save
-        #format.html {render partial: "projects/thumbnailbar", object: @project, as: "project"}
-        #format.js {render "alert(fuck);"}
         render partial: "projects/thumbnailbar", object: @project, as: "project"
         else
-            #format.js {render status: :internal_server_error}
+
       end
-      #session.delete(:project)
-    #end
+
   end
 
+  #this is the ajax submision for pictures fomr the modal to work probably need to tweek response
+  #currently doesnt render if there is a picture as an ajax success not returned or something
    def preview
-    # ... do something meaningful here ...
     @project = Project.where(:id => params["id"].to_i).first
     projectpicture = Projectpicture.new(projectpicture_params)
     description = params["description"].values.first
@@ -170,8 +151,6 @@ class ProjectsController < ApplicationController
       binding.pry
       render partial: "projects/thumbnailbar", object: @project, as: "project"
     else
-        #may not work
-      #binding.pry
       render status: :internal_server_error
     end
   end

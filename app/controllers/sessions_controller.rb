@@ -2,10 +2,7 @@ class SessionsController < ApplicationController
 	def home
 		if !logged_in?
 			render :home
-		#elsif current_user.admin?
-		#	redirect_to users_path
 		elsif logged_in?
-			#redirect_to assess_path(current_user.id)
 			redirect_to profiles_path
 		end
 	end
